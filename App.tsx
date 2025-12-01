@@ -15,6 +15,7 @@ export default function App() {
   
   // Admin Mode State
   const [isAdmin, setIsAdmin] = useState(false);
+  
   // Back to Top State
   const [showTopBtn, setShowTopBtn] = useState(false);
 
@@ -39,7 +40,7 @@ export default function App() {
     loadData();
   }, []);
 
-  // Scroll Listener for Back to Top (Threshold: 300px)
+  // Global Scroll Listener for Back to Top
   useEffect(() => {
     const handleScroll = () => {
       if (window.scrollY > 300) {
@@ -138,16 +139,21 @@ export default function App() {
 
   const navigateTo = (view: ViewState, project?: Project) => {
     setIsMenuOpen(false);
+    // Instant scroll reset if switching projects directly
+    if (activeView === 'PROJECT_DETAIL' && view === 'PROJECT_DETAIL') {
+       window.scrollTo({top: 0, behavior: 'instant'});
+    }
+    
     setTimeout(() => {
       if (project) {
         setSelectedProject(project);
         setActiveView('PROJECT_DETAIL');
-        window.scrollTo(0,0);
+        if (activeView !== 'PROJECT_DETAIL') window.scrollTo(0,0);
       } else {
         setActiveView(view);
         window.scrollTo(0,0);
       }
-    }, 500); 
+    }, 100); 
   };
 
   const toggleAdmin = () => {
@@ -369,7 +375,9 @@ export default function App() {
           {activeView === 'PROJECT_DETAIL' && selectedProject && (
              <ProjectDetail 
                 project={selectedProject} 
+                allProjects={projects}
                 onBack={() => navigateTo('PORTFOLIO')}
+                onNext={(p) => navigateTo('PROJECT_DETAIL', p)}
                 isAdmin={isAdmin}
                 onUpdateImage={handleUpdateProjectImage}
                 onAddImage={handleAddDetailImage}
@@ -603,13 +611,15 @@ const ProjectListItem: React.FC<{
 
 const ProjectDetail: React.FC<{
   project: Project;
+  allProjects: Project[];
   onBack: () => void;
+  onNext: (p: Project) => void;
   onUpdateImage: (id: string, type: 'cover' | 'detail', b64: string, index: number) => void;
   onAddImage: (id: string, b64: string) => void;
   onDeleteImage: (id: string, index: number) => void;
   onUpdateText: (id: string, field: keyof Project, value: any) => void;
   isAdmin: boolean;
-}> = ({ project, onBack, onUpdateImage, onAddImage, onDeleteImage, onUpdateText, isAdmin }) => {
+}> = ({ project, allProjects, onBack, onNext, onUpdateImage, onAddImage, onDeleteImage, onUpdateText, isAdmin }) => {
    const fileInputRef = useRef<HTMLInputElement>(null);
 
    const handleAddClick = () => {
@@ -637,6 +647,11 @@ const ProjectDetail: React.FC<{
         reader.readAsDataURL(file);
       }
     };
+
+    // Calculate Next Project
+    const currentIndex = allProjects.findIndex(p => p.id === project.id);
+    const nextIndex = (currentIndex + 1) % allProjects.length;
+    const nextProject = allProjects[nextIndex];
 
     // Helper to render editable input
     const renderEditable = (
@@ -818,11 +833,40 @@ const ProjectDetail: React.FC<{
             </div>
          </div>
          
-         <div className="mt-32 px-6 md:px-10">
-             <button onClick={onBack} className="w-full py-12 border-y border-white/20 font-display text-4xl uppercase hover:bg-white hover:text-black transition-colors flex justify-between items-center px-4">
-                <span>Next Project</span>
-                <ChevronRight size={32} />
-             </button>
+         {/* NEXT PROJECT PREVIEW SECTION - NEW! */}
+         <div className="mt-32 w-full">
+            <button 
+               onClick={() => {
+                  onNext(nextProject);
+               }}
+               className="w-full relative group border-t border-b border-white/20 h-[400px] flex flex-col justify-between p-6 md:p-10 transition-all hover:border-white/50 clickable overflow-hidden bg-transparent"
+            >
+               {/* HOVER IMAGE BACKGROUND */}
+               <div className="absolute inset-0 z-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 ease-out pointer-events-none">
+                  <img src={nextProject.coverImage} className="w-full h-full object-cover grayscale-[20%]" alt="Next Project" />
+                  <div className="absolute inset-0 bg-black/40"></div>
+               </div>
+
+               {/* TOP ROW */}
+               <div className="w-full flex justify-between items-start relative z-10">
+                  <span className="font-mono text-xs uppercase tracking-widest text-secondary group-hover:text-white transition-colors">Next Project</span>
+                  <ChevronRight size={32} className="text-white opacity-0 group-hover:opacity-100 -translate-x-4 group-hover:translate-x-0 transition-all duration-300" />
+               </div>
+
+               {/* BOTTOM CONTENT (Right Aligned) */}
+               <div className="w-full flex flex-col items-end relative z-10 text-right">
+                  <h2 className="font-display text-5xl md:text-8xl uppercase font-bold text-white mb-2 leading-[0.9] mix-blend-difference group-hover:mix-blend-normal">
+                     {nextProject.title}
+                  </h2>
+                  <div className="flex gap-2">
+                     {nextProject.tags.slice(0, 3).map((tag, i) => (
+                        <span key={i} className="font-mono text-xs text-secondary group-hover:text-gray-200 uppercase border border-transparent group-hover:border-white/20 px-2 py-1">
+                           {tag}
+                        </span>
+                     ))}
+                  </div>
+               </div>
+            </button>
          </div>
       </div>
    );
