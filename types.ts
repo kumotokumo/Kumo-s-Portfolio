@@ -1,4 +1,4 @@
-export type Category = 'UI/UX' | 'WEB' | 'VISUAL' | 'PRACTICE';
+export type Category = 'UI/UX' | 'WEB' | 'VISUAL' | 'PRACTICE' | 'ILLUSTRATION';
 
 export interface Project {
   id: string;

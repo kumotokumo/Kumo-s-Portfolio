@@ -1,7 +1,10 @@
 import { Project } from './types';
 
+// UPDATED: 7 Projects Total
+// Structure: UI/UX (2), WEB (2), VISUAL (1), PRACTICE (1), ILLUSTRATION (1)
+
 export const INITIAL_PROJECTS: Project[] = [
-  // 1. UI/UX DESIGN
+  // --- 1. UI/UX DESIGN (2 Projects) ---
   {
     id: 'clackyai-ui',
     category: 'UI/UX',
@@ -27,7 +30,7 @@ export const INITIAL_PROJECTS: Project[] = [
     year: '2022'
   },
   
-  // 2. WEB DESIGN
+  // --- 2. WEB DESIGN (2 Projects) ---
   {
     id: 'clackyai-web',
     category: 'WEB',
@@ -53,31 +56,7 @@ export const INITIAL_PROJECTS: Project[] = [
     year: '2022'
   },
 
-  // 3. VISUAL DESIGN
-  {
-    id: 'offline-visual',
-    category: 'VISUAL',
-    title: 'Event Materials',
-    subtitle: 'Offline Touchpoints',
-    description: 'Physical brand materials including exhibition stands and brochures designed to create a cohesive offline brand experience.',
-    tags: ['Exhibition Stand', 'Brochures', 'Print Design'],
-    role: 'Graphic Designer',
-    coverImage: 'https://picsum.photos/seed/visual1/800/1000',
-    detailImages: ['https://picsum.photos/seed/visual1a/1200/800'],
-    year: '2021'
-  },
-  {
-    id: 'infographic',
-    category: 'VISUAL',
-    title: 'Data Viz',
-    subtitle: 'Information Visualization',
-    description: 'Long-form infographic design for marketing campaigns, translating complex data into engaging visual narratives.',
-    tags: ['Activity Long Chart', 'Data Visualization', 'Information Design'],
-    role: 'Visual Designer',
-    coverImage: 'https://picsum.photos/seed/visual2/800/1200',
-    detailImages: ['https://picsum.photos/seed/visual2a/800/2000'],
-    year: '2021'
-  },
+  // --- 3. VISUAL DESIGN (1 Project) ---
   {
     id: 'marketing-visual',
     category: 'VISUAL',
@@ -91,7 +70,7 @@ export const INITIAL_PROJECTS: Project[] = [
     year: '2022'
   },
 
-  // 4. DESIGN IN PRACTICE
+  // --- 4. DESIGN IN PRACTICE (1 Project) ---
   {
     id: 'methodology',
     category: 'PRACTICE',
@@ -103,5 +82,19 @@ export const INITIAL_PROJECTS: Project[] = [
     coverImage: 'https://picsum.photos/seed/practice/800/600',
     detailImages: ['https://picsum.photos/seed/practice1/1200/800'],
     year: '2023'
+  },
+
+  // --- 5. ILLUSTRATION (1 Project - NEW) ---
+  {
+    id: 'illustration-series',
+    category: 'ILLUSTRATION',
+    title: 'Cyber Horizons',
+    subtitle: 'Digital Art Series',
+    description: 'A personal exploration of cyberpunk aesthetics through digital illustration. Focusing on atmospheric lighting, neon cityscapes, and futuristic character designs.',
+    tags: ['Digital Illustration', 'Concept Art', 'Atmospheric Lighting', 'Cyberpunk Style'],
+    role: 'Illustrator',
+    coverImage: 'https://picsum.photos/seed/illustration1/800/600',
+    detailImages: ['https://picsum.photos/seed/illustration1a/1200/800'],
+    year: '2024'
   }
 ];

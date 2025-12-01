@@ -13,6 +13,9 @@ export default function App() {
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
   const [projects, setProjects] = useState<Project[]>(INITIAL_PROJECTS);
   
+  // Filter State
+  const [filterCategory, setFilterCategory] = useState('ALL');
+  
   // Admin Mode State
   const [isAdmin, setIsAdmin] = useState(false);
   
@@ -138,7 +141,11 @@ export default function App() {
   };
 
   const navigateTo = (view: ViewState, project?: Project) => {
+    // Smart delay: only delay if menu is open to allow animation
+    const delay = isMenuOpen ? 500 : 0;
+    
     setIsMenuOpen(false);
+    
     // Instant scroll reset if switching projects directly
     if (activeView === 'PROJECT_DETAIL' && view === 'PROJECT_DETAIL') {
        window.scrollTo({top: 0, behavior: 'instant'});
@@ -153,7 +160,7 @@ export default function App() {
         setActiveView(view);
         window.scrollTo(0,0);
       }
-    }, 100); 
+    }, delay); 
   };
 
   const toggleAdmin = () => {
@@ -166,6 +173,11 @@ export default function App() {
       setIsAdmin(false);
     }
   };
+
+  // FILTER LOGIC
+  const filteredProjects = filterCategory === 'ALL' 
+    ? projects 
+    : projects.filter(p => p.category === filterCategory);
 
   return (
     <div className="bg-background min-h-screen text-primary font-sans">
@@ -338,11 +350,13 @@ export default function App() {
                    <h1 className="font-display text-[10vw] leading-none uppercase text-white">Index</h1>
                 </div>
 
+                {/* FILTER BUTTONS: INCLUDES ILLUSTRATION */}
                 <div className="flex flex-wrap gap-4 mb-16">
-                  {['ALL', 'UI/UX', 'WEB', 'VISUAL', 'PRACTICE'].map((cat) => (
+                  {['ALL', 'UI/UX', 'WEB', 'VISUAL', 'PRACTICE', 'ILLUSTRATION'].map((cat) => (
                     <button
                       key={cat}
-                      className="font-mono text-xs uppercase border border-white/20 px-4 py-2 hover:bg-white hover:text-black transition-colors"
+                      onClick={() => setFilterCategory(cat)}
+                      className={`font-mono text-xs uppercase border border-white/20 px-4 py-2 hover:bg-white hover:text-black transition-colors ${filterCategory === cat ? 'bg-white text-black border-transparent' : ''}`}
                     >
                       {cat}
                     </button>
@@ -357,16 +371,22 @@ export default function App() {
                        <div className="col-span-2 text-right">Year</div>
                     </div>
 
-                    {projects.map((project, index) => (
-                       <ProjectListItem 
-                          key={project.id} 
-                          project={project} 
-                          index={index} 
-                          onClick={() => navigateTo('PROJECT_DETAIL', project)}
-                          isAdmin={isAdmin}
-                          onUpdateImage={handleUpdateProjectImage}
-                       />
-                    ))}
+                    {filteredProjects.length > 0 ? (
+                       filteredProjects.map((project, index) => (
+                          <ProjectListItem 
+                             key={project.id} 
+                             project={project} 
+                             index={index} 
+                             onClick={() => navigateTo('PROJECT_DETAIL', project)}
+                             isAdmin={isAdmin}
+                             onUpdateImage={handleUpdateProjectImage}
+                          />
+                       ))
+                    ) : (
+                       <div className="py-20 text-center font-mono text-secondary uppercase">
+                          No projects found in this category.
+                       </div>
+                    )}
                 </div>
              </motion.div>
           )}
