@@ -833,13 +833,13 @@ const ProjectDetail: React.FC<{
             </div>
          </div>
          
-         {/* NEXT PROJECT PREVIEW SECTION - NEW! */}
+         {/* NEXT PROJECT PREVIEW SECTION - RESIZED & HORIZONTAL */}
          <div className="mt-32 w-full">
             <button 
                onClick={() => {
                   onNext(nextProject);
                }}
-               className="w-full relative group border-t border-b border-white/20 h-[400px] flex flex-col justify-between p-6 md:p-10 transition-all hover:border-white/50 clickable overflow-hidden bg-transparent"
+               className="w-full relative group border-t border-b border-white/20 h-[150px] flex flex-row items-center justify-between px-6 md:px-10 transition-all hover:border-white/50 clickable overflow-hidden bg-transparent"
             >
                {/* HOVER IMAGE BACKGROUND */}
                <div className="absolute inset-0 z-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 ease-out pointer-events-none">
@@ -847,24 +847,26 @@ const ProjectDetail: React.FC<{
                   <div className="absolute inset-0 bg-black/40"></div>
                </div>
 
-               {/* TOP ROW */}
-               <div className="w-full flex justify-between items-start relative z-10">
+               {/* LEFT SIDE: LABEL */}
+               <div className="relative z-10 flex items-center gap-4">
                   <span className="font-mono text-xs uppercase tracking-widest text-secondary group-hover:text-white transition-colors">Next Project</span>
-                  <ChevronRight size={32} className="text-white opacity-0 group-hover:opacity-100 -translate-x-4 group-hover:translate-x-0 transition-all duration-300" />
                </div>
 
-               {/* BOTTOM CONTENT (Right Aligned) */}
-               <div className="w-full flex flex-col items-end relative z-10 text-right">
-                  <h2 className="font-display text-5xl md:text-8xl uppercase font-bold text-white mb-2 leading-[0.9] mix-blend-difference group-hover:mix-blend-normal">
-                     {nextProject.title}
-                  </h2>
-                  <div className="flex gap-2">
-                     {nextProject.tags.slice(0, 3).map((tag, i) => (
-                        <span key={i} className="font-mono text-xs text-secondary group-hover:text-gray-200 uppercase border border-transparent group-hover:border-white/20 px-2 py-1">
-                           {tag}
-                        </span>
-                     ))}
+               {/* RIGHT SIDE: INFO & ARROW */}
+               <div className="flex items-center gap-8 relative z-10 text-right">
+                  <div className="flex flex-col items-end">
+                     <h2 className="font-display text-3xl md:text-5xl uppercase font-bold text-white leading-none mix-blend-difference group-hover:mix-blend-normal">
+                        {nextProject.title}
+                     </h2>
+                     <div className="flex gap-2 mt-2">
+                        {nextProject.tags.slice(0, 2).map((tag, i) => (
+                           <span key={i} className="font-mono text-[10px] text-secondary group-hover:text-gray-200 uppercase border border-transparent group-hover:border-white/20 px-2 py-0.5">
+                              {tag}
+                           </span>
+                        ))}
+                     </div>
                   </div>
+                  <ChevronRight size={24} className="text-white opacity-0 group-hover:opacity-100 -translate-x-4 group-hover:translate-x-0 transition-all duration-300" />
                </div>
             </button>
          </div>
