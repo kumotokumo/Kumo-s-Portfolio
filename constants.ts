@@ -39,7 +39,7 @@ export const INITIAL_PROJECTS: Project[] = [
     description: 'Strategic visual construction for the ClackyAI brand. Focused on responsive design and high-fidelity interaction prototypes to demonstrate the power of the AI tool.',
     tags: ['Brand Visual Construction', 'Design Strategy', 'Interaction Prototype', 'Responsive Design'],
     role: 'Art Director',
-    coverImage: 'https://imgur.com/99HmQ6X',
+    coverImage: 'https://i.imgur.com/99HmQ6X.jpeg',
     detailImages: ['https://imgur.com/J3qRdxI', 'https://imgur.com/8VpbNqJ', 'https://imgur.com/nfVA9kw', 'https://imgur.com/kJTtFHt', 'https://imgur.com/l91I0ki', 'https://imgur.com/s5suK4U', 'https://imgur.com/wLqqsnX', 'https://imgur.com/FL3xao4', 'https://imgur.com/cFUJG1V', 'https://imgur.com/uLg4ZkC', 'https://imgur.com/YDVT6T1', 'https://imgur.com/dS8qGEC'],
     year: '2025'
   },
