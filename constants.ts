@@ -1,7 +1,9 @@
+// [GIT_UPDATE_ID: FINAL_DEPLOY_V6]
 import { Project } from './types';
 
-// UPDATED: 7 Projects Total
-// Structure: UI/UX (2), WEB (2), VISUAL (1), PRACTICE (1), ILLUSTRATION (1)
+// DATA CONFIGURATION
+// Total: 7 Projects
+// Categories: UI/UX (2), WEB (2), VISUAL (1), PRACTICE (1), ILLUSTRATION (1)
 
 export const INITIAL_PROJECTS: Project[] = [
   // --- 1. UI/UX DESIGN (2 Projects) ---
@@ -56,7 +58,7 @@ export const INITIAL_PROJECTS: Project[] = [
     year: '2022'
   },
 
-  // --- 3. VISUAL DESIGN (1 Project) ---
+  // --- 3. VISUAL DESIGN (1 Project Only) ---
   {
     id: 'marketing-visual',
     category: 'VISUAL',
@@ -84,7 +86,7 @@ export const INITIAL_PROJECTS: Project[] = [
     year: '2023'
   },
 
-  // --- 5. ILLUSTRATION (1 Project - NEW) ---
+  // --- 5. ILLUSTRATION (1 Project - NEWLY ADDED) ---
   {
     id: 'illustration-series',
     category: 'ILLUSTRATION',

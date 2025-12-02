@@ -1,3 +1,4 @@
+// [GIT_UPDATE_ID: APP_V6]
 import React, { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, X, ArrowUpRight, ArrowDown, Lock, Unlock, ChevronRight, Plus, Trash2, ArrowUp, Download } from 'lucide-react';
@@ -14,7 +15,7 @@ export default function App() {
   const [projects, setProjects] = useState<Project[]>(INITIAL_PROJECTS);
   
   // Filter State
-  const [filterCategory, setFilterCategory] = useState('ALL');
+  const [filterCategory, setFilterCategory] = useState<string>('ALL');
   
   // Admin Mode State
   const [isAdmin, setIsAdmin] = useState(false);
