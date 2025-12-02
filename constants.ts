@@ -13,7 +13,7 @@ export const INITIAL_PROJECTS: Project[] = [
     description: 'A comprehensive 0-1 product architecture for an AI-powered coding assistant. This project involved deep user research, interaction design for complex AI workflows, and defining the user experience architecture.',
     tags: ['AI Coding Assistant SaaS', '0-1 Product Architecture', 'AI Interaction Design', 'UX Architecture'],
     role: 'Lead Product Designer',
-    coverImage: 'https://imgur.com/99HmQ6X',
+    coverImage: 'https://i.imgur.com/99HmQ6X.jpeg',
     detailImages: ['https://imgur.com/J3qRdxI', 'https://imgur.com/8VpbNqJ', 'https://imgur.com/nfVA9kw', 'https://imgur.com/kJTtFHt', 'https://imgur.com/l91I0ki', 'https://imgur.com/s5suK4U', 'https://imgur.com/wLqqsnX', 'https://imgur.com/FL3xao4', 'https://imgur.com/cFUJG1V', 'https://imgur.com/uLg4ZkC', 'https://imgur.com/YDVT6T1', 'https://imgur.com/dS8qGEC'],
     year: '2025'
   },
