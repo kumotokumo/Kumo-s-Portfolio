@@ -60,7 +60,7 @@ export const INITIAL_PROJECTS: Project[] = [
   // --- 3. VISUAL DESIGN (1 Project Only) - UPDATED CONTENT ---
   {
     id: 'marketing-visual',
-    category: 'VISUAL',
+    category: '视觉设计',
     title: '宣传海报',
     subtitle: '市场营销视觉',
     description: '为展会、活动及线上传播打造系统化视觉方案，通过展架、折页、信息长图与营销海报等触点，构建高效的信息动线与品牌叙事，提升传达效率与用户参与度。',
