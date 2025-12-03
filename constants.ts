@@ -93,8 +93,8 @@ export const INITIAL_PROJECTS: Project[] = [
   {
     id: 'illustration-series',
     category: 'ILLUSTRATION',
-    title: 'Cyber Horizons',
-    subtitle: 'Digital Art Series',
+    title: 'Flat illustration',
+    subtitle: 'Flat illustration design',
     description: '运用极简的视觉语言，通过抽象的几何形状、流畅的线条与和谐的色块组合，融合了细微颗粒感、柔和渐变与抽象元素的现代风格。',
     tags: ['Digital Illustration', 'Concept Art', 'Atmospheric Lighting', 'Cyberpunk Style'],
     role: 'Illustrator',
