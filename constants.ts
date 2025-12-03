@@ -16,7 +16,7 @@ export const INITIAL_PROJECTS: Project[] = [
     role: 'Lead Product Designer',
     coverImage: 'https://i.imgur.com/Mxzz4cv.jpeg',
     detailImages: ['https://picsum.photos/seed/clackyui1/1200/800', 'https://picsum.photos/seed/clackyui2/1200/800'],
-    year: '2023'
+    year: '2025'
   },
   {
     id: 'showmebug-ui',
@@ -28,7 +28,7 @@ export const INITIAL_PROJECTS: Project[] = [
     role: 'Senior UX Designer',
     coverImage: 'https://i.imgur.com/Xpyg30N.jpeg',
     detailImages: ['https://picsum.photos/seed/smbui1/1200/800'],
-    year: '2022'
+    year: '2025'
   },
   
   // --- 2. WEB DESIGN (2 Projects) ---
@@ -42,7 +42,7 @@ export const INITIAL_PROJECTS: Project[] = [
     role: 'Art Director',
     coverImage: 'https://i.imgur.com/Lc6CKPy.jpeg',
     detailImages: ['https://picsum.photos/seed/clackyweb1/1200/800'],
-    year: '2023'
+    year: '2025'
   },
   {
     id: 'showmebug-web',
@@ -54,7 +54,7 @@ export const INITIAL_PROJECTS: Project[] = [
     role: 'Visual Designer',
     coverImage: 'https://i.imgur.com/AL1MJk1.jpeg',
     detailImages: ['https://picsum.photos/seed/smbweb1/1200/800'],
-    year: '2022'
+    year: '2025'
   },
 
   // --- 3. VISUAL DESIGN (1 Project Only) - UPDATED CONTENT ---
@@ -86,7 +86,7 @@ export const INITIAL_PROJECTS: Project[] = [
     role: 'Design Lead',
     coverImage: 'background:#000',
     detailImages: ['https://picsum.photos/seed/practice1/1200/800'],
-    year: '2023'
+    year: '2025'
   },
 
   // --- 5. ILLUSTRATION (1 Project) ---
@@ -95,11 +95,19 @@ export const INITIAL_PROJECTS: Project[] = [
     category: 'ILLUSTRATION',
     title: 'Cyber Horizons',
     subtitle: 'Digital Art Series',
-    description: 'A personal exploration of cyberpunk aesthetics through digital illustration. Focusing on atmospheric lighting, neon cityscapes, and futuristic character designs.',
+    description: '运用极简的视觉语言，通过抽象的几何形状、流畅的线条与和谐的色块组合，融合了细微颗粒感、柔和渐变与抽象元素的现代风格。',
     tags: ['Digital Illustration', 'Concept Art', 'Atmospheric Lighting', 'Cyberpunk Style'],
     role: 'Illustrator',
     coverImage: 'https://i.imgur.com/YwQOLpm.jpeg',
-    detailImages: ['https://picsum.photos/seed/illustration1a/1200/800'],
-    year: '2024'
+    detailImages: [
+      'https://i.imgur.com/jYt2Wec.jpeg', 
+      'https://i.imgur.com/sercVUr.jpeg', 
+      'https://i.imgur.com/zo6X9uv.png', 
+      'https://i.imgur.com/HMNMuhV.png', 
+      'https://i.imgur.com/7uAKojj.png',
+      'https://i.imgur.com/Yt6lsN2.png',
+      'https://i.imgur.com/1PUzwC5.png',
+    ],
+    year: '2025'
   }
 ];
