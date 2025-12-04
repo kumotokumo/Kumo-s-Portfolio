@@ -164,8 +164,8 @@ export const INITIAL_PROJECTS: Project[] = [
     role: 'UI/UX 设计师',
     coverImage: 'https://i.imgur.com/nSkI712.jpeg',
     detailImages: [
-      'https://i.imgur.com/GsqD8e1.jpeg',
-      'https://i.imgur.com/ngzTtm2.jpeg',
+      'https://i.imgur.com/wOAnTrt.jpeg',
+      'https://i.imgur.com/kvRr6NA.jpeg',
     ],
     year: '2025'
   }
