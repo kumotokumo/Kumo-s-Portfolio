@@ -326,6 +326,15 @@ export default function App() {
                        ));
                     })()}
                  </div>
+                 
+                 <div className="mt-12 flex justify-center">
+                    <button 
+                      onClick={() => navigateTo('PORTFOLIO')}
+                      className="font-mono text-xs uppercase hover:bg-white hover:text-black px-6 py-3 border border-white/20 transition-colors clickable"
+                    >
+                      VIEW FULL
+                    </button>
+                 </div>
               </section>
             </motion.div>
           )}
