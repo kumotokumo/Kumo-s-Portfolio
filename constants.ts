@@ -100,13 +100,13 @@ export const INITIAL_PROJECTS: Project[] = [
     role: 'Illustrator',
     coverImage: 'https://i.imgur.com/YwQOLpm.jpeg',
     detailImages: [
-      'https://i.imgur.com/jYt2Wec.jpeg', 
-      'https://i.imgur.com/sercVUr.jpeg', 
-      'https://i.imgur.com/zo6X9uv.png', 
-      'https://i.imgur.com/HMNMuhV.png', 
-      'https://i.imgur.com/7uAKojj.png',
-      'https://i.imgur.com/Yt6lsN2.png',
-      'https://i.imgur.com/1PUzwC5.png',
+      'https://i.imgur.com/qZIqegB.jpeg', 
+      'https://i.imgur.com/CIVhxDw.jpeg', 
+      'https://i.imgur.com/L78DzAq.jpeg', 
+      'https://i.imgur.com/QJMf4j9.jpeg', 
+      'https://i.imgur.com/qr8cqye.jpeg',
+      'https://i.imgur.com/ognC9TH.jpeg',
+      'https://i.imgur.com/7jf9VLP.jpeg',
     ],
     year: '2025'
   }
