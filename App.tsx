@@ -227,7 +227,7 @@ export default function App() {
             <div className="flex justify-between items-end border-t border-white/10 pt-6 relative z-10">
               <div className="flex flex-col">
                 <span className="font-mono text-[10px] text-secondary uppercase mb-2">Contact</span>
-                <a href="mailto:hello@kumo.design" className="font-sans text-xl hover:underline decoration-1 underline-offset-4">hello@kumo.design</a>
+                <a href="mailto:kumogyr@gmail.com" className="font-sans text-xl hover:underline decoration-1 underline-offset-4">kumogyr@gmail.com</a>
               </div>
               <div className="flex gap-6">
                  {['IG', 'LN', 'TW'].map(social => (
@@ -485,8 +485,8 @@ export default function App() {
                 </h1>
                 
                 <div className="mt-12 flex flex-col items-center gap-8">
-                   <a href="mailto:hello@kumo.design" className="font-mono text-xl md:text-2xl border-b border-white hover:bg-white hover:text-black hover:border-transparent transition-all px-2">
-                      hello@kumo.design
+                   <a href="mailto:kumogyr@gmail.com" className="font-mono text-xl md:text-2xl border-b border-white hover:bg-white hover:text-black hover:border-transparent transition-all px-2">
+                      kumogyr@gmail.com
                    </a>
                    <div className="flex gap-8">
                       {['Instagram', 'LinkedIn', 'Twitter'].map(social => (
