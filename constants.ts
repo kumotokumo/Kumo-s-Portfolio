@@ -44,7 +44,20 @@ export const INITIAL_PROJECTS: Project[] = [
     tags: ['B-End Product Experience', 'Complex Interaction', 'Dual-Core Design System', 'Experience Refactoring'],
     role: 'Senior UX Designer',
     coverImage: 'https://i.imgur.com/Xpyg30N.jpeg',
-    detailImages: ['https://picsum.photos/seed/smbui1/1200/800'],
+    detailImages: [
+      'https://i.imgur.com/FtY4pxk.jpeg',
+      'https://i.imgur.com/uqsAyxG.jpeg',
+      'https://i.imgur.com/X9Cze2Q.jpeg',
+      'https://i.imgur.com/ajaDgjN.jpeg',
+      'https://i.imgur.com/09P9YXr.jpeg',
+      'https://i.imgur.com/GB4pFFr.jpeg',
+      'https://i.imgur.com/inFYwhC.jpeg',
+      'https://i.imgur.com/hXeP403.jpeg',
+      'https://i.imgur.com/pxvgKje.jpeg',
+      'https://i.imgur.com/MOw8qxQ.jpeg',
+      'https://i.imgur.com/kY8KbdI.jpeg',
+      'https://i.imgur.com/OdDsYag.jpeg',
+    ],
     year: '2025'
   },
   
