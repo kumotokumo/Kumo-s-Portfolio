@@ -1,0 +1,97 @@
+<!-- [GIT_VERSION: FINAL_V11_GIT_FORCE] -->
+<!DOCTYPE html>
+<html lang="en" class="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- CRITICAL: Referrer Policy for Imgur Images -->
+    <meta name="referrer" content="no-referrer">
+    <title>Portfolio</title>
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;700&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        darkMode: 'class',
+        theme: {
+          extend: {
+            fontFamily: {
+              sans: ['Inter', 'sans-serif'],
+              display: ['Oswald', 'sans-serif'], 
+              mono: ['JetBrains Mono', 'monospace'],
+            },
+            colors: {
+              background: '#050505',
+              surface: '#111111',
+              primary: '#F0F0F0',
+              secondary: '#666666',
+              accent: '#FFFFFF', 
+              line: '#333333',
+            },
+            borderRadius: {
+              DEFAULT: '0px',
+              'none': '0px',
+              'sm': '0px',
+              'md': '0px',
+              'lg': '0px',
+              'xl': '0px',
+              '2xl': '0px',
+              'full': '0px', 
+            }
+          }
+        }
+      }
+    </script>
+    <style>
+      body {
+        background-color: #050505;
+        color: #F0F0F0;
+        cursor: none;
+        overflow-x: hidden;
+      }
+      
+      ::-webkit-scrollbar {
+        width: 4px;
+      }
+      ::-webkit-scrollbar-track {
+        background: #050505;
+      }
+      ::-webkit-scrollbar-thumb {
+        background: #444;
+      }
+      ::-webkit-scrollbar-thumb:hover {
+        background: #fff;
+      }
+      
+      ::selection {
+        background: #ffffff;
+        color: #000000;
+      }
+
+      .text-stroke {
+        -webkit-text-stroke: 1px rgba(255,255,255,0.2);
+        color: transparent;
+      }
+    </style>
+  <script type="importmap">
+{
+  "imports": {
+    "framer-motion": "https://aistudiocdn.com/framer-motion@^12.23.24",
+    "react/": "https://aistudiocdn.com/react@^19.2.0/",
+    "react": "https://aistudiocdn.com/react@^19.2.0",
+    "lucide-react": "https://aistudiocdn.com/lucide-react@^0.555.0",
+    "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.0/"
+  }
+}
+</script>
+<link rel="stylesheet" href="/index.css">
+</head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/index.tsx"></script>
+  </body>
+</html>
