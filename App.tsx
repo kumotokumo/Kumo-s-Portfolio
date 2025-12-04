@@ -278,8 +278,8 @@ export default function App() {
 
                  <div className="absolute top-0 right-0 w-1/3 h-full border-l border-white/5 bg-white/[0.02]"></div>
                  <div className="absolute bottom-12 right-12 flex flex-col items-end text-right">
-                    <p className="font-mono text-xs max-w-[200px] mb-4 text-secondary">
-                       SPECIALIZING IN AI INTERFACES, SAAS SYSTEMS & BRUTALIST AESTHETICS.
+                    <p className="font-mono text-xs max-w-[200px] mb-4 text-secondary uppercase">
+                       SPECIALIZING IN AI INTERFACES & SAAS SYSTEMS DESIGN
                     </p>
                     <ArrowDown className="animate-bounce text-white" />
                  </div>
