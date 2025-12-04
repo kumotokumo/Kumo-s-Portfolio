@@ -687,7 +687,7 @@ const ProjectDetail: React.FC<{
                alt="Hero"
                onUpload={(b64) => onUpdateImage(project.id, 'cover', b64, -1)} 
                isAdmin={isAdmin}
-               className="w-full h-full object-cover"
+               className="w-full h-full object-cover opacity-50"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent pointer-events-none"></div>
             <div className="absolute inset-x-0 bottom-0 h-2/3 pointer-events-none bg-gradient-to-t from-black/80 via-black/40 to-transparent"></div>
