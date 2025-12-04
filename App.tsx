@@ -487,7 +487,7 @@ export default function App() {
                          </div>
                          <div>
                             <span className="font-mono text-xs text-secondary block mb-1">期望职位</span>
-                            <span className="font-sans text-sm">UI/UX交互设计师</span>
+                            <span className="font-sans text-sm">UI/UX 设计师</span>
                          </div>
                          <div>
                             <span className="font-mono text-xs text-secondary block mb-1">期望行业</span>
