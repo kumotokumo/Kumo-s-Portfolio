@@ -4,7 +4,6 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, X, ArrowUpRight, ArrowDown, ChevronRight, Plus, Trash2, ArrowUp, Layers, Brain, Users, Zap } from 'lucide-react';
 import { CustomCursor } from './components/CustomCursor';
 import { EditableImage } from './components/EditableImage';
-import { GlowingEffect } from './components/GlowingEffect';
 import { INITIAL_PROJECTS } from './constants';
 import { Project, ViewState } from './types';
 import { getProjectsFromDB, saveProjectsToDB } from './utils/db';
@@ -428,93 +427,45 @@ export default function App() {
                    <p className="font-sans text-sm text-gray-400 mb-12">推动团队、优化流程、并为业务带来实质影响</p>
                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                       {/* Skill Card 1 */}
-                      <GlowingEffect
-                        blur={20}
-                        spread={30}
-                        proximity={20}
-                        inactiveZone={0.6}
-                        variant="default"
-                        disabled={false}
-                        movementDuration={0.3}
-                        borderWidth={1}
-                        className="relative"
-                      >
-                        <div className="border border-white/10 p-8 bg-white/[0.02] hover:bg-white/[0.05] transition-all relative z-10">
-                          <div className="w-12 h-12 mb-6 flex items-center justify-center">
-                            <Layers size={32} className="text-white" strokeWidth={1.5} />
-                          </div>
-                          <h3 className="font-display text-xl uppercase mb-4">问题框架构建力</h3>
-                          <p className="font-sans text-sm text-gray-400 leading-relaxed">
-                              面对模糊需求或复杂场景,能快速定位核心矛盾,将业务目标转化为清晰的设计框架,确保执行不偏离方向。
-                          </p>
+                      <div className="border border-white/10 p-8 bg-white/[0.02] hover:bg-white/[0.05] transition-all">
+                        <div className="w-12 h-12 mb-6 flex items-center justify-center">
+                          <Layers size={32} className="text-white" strokeWidth={1.5} />
                         </div>
-                      </GlowingEffect>
+                        <h3 className="font-display text-xl uppercase mb-4">问题框架构建力</h3>
+                        <p className="font-sans text-sm text-gray-400 leading-relaxed">
+                            面对模糊需求或复杂场景,能快速定位核心矛盾,将业务目标转化为清晰的设计框架,确保执行不偏离方向。
+                        </p>
+                      </div>
                       {/* Skill Card 2 */}
-                      <GlowingEffect
-                        blur={20}
-                        spread={30}
-                        proximity={20}
-                        inactiveZone={0.6}
-                        variant="default"
-                        disabled={false}
-                        movementDuration={0.3}
-                        borderWidth={1}
-                        className="relative"
-                      >
-                        <div className="border border-white/10 p-8 bg-white/[0.02] hover:bg-white/[0.05] transition-all relative z-10">
-                          <div className="w-12 h-12 mb-6 flex items-center justify-center">
-                            <Brain size={32} className="text-white" strokeWidth={1.5} />
-                          </div>
-                          <h3 className="font-display text-xl uppercase mb-4">动机洞察共情力</h3>
-                          <p className="font-sans text-sm text-gray-400 leading-relaxed">
-                              不止于界面表现,能深入理解用户行为背后的决策逻辑与真实动机,使方案精准匹配深层需求。
-                          </p>
+                      <div className="border border-white/10 p-8 bg-white/[0.02] hover:bg-white/[0.05] transition-all">
+                        <div className="w-12 h-12 mb-6 flex items-center justify-center">
+                          <Brain size={32} className="text-white" strokeWidth={1.5} />
                         </div>
-                      </GlowingEffect>
+                        <h3 className="font-display text-xl uppercase mb-4">动机洞察共情力</h3>
+                        <p className="font-sans text-sm text-gray-400 leading-relaxed">
+                            不止于界面表现,能深入理解用户行为背后的决策逻辑与真实动机,使方案精准匹配深层需求。
+                        </p>
+                      </div>
                       {/* Skill Card 3 */}
-                      <GlowingEffect
-                        blur={20}
-                        spread={30}
-                        proximity={20}
-                        inactiveZone={0.6}
-                        variant="default"
-                        disabled={false}
-                        movementDuration={0.3}
-                        borderWidth={1}
-                        className="relative"
-                      >
-                        <div className="border border-white/10 p-8 bg-white/[0.02] hover:bg-white/[0.05] transition-all relative z-10">
-                          <div className="w-12 h-12 mb-6 flex items-center justify-center">
-                            <Users size={32} className="text-white" strokeWidth={1.5} />
-                          </div>
-                          <h3 className="font-display text-xl uppercase mb-4">跨域协同推动力</h3>
-                          <p className="font-sans text-sm text-gray-400 leading-relaxed">
-                              擅用原型、图示等可视化语言打破沟通壁垒,主动对齐多方认知,化解分歧,确保设计意图完整落地。
-                          </p>
+                      <div className="border border-white/10 p-8 bg-white/[0.02] hover:bg-white/[0.05] transition-all">
+                        <div className="w-12 h-12 mb-6 flex items-center justify-center">
+                          <Users size={32} className="text-white" strokeWidth={1.5} />
                         </div>
-                      </GlowingEffect>
+                        <h3 className="font-display text-xl uppercase mb-4">跨域协同推动力</h3>
+                        <p className="font-sans text-sm text-gray-400 leading-relaxed">
+                            擅用原型、图示等可视化语言打破沟通壁垒,主动对齐多方认知,化解分歧,确保设计意图完整落地。
+                        </p>
+                      </div>
                       {/* Skill Card 4 */}
-                      <GlowingEffect
-                        blur={20}
-                        spread={30}
-                        proximity={20}
-                        inactiveZone={0.6}
-                        variant="default"
-                        disabled={false}
-                        movementDuration={0.3}
-                        borderWidth={1}
-                        className="relative"
-                      >
-                        <div className="border border-white/10 p-8 bg-white/[0.02] hover:bg-white/[0.05] transition-all relative z-10">
-                          <div className="w-12 h-12 mb-6 flex items-center justify-center">
-                            <Zap size={32} className="text-white" strokeWidth={1.5} />
-                          </div>
-                          <h3 className="font-display text-xl uppercase mb-4">全局优化驱动意识</h3>
-                          <p className="font-sans text-sm text-gray-400 leading-relaxed">
-                              习惯从流程和系统层面发现改进点,主动推进体验优化或协同效率提升,不局限于单次任务执行。
-                          </p>
+                      <div className="border border-white/10 p-8 bg-white/[0.02] hover:bg-white/[0.05] transition-all">
+                        <div className="w-12 h-12 mb-6 flex items-center justify-center">
+                          <Zap size={32} className="text-white" strokeWidth={1.5} />
                         </div>
-                      </GlowingEffect>
+                        <h3 className="font-display text-xl uppercase mb-4">全局优化驱动意识</h3>
+                        <p className="font-sans text-sm text-gray-400 leading-relaxed">
+                            习惯从流程和系统层面发现改进点,主动推进体验优化或协同效率提升,不局限于单次任务执行。
+                        </p>
+                      </div>
                    </div>
                 </div>
 
