@@ -497,7 +497,7 @@ export default function App() {
                    </div>
 
                    {/* Col 2 - Work Experience & Skills */}
-                   <div className="md:col-span-8 border-r border-t border-b border-white/10">
+                   <div className="md:col-span-8 border-t border-b border-white/10">
                       {/* Work Experience */}
                       <div className="p-10 border-b border-white/10">
                          <h4 className="font-mono text-xs uppercase mb-8 flex items-center gap-2">
