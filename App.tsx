@@ -488,13 +488,6 @@ export default function App() {
                    <a href="mailto:kumogyr@gmail.com" className="font-mono text-xl md:text-2xl border-b border-white hover:bg-white hover:text-black hover:border-transparent transition-all px-2">
                       kumogyr@gmail.com
                    </a>
-                   <div className="flex gap-8">
-                      {['Instagram', 'LinkedIn', 'Twitter'].map(social => (
-                         <a key={social} href="#" className="font-mono text-xs uppercase tracking-widest text-secondary hover:text-white transition-colors">
-                            {social}
-                         </a>
-                      ))}
-                   </div>
                 </div>
              </motion.div>
           )}
