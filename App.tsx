@@ -415,8 +415,8 @@ export default function App() {
                 <div className="max-w-[1400px] mx-auto mb-20 border-l border-r border-white/10 px-6 md:px-10 py-12">
                    <div className="grid grid-cols-1 md:grid-cols-12 gap-8 items-center">
                       <div className="md:col-span-7">
-                         <h1 className="font-display text-[10vw] md:text-[8vw] leading-[0.9] uppercase font-bold mb-8">
-                            您好，<br/>我是郭意如
+                         <h1 className="font-display text-[6vw] md:text-[5vw] leading-[1.1] uppercase font-bold mb-8 whitespace-nowrap">
+                            您好，我是郭意如
                          </h1>
                          <p className="font-sans text-lg md:text-xl text-gray-300 leading-relaxed max-w-3xl">
                             9年体验设计经验，专注SaaS和互联网产品，全流程设计，推动产品体验优化。
