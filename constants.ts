@@ -83,7 +83,17 @@ export const INITIAL_PROJECTS: Project[] = [
     tags: ['Official Site Reshape', 'Brand Upgrade', 'Growth Driven', 'Brand Renewal', 'Scenario Value'],
     role: 'Visual Designer',
     coverImage: 'https://i.imgur.com/AL1MJk1.jpeg',
-    detailImages: ['https://picsum.photos/seed/smbweb1/1200/800'],
+    detailImages: [
+      'https://i.imgur.com/mU1cNr3.jpeg',
+      'https://i.imgur.com/aoWWEcq.jpeg',
+      'https://i.imgur.com/OF1SUP7.jpeg',
+      'https://i.imgur.com/m9ouGWg.jpeg',
+      'https://i.imgur.com/aRbXnLJ.jpeg',
+      'https://i.imgur.com/nOJ68kX.jpeg',
+      'https://i.imgur.com/B3DaUjn.jpeg',
+      'https://i.imgur.com/2nUijUe.jpeg',
+      'https://i.imgur.com/mnvER3v.jpeg',
+    ],
     year: '2025'
   },
 
