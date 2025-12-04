@@ -40,6 +40,22 @@ export default function App() {
     loadData();
   }, []);
 
+  // Add noindex meta tag for ABOUT page
+  useEffect(() => {
+    let noindexMeta: HTMLMetaElement | null = null;
+    if (activeView === 'ABOUT') {
+      noindexMeta = document.createElement('meta');
+      noindexMeta.name = 'robots';
+      noindexMeta.content = 'noindex, nofollow';
+      document.head.appendChild(noindexMeta);
+    }
+    return () => {
+      if (noindexMeta) {
+        document.head.removeChild(noindexMeta);
+      }
+    };
+  }, [activeView]);
+
   // Global Scroll Listener for Back to Top
   useEffect(() => {
     const handleScroll = () => {
@@ -412,7 +428,7 @@ export default function App() {
                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                       {/* Skill Card 1 */}
                       <div className="border border-white/10 p-8 bg-white/[0.02] hover:bg-white/[0.05] transition-all">
-                         <div className="w-12 h-12 mb-6 flex items-center justify-center text-2xl">✦</div>
+                         <div className="w-12 h-12 mb-6 flex items-center justify-center text-3xl font-mono">▢</div>
                          <h3 className="font-display text-xl uppercase mb-4">问题框架构建力</h3>
                          <p className="font-sans text-sm text-gray-400 leading-relaxed">
                             面对模糊需求或复杂场景,能快速定位核心矛盾,将业务目标转化为清晰的设计框架,确保执行不偏离方向。
@@ -420,7 +436,7 @@ export default function App() {
                       </div>
                       {/* Skill Card 2 */}
                       <div className="border border-white/10 p-8 bg-white/[0.02] hover:bg-white/[0.05] transition-all">
-                         <div className="w-12 h-12 mb-6 flex items-center justify-center text-2xl">◊</div>
+                         <div className="w-12 h-12 mb-6 flex items-center justify-center text-3xl font-mono">◇</div>
                          <h3 className="font-display text-xl uppercase mb-4">动机洞察共情力</h3>
                          <p className="font-sans text-sm text-gray-400 leading-relaxed">
                             不止于界面表现,能深入理解用户行为背后的决策逻辑与真实动机,使方案精准匹配深层需求。
@@ -428,7 +444,7 @@ export default function App() {
                       </div>
                       {/* Skill Card 3 */}
                       <div className="border border-white/10 p-8 bg-white/[0.02] hover:bg-white/[0.05] transition-all">
-                         <div className="w-12 h-12 mb-6 flex items-center justify-center text-2xl">✧</div>
+                         <div className="w-12 h-12 mb-6 flex items-center justify-center text-3xl font-mono">◈</div>
                          <h3 className="font-display text-xl uppercase mb-4">跨域协同推动力</h3>
                          <p className="font-sans text-sm text-gray-400 leading-relaxed">
                             擅用原型、图示等可视化语言打破沟通壁垒,主动对齐多方认知,化解分歧,确保设计意图完整落地。
@@ -436,7 +452,7 @@ export default function App() {
                       </div>
                       {/* Skill Card 4 */}
                       <div className="border border-white/10 p-8 bg-white/[0.02] hover:bg-white/[0.05] transition-all">
-                         <div className="w-12 h-12 mb-6 flex items-center justify-center text-2xl">◈</div>
+                         <div className="w-12 h-12 mb-6 flex items-center justify-center text-3xl font-mono">◉</div>
                          <h3 className="font-display text-xl uppercase mb-4">全局优化驱动意识</h3>
                          <p className="font-sans text-sm text-gray-400 leading-relaxed">
                             习惯从流程和系统层面发现改进点,主动推进体验优化或协同效率提升,不局限于单次任务执行。
@@ -448,8 +464,10 @@ export default function App() {
                 {/* Main Content Grid */}
                 <div className="grid grid-cols-1 md:grid-cols-12 gap-0 border-l border-r border-white/10 max-w-[1400px] mx-auto">
                    {/* Col 1 - Basic Info */}
-                   <div className="md:col-span-4 border-r border-b border-white/10 p-10">
-                      <h3 className="font-mono text-xs uppercase text-secondary mb-8">基本信息</h3>
+                   <div className="md:col-span-4 border-r border-t border-b border-white/10 p-10">
+                      <h3 className="font-mono text-xs uppercase mb-8 flex items-center gap-2">
+                         <span className="w-2 h-2 bg-white"></span> 基本信息
+                      </h3>
                       <div className="space-y-6">
                          <div>
                             <span className="font-mono text-xs text-secondary block mb-1">电话/微信</span>
@@ -461,7 +479,7 @@ export default function App() {
                          </div>
                          <div>
                             <span className="font-mono text-xs text-secondary block mb-1">期望职位</span>
-                            <span className="font-sans text-sm">UIUX/交互设计师</span>
+                            <span className="font-sans text-sm">UI/UX交互设计师</span>
                          </div>
                          <div>
                             <span className="font-mono text-xs text-secondary block mb-1">期望行业</span>
@@ -471,7 +489,7 @@ export default function App() {
                    </div>
 
                    {/* Col 2 - Work Experience & Skills */}
-                   <div className="md:col-span-8 border-r border-b border-white/10">
+                   <div className="md:col-span-8 border-r border-t border-b border-white/10">
                       {/* Work Experience */}
                       <div className="p-10 border-b border-white/10">
                          <h4 className="font-mono text-xs uppercase mb-8 flex items-center gap-2">
