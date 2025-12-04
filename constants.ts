@@ -71,7 +71,19 @@ export const INITIAL_PROJECTS: Project[] = [
     tags: ['Brand Visual Construction', 'Design Strategy', 'Interaction Prototype', 'Responsive Design'],
     role: 'Art Director',
     coverImage: 'https://i.imgur.com/Lc6CKPy.jpeg',
-    detailImages: ['https://picsum.photos/seed/clackyweb1/1200/800'],
+    detailImages: [
+      'https://i.imgur.com/Niws2Ns.jpeg',
+      'https://i.imgur.com/vAFwkeD.jpeg',
+      'https://i.imgur.com/rLCtv45.jpeg',
+      'https://i.imgur.com/jPxx1qk.jpeg',
+      'https://i.imgur.com/2cpcNMf.jpeg',
+      'https://i.imgur.com/gAzw7NT.jpeg',
+      'https://i.imgur.com/BjZ3pQ3.jpeg',
+      'https://i.imgur.com/9mVBuA5.jpeg',
+      'https://i.imgur.com/MG5wWtu.jpeg',
+      'https://i.imgur.com/DQW6MoX.jpeg',
+      'https://i.imgur.com/6OIojki.jpeg',
+    ],
     year: '2025'
   },
   {
