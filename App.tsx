@@ -23,21 +23,17 @@ export default function App() {
   // Back to Top State
   const [showTopBtn, setShowTopBtn] = useState(false);
 
-  // Load from IndexedDB on mount
+  // Always use constants.ts data, sync to IndexedDB for consistency
   useEffect(() => {
     const loadData = async () => {
       try {
-        const storedProjects = await getProjectsFromDB();
-        if (storedProjects && storedProjects.length > 0) {
-          setProjects(storedProjects);
-        } else {
-          // Initialize DB with constants if empty
-          await saveProjectsToDB(INITIAL_PROJECTS);
-          setProjects(INITIAL_PROJECTS);
-        }
+        // Always use INITIAL_PROJECTS from constants.ts
+        setProjects(INITIAL_PROJECTS);
+        // Sync to IndexedDB to keep it in sync
+        await saveProjectsToDB(INITIAL_PROJECTS);
       } catch (e) {
         console.error("DB Load Error:", e);
-        // Fallback
+        // Fallback to constants
         setProjects(INITIAL_PROJECTS);
       }
     };
