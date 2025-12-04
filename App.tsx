@@ -614,20 +614,6 @@ const ProjectDetail: React.FC<{
   isAdmin: boolean;
 }> = ({ project, allProjects, onBack, onNext, onUpdateImage, onAddImage, onDeleteImage, onUpdateText, isAdmin }) => {
    const fileInputRef = useRef<HTMLInputElement>(null);
-   const [showIndex, setShowIndex] = useState(false);
-
-   // Scroll listener for index visibility
-   useEffect(() => {
-      const handleScroll = () => {
-         if (window.scrollY > 600) {
-            setShowIndex(true);
-         } else {
-            setShowIndex(false);
-         }
-      };
-      window.addEventListener('scroll', handleScroll);
-      return () => window.removeEventListener('scroll', handleScroll);
-   }, []);
 
    const handleAddClick = () => {
       fileInputRef.current?.click();
