@@ -323,16 +323,31 @@ export default function App() {
                  </div>
                  
                  <div className="flex flex-col">
-                    {projects.slice(0, 3).map((project, index) => (
-                       <ProjectListItem 
-                          key={project.id} 
-                          project={project} 
-                          index={index} 
-                          onClick={() => navigateTo('PROJECT_DETAIL', project)}
-                          isAdmin={isAdmin}
-                          onUpdateImage={handleUpdateProjectImage}
-                       />
-                    ))}
+                    {(() => {
+                       // Define the order of selected works
+                       const selectedWorkIds = [
+                          'clackyai-ui',      // ClackyAI
+                          'showmebug-ui',      // ShowMeBug
+                          'clackyai-web',      // ClackyAI Official
+                          'illustration-series', // FFLAT ILLUSTRATION (Flat illustration)
+                          'showmebug-web'      // ShowMeBug Official (ShowMeBug Web)
+                       ];
+                       
+                       const selectedWorks = selectedWorkIds
+                          .map(id => projects.find(p => p.id === id))
+                          .filter((p): p is Project => p !== undefined);
+                       
+                       return selectedWorks.map((project, index) => (
+                          <ProjectListItem 
+                             key={project.id} 
+                             project={project} 
+                             index={index} 
+                             onClick={() => navigateTo('PROJECT_DETAIL', project)}
+                             isAdmin={isAdmin}
+                             onUpdateImage={handleUpdateProjectImage}
+                          />
+                       ));
+                    })()}
                  </div>
               </section>
             </motion.div>

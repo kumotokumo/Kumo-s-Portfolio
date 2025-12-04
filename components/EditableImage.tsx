@@ -58,6 +58,12 @@ export const EditableImage: React.FC<EditableImageProps> = ({ currentSrc, onUplo
     });
   };
 
+  // Determine if we should use h-auto (for detail images) or h-full (for cover images)
+  const useAutoHeight = className?.includes('h-auto');
+  const imgClassName = useAutoHeight 
+    ? "w-full h-auto select-none" 
+    : "w-full h-full object-cover select-none";
+
   return (
     <div 
       className={`relative group ${className}`} 
@@ -66,7 +72,7 @@ export const EditableImage: React.FC<EditableImageProps> = ({ currentSrc, onUplo
       <img 
         src={currentSrc} 
         alt={alt} 
-        className="w-full h-full object-cover select-none"
+        className={imgClassName}
         draggable={false}
       />
       
