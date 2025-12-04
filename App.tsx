@@ -679,42 +679,7 @@ const ProjectDetail: React.FC<{
     };
 
    return (
-      <div className="min-h-screen bg-background pb-20 relative">
-         {/* Right Side Index - Fixed Position */}
-         <motion.div
-            initial={{ opacity: 0, x: 20 }}
-            animate={{ 
-               opacity: showIndex ? 1 : 0,
-               x: showIndex ? 0 : 20
-            }}
-            transition={{ duration: 0.3 }}
-            className={`fixed right-6 md:right-10 top-1/2 -translate-y-1/2 z-50 hidden md:block ${showIndex ? 'pointer-events-auto' : 'pointer-events-none'}`}
-         >
-            <div className="flex flex-col gap-3 items-end">
-               {allProjects.map((p, idx) => {
-                  const isActive = p.id === project.id;
-                  return (
-                     <button
-                        key={p.id}
-                        onClick={() => {
-                           if (!isActive) {
-                              onNext(p);
-                              window.scrollTo({ top: 0, behavior: 'smooth' });
-                           }
-                        }}
-                        className={`font-mono text-[10px] uppercase tracking-widest transition-all text-right ${
-                           isActive 
-                              ? 'text-white font-bold' 
-                              : 'text-secondary hover:text-white cursor-pointer'
-                        }`}
-                     >
-                        <span className="text-secondary/50">{String(idx + 1).padStart(2, '0')}</span> {p.title}
-                     </button>
-                  );
-               })}
-            </div>
-         </motion.div>
-
+      <div className="min-h-screen bg-background pb-20">
          {/* Large Header Image */}
          <div className="h-[60vh] md:h-[80vh] w-full relative group">
             <EditableImage 
@@ -722,7 +687,7 @@ const ProjectDetail: React.FC<{
                alt="Hero"
                onUpload={(b64) => onUpdateImage(project.id, 'cover', b64, -1)} 
                isAdmin={isAdmin}
-               className="w-full h-full object-cover opacity-50"
+               className="w-full h-full object-cover"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent pointer-events-none"></div>
             <div className="absolute inset-x-0 bottom-0 h-2/3 pointer-events-none bg-gradient-to-t from-black/80 via-black/40 to-transparent"></div>
