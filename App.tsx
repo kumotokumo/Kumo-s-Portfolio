@@ -396,7 +396,7 @@ export default function App() {
                 className="px-6 md:px-10 py-12 md:py-20"
              >
                 {/* Introduction Section */}
-                <div className="max-w-[1400px] mx-auto mb-24">
+                <div className="max-w-[1400px] mx-auto mb-20 border-l border-r border-white/10 px-6 md:px-10 py-12">
                    <h1 className="font-display text-[10vw] md:text-[8vw] leading-[0.9] uppercase font-bold mb-8">
                       您好，<br/>我是郭意如
                    </h1>
@@ -406,12 +406,9 @@ export default function App() {
                 </div>
 
                 {/* Personal Soft Skills Section */}
-                <div className="max-w-[1400px] mx-auto mb-24">
-                   <div className="mb-12">
-                      <h2 className="font-display text-4xl md:text-6xl uppercase mb-2">个人软技能</h2>
-                      <p className="font-mono text-xs text-secondary uppercase mb-4">/ Personal Skills /</p>
-                      <p className="font-sans text-sm text-gray-400">推动团队、优化流程、并为业务带来实质影响</p>
-                   </div>
+                <div className="max-w-[1400px] mx-auto mb-20 border-l border-r border-white/10 px-6 md:px-10 py-12">
+                   <p className="font-mono text-xs text-secondary uppercase mb-8">/ Personal Skills /</p>
+                   <p className="font-sans text-sm text-gray-400 mb-12">推动团队、优化流程、并为业务带来实质影响</p>
                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                       {/* Skill Card 1 */}
                       <div className="border border-white/10 p-8 bg-white/[0.02] hover:bg-white/[0.05] transition-all">
@@ -449,15 +446,11 @@ export default function App() {
                 </div>
 
                 {/* Main Content Grid */}
-                <div className="grid grid-cols-1 md:grid-cols-12 gap-0 border-l border-white/10 max-w-[1400px] mx-auto">
+                <div className="grid grid-cols-1 md:grid-cols-12 gap-0 border-l border-r border-white/10 max-w-[1400px] mx-auto">
                    {/* Col 1 - Basic Info */}
-                   <div className="md:col-span-5 border-r border-b border-white/10 p-10">
+                   <div className="md:col-span-4 border-r border-b border-white/10 p-10">
                       <h3 className="font-mono text-xs uppercase text-secondary mb-8">基本信息</h3>
-                      <div className="space-y-6 mb-12">
-                         <div>
-                            <span className="font-mono text-xs text-secondary block mb-1">学校</span>
-                            <span className="font-sans text-sm">汕头大学 / 专科 / 艺术设计</span>
-                         </div>
+                      <div className="space-y-6">
                          <div>
                             <span className="font-mono text-xs text-secondary block mb-1">电话/微信</span>
                             <span className="font-sans text-sm">136-4224-0336</span>
@@ -478,7 +471,7 @@ export default function App() {
                    </div>
 
                    {/* Col 2 - Work Experience & Skills */}
-                   <div className="md:col-span-7 border-r border-b border-white/10">
+                   <div className="md:col-span-8 border-r border-b border-white/10">
                       {/* Work Experience */}
                       <div className="p-10 border-b border-white/10">
                          <h4 className="font-mono text-xs uppercase mb-8 flex items-center gap-2">
