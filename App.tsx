@@ -425,14 +425,14 @@ export default function App() {
                       <div className="md:col-span-5 flex justify-end">
                          <div className="w-full max-w-[400px] aspect-[3/4] overflow-hidden bg-neutral-900 relative">
                             <img 
-                               src="https://i.imgur.com/vQ3xXUj.jpeg" 
+                               src="https://i.imgur.com/ZkIOx0a.jpeg" 
                                className="w-full h-full object-cover grayscale contrast-110 brightness-95"
                                alt="Profile"
                             />
                             <div 
-                               className="absolute inset-0 pointer-events-none opacity-20"
+                               className="absolute inset-0 pointer-events-none opacity-25"
                                style={{
-                                  backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E")`,
+                                  backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.5' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E")`,
                                   mixBlendMode: 'multiply',
                                }}
                             />
