@@ -5,7 +5,7 @@ import { Project } from './types';
 // 2 UI/UX, 2 WEB, 1 VISUAL, 1 PRACTICE, 1 ILLUSTRATION
 
 export const INITIAL_PROJECTS: Project[] = [
-  // --- 1. UI/UX DESIGN (2 Projects) ---
+  // --- 1. ClackyAI ---
   {
     id: 'clackyai-ui',
     category: 'UI/UX',
@@ -35,6 +35,34 @@ export const INITIAL_PROJECTS: Project[] = [
     ],
     year: '2025'
   },
+  
+  // --- 2. ClackyAI Official ---
+  {
+    id: 'clackyai-web',
+    category: 'WEB',
+    title: 'ClackyAI Official',
+    subtitle: '品牌官网',
+    description: 'ClackyAI 品牌的战略视觉构建。专注于响应式设计和高保真交互原型，以展示 AI 工具的强大功能。',
+    tags: ['品牌视觉构建', '设计策略', '交互原型', '响应式设计'],
+    role: '艺术总监',
+    coverImage: 'https://i.imgur.com/Lc6CKPy.jpeg',
+    detailImages: [
+      'https://i.imgur.com/Niws2Ns.jpeg',
+      'https://i.imgur.com/vAFwkeD.jpeg',
+      'https://i.imgur.com/rLCtv45.jpeg',
+      'https://i.imgur.com/jPxx1qk.jpeg',
+      'https://i.imgur.com/2cpcNMf.jpeg',
+      'https://i.imgur.com/gAzw7NT.jpeg',
+      'https://i.imgur.com/BjZ3pQ3.jpeg',
+      'https://i.imgur.com/9mVBuA5.jpeg',
+      'https://i.imgur.com/MG5wWtu.jpeg',
+      'https://i.imgur.com/DQW6MoX.jpeg',
+      'https://i.imgur.com/6OIojki.jpeg',
+    ],
+    year: '2025'
+  },
+  
+  // --- 3. ShowMeBug ---
   {
     id: 'showmebug-ui',
     category: 'UI/UX',
@@ -61,31 +89,7 @@ export const INITIAL_PROJECTS: Project[] = [
     year: '2025'
   },
   
-  // --- 2. WEB DESIGN (2 Projects) ---
-  {
-    id: 'clackyai-web',
-    category: 'WEB',
-    title: 'ClackyAI Official',
-    subtitle: '品牌官网',
-    description: 'ClackyAI 品牌的战略视觉构建。专注于响应式设计和高保真交互原型，以展示 AI 工具的强大功能。',
-    tags: ['品牌视觉构建', '设计策略', '交互原型', '响应式设计'],
-    role: '艺术总监',
-    coverImage: 'https://i.imgur.com/Lc6CKPy.jpeg',
-    detailImages: [
-      'https://i.imgur.com/Niws2Ns.jpeg',
-      'https://i.imgur.com/vAFwkeD.jpeg',
-      'https://i.imgur.com/rLCtv45.jpeg',
-      'https://i.imgur.com/jPxx1qk.jpeg',
-      'https://i.imgur.com/2cpcNMf.jpeg',
-      'https://i.imgur.com/gAzw7NT.jpeg',
-      'https://i.imgur.com/BjZ3pQ3.jpeg',
-      'https://i.imgur.com/9mVBuA5.jpeg',
-      'https://i.imgur.com/MG5wWtu.jpeg',
-      'https://i.imgur.com/DQW6MoX.jpeg',
-      'https://i.imgur.com/6OIojki.jpeg',
-    ],
-    year: '2025'
-  },
+  // --- 4. ShowMeBug Official ---
   {
     id: 'showmebug-web',
     category: 'WEB',
@@ -109,7 +113,7 @@ export const INITIAL_PROJECTS: Project[] = [
     year: '2025'
   },
 
-  // --- 3. VISUAL DESIGN (1 Project Only) - UPDATED CONTENT ---
+  // --- 5. Posters ---
   {
     id: 'marketing-visual',
     category: 'VISUAL',
@@ -127,24 +131,7 @@ export const INITIAL_PROJECTS: Project[] = [
     year: '2025'
   },
 
-  // --- 4. DESIGN IN PRACTICE (1 Project) ---
-  {
-    id: 'methodology',
-    category: 'PRACTICE',
-    title: 'Design Thinking',
-    subtitle: '方法论与工具',
-    description: '探索设计思维方法论，将 Figma 作为跨团队的主要工具实施，并验证设计提案。',
-    tags: ['Figma 实施', '设计思维解码', '提案验证'],
-    role: '设计负责人',
-    coverImage: 'background:#000',
-    detailImages: [
-      'https://i.imgur.com/TP2E5CJ.jpeg',
-      'https://i.imgur.com/v1U5Aau.jpeg',
-    ],
-    year: '2025'
-  },
-
-  // --- 5. ILLUSTRATION (1 Project) ---
+  // --- 6. Flat Illustration ---
   {
     id: 'illustration-series',
     category: 'ILLUSTRATION',
@@ -162,6 +149,23 @@ export const INITIAL_PROJECTS: Project[] = [
       'https://i.imgur.com/qr8cqye.jpeg',
       'https://i.imgur.com/ognC9TH.jpeg',
       'https://i.imgur.com/7jf9VLP.jpeg',
+    ],
+    year: '2025'
+  },
+
+  // --- 7. Design Thinking ---
+  {
+    id: 'methodology',
+    category: 'PRACTICE',
+    title: 'Design Thinking',
+    subtitle: '方法论与工具',
+    description: '探索设计思维方法论，将 Figma 作为跨团队的主要工具实施，并验证设计提案。',
+    tags: ['Figma 实施', '设计思维解码', '提案验证'],
+    role: '设计负责人',
+    coverImage: 'background:#000',
+    detailImages: [
+      'https://i.imgur.com/TP2E5CJ.jpeg',
+      'https://i.imgur.com/v1U5Aau.jpeg',
     ],
     year: '2025'
   }
