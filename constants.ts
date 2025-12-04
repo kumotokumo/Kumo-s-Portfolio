@@ -9,13 +9,13 @@ export const INITIAL_PROJECTS: Project[] = [
   {
     id: 'clackyai-ui',
     category: 'UI/UX',
-    title: 'ClackyAI SaaS',
+    title: 'ClackyAI',
     subtitle: 'AI Coding Assistant',
     description: 'A comprehensive 0-1 product architecture for an AI-powered coding assistant. This project involved deep user research, interaction design for complex AI workflows, and defining the user experience architecture.',
     tags: ['AI Coding Assistant SaaS', '0-1 Product Architecture', 'AI Interaction Design', 'UX Architecture'],
     role: 'Lead Product Designer',
     coverImage: 'https://i.imgur.com/Mxzz4cv.jpeg',
-    detailImages: ['https://picsum.photos/seed/clackyui1/1200/800', 'https://picsum.photos/seed/clackyui2/1200/800'],
+    detailImages: ['https://i.imgur.com/geEKXSq.jpeg','https://i.imgur.com/0hAZzdc.jpeg','https://i.imgur.com/MIf3msu.jpeg','https://i.imgur.com/2Izf9qe.jpeg','https://i.imgur.com/oYxx5MJ.jpeg','https://i.imgur.com/hJ0sPRD.jpeg','https://i.imgur.com/h3xh3W2.jpeg','https://i.imgur.com/93jGCrl.jpeg','https://i.imgur.com/tSpD6k3.jpeg','https://i.imgur.com/4jePuNd.jpeg','https://i.imgur.com/t5oEE2Y.jpeg','https://i.imgur.com/aKerCiK.jpeg','https://i.imgur.com/xK7jvBQ.jpeg','https://i.imgur.com/rxSEI6N.jpeg','https://i.imgur.com/MgMF67d.jpeg','https://i.imgur.com/vqaGbdw.jpeg'],
     year: '2025'
   },
   {
