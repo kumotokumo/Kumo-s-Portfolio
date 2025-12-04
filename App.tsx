@@ -393,60 +393,159 @@ export default function App() {
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 exit={{ opacity: 0 }}
-                className="px-6 md:px-10 py-12"
+                className="px-6 md:px-10 py-12 md:py-20"
              >
-                <div className="grid grid-cols-1 md:grid-cols-12 gap-0 border-l border-white/10">
-                   {/* Col 1 - Image */}
-                   <div className="md:col-span-5 border-r border-b border-white/10 p-10 md:min-h-screen flex flex-col justify-between">
-                      <div className="w-full aspect-[3/4] overflow-hidden bg-neutral-900 mb-8 relative group">
-                         <img src="https://picsum.photos/seed/profile/800/1200" className="w-full h-full object-cover grayscale contrast-125 group-hover:grayscale-0 transition-all duration-700" alt="Profile" />
-                         <div className="absolute bottom-0 left-0 w-full p-2 bg-black text-white font-mono text-[10px] uppercase text-center border-t border-white/20">
-                            Shanghai / CN
-                         </div>
+                {/* Introduction Section */}
+                <div className="max-w-[1400px] mx-auto mb-24">
+                   <h1 className="font-display text-[10vw] md:text-[8vw] leading-[0.9] uppercase font-bold mb-8">
+                      您好，<br/>我是郭意如
+                   </h1>
+                   <p className="font-sans text-lg md:text-xl text-gray-300 leading-relaxed max-w-3xl">
+                      9年体验设计经验，专注SaaS和互联网产品，全流程设计，推动产品体验优化。
+                   </p>
+                </div>
+
+                {/* Personal Soft Skills Section */}
+                <div className="max-w-[1400px] mx-auto mb-24">
+                   <div className="mb-12">
+                      <h2 className="font-display text-4xl md:text-6xl uppercase mb-2">个人软技能</h2>
+                      <p className="font-mono text-xs text-secondary uppercase mb-4">/ Personal Skills /</p>
+                      <p className="font-sans text-sm text-gray-400">推动团队、优化流程、并为业务带来实质影响</p>
+                   </div>
+                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                      {/* Skill Card 1 */}
+                      <div className="border border-white/10 p-8 bg-white/[0.02] hover:bg-white/[0.05] transition-all">
+                         <div className="w-12 h-12 mb-6 flex items-center justify-center text-2xl">✦</div>
+                         <h3 className="font-display text-xl uppercase mb-4">问题框架构建力</h3>
+                         <p className="font-sans text-sm text-gray-400 leading-relaxed">
+                            面对模糊需求或复杂场景,能快速定位核心矛盾,将业务目标转化为清晰的设计框架,确保执行不偏离方向。
+                         </p>
                       </div>
-                      <div>
-                         <h2 className="font-display text-4xl uppercase mb-2">Kumo Design</h2>
-                         <p className="font-mono text-xs text-secondary">EST. 2019</p>
+                      {/* Skill Card 2 */}
+                      <div className="border border-white/10 p-8 bg-white/[0.02] hover:bg-white/[0.05] transition-all">
+                         <div className="w-12 h-12 mb-6 flex items-center justify-center text-2xl">◊</div>
+                         <h3 className="font-display text-xl uppercase mb-4">动机洞察共情力</h3>
+                         <p className="font-sans text-sm text-gray-400 leading-relaxed">
+                            不止于界面表现,能深入理解用户行为背后的决策逻辑与真实动机,使方案精准匹配深层需求。
+                         </p>
+                      </div>
+                      {/* Skill Card 3 */}
+                      <div className="border border-white/10 p-8 bg-white/[0.02] hover:bg-white/[0.05] transition-all">
+                         <div className="w-12 h-12 mb-6 flex items-center justify-center text-2xl">✧</div>
+                         <h3 className="font-display text-xl uppercase mb-4">跨域协同推动力</h3>
+                         <p className="font-sans text-sm text-gray-400 leading-relaxed">
+                            擅用原型、图示等可视化语言打破沟通壁垒,主动对齐多方认知,化解分歧,确保设计意图完整落地。
+                         </p>
+                      </div>
+                      {/* Skill Card 4 */}
+                      <div className="border border-white/10 p-8 bg-white/[0.02] hover:bg-white/[0.05] transition-all">
+                         <div className="w-12 h-12 mb-6 flex items-center justify-center text-2xl">◈</div>
+                         <h3 className="font-display text-xl uppercase mb-4">全局优化驱动意识</h3>
+                         <p className="font-sans text-sm text-gray-400 leading-relaxed">
+                            习惯从流程和系统层面发现改进点,主动推进体验优化或协同效率提升,不局限于单次任务执行。
+                         </p>
+                      </div>
+                   </div>
+                </div>
+
+                {/* Main Content Grid */}
+                <div className="grid grid-cols-1 md:grid-cols-12 gap-0 border-l border-white/10 max-w-[1400px] mx-auto">
+                   {/* Col 1 - Basic Info */}
+                   <div className="md:col-span-5 border-r border-b border-white/10 p-10">
+                      <h3 className="font-mono text-xs uppercase text-secondary mb-8">基本信息</h3>
+                      <div className="space-y-6 mb-12">
+                         <div>
+                            <span className="font-mono text-xs text-secondary block mb-1">学校</span>
+                            <span className="font-sans text-sm">汕头大学 / 专科 / 艺术设计</span>
+                         </div>
+                         <div>
+                            <span className="font-mono text-xs text-secondary block mb-1">电话/微信</span>
+                            <span className="font-sans text-sm">136-4224-0336</span>
+                         </div>
+                         <div>
+                            <span className="font-mono text-xs text-secondary block mb-1">邮箱</span>
+                            <a href="mailto:kumogyr@gmail.com" className="font-sans text-sm hover:underline">kumogyr@gmail.com</a>
+                         </div>
+                         <div>
+                            <span className="font-mono text-xs text-secondary block mb-1">期望职位</span>
+                            <span className="font-sans text-sm">UIUX/交互设计师</span>
+                         </div>
+                         <div>
+                            <span className="font-mono text-xs text-secondary block mb-1">期望行业</span>
+                            <span className="font-sans text-sm">AI、人工智能、企业服务等</span>
+                         </div>
                       </div>
                    </div>
 
-                   {/* Col 2 - Content */}
+                   {/* Col 2 - Work Experience & Skills */}
                    <div className="md:col-span-7 border-r border-b border-white/10">
-                      <div className="p-10 md:p-20 border-b border-white/10">
-                         <h3 className="font-display text-5xl md:text-7xl uppercase leading-[0.9] mb-12">
-                            Merging Strategy <br/>
-                            <span className="text-secondary">With Brutalism.</span>
-                         </h3>
-                         <div className="grid grid-cols-2 gap-8 font-light text-secondary leading-relaxed max-w-2xl">
-                            <p>I am a Senior Product Designer focused on creating systems that are not only functional but visually compelling. I believe in the power of "Anti-Design" — stripping away the unnecessary to reveal the core structure.</p>
-                            <p>My work spans across complex SaaS platforms, AI-driven tools, and brand identity systems that demand a strong, unforgettable presence.</p>
-                         </div>
+                      {/* Work Experience */}
+                      <div className="p-10 border-b border-white/10">
+                         <h4 className="font-mono text-xs uppercase mb-8 flex items-center gap-2">
+                            <span className="w-2 h-2 bg-white"></span> 工作经历
+                         </h4>
+                         <ul className="space-y-10">
+                            <li>
+                               <div className="flex justify-between items-start mb-2">
+                                  <span className="block font-display text-xl uppercase">UI/UX 设计师</span>
+                                  <span className="block text-secondary text-sm font-mono">2021.03 - 2025.05</span>
+                               </div>
+                               <span className="block text-secondary text-sm mb-3">深圳至简天成科技有限公司 | 产品部</span>
+                               <ul className="space-y-2 text-xs text-gray-400">
+                                  <li className="flex items-start gap-2">
+                                     <span className="text-secondary">•</span>
+                                     <span>主导 SaaS 产品（ShowMeBug、ClackyAI）全流程设计</span>
+                                  </li>
+                                  <li className="flex items-start gap-2">
+                                     <span className="text-secondary">•</span>
+                                     <span>提升设计效率与协作流程</span>
+                                  </li>
+                                  <li className="flex items-start gap-2">
+                                     <span className="text-secondary">•</span>
+                                     <span>优化用户体验，跨职能协作</span>
+                                  </li>
+                               </ul>
+                            </li>
+                            <li>
+                               <div className="flex justify-between items-start mb-2">
+                                  <span className="block font-display text-xl uppercase">UI 设计师</span>
+                                  <span className="block text-secondary text-sm font-mono">2018.04 - 2020.09</span>
+                               </div>
+                               <span className="block text-secondary text-sm mb-3">广州蚁块链网络科技有限公司 | 产品部</span>
+                               <ul className="space-y-2 text-xs text-gray-400">
+                                  <li className="flex items-start gap-2">
+                                     <span className="text-secondary">•</span>
+                                     <span>核心 APP 产品体验设计</span>
+                                  </li>
+                                  <li className="flex items-start gap-2">
+                                     <span className="text-secondary">•</span>
+                                     <span>营销物料设计</span>
+                                  </li>
+                               </ul>
+                            </li>
+                         </ul>
                       </div>
 
+                      {/* Professional Skills */}
                       <div className="grid grid-cols-1 md:grid-cols-2">
                          <div className="p-10 border-b md:border-b-0 md:border-r border-white/10">
                             <h4 className="font-mono text-xs uppercase mb-8 flex items-center gap-2">
-                               <span className="w-2 h-2 bg-white"></span> Experience
-                            </h4>
-                            <ul className="space-y-8">
-                               <li>
-                                  <span className="block font-display text-xl uppercase">Senior Designer</span>
-                                  <span className="block text-secondary text-sm mb-1">Tech Corp / 2022-Present</span>
-                                  <p className="text-xs text-secondary/60">Lead AI product architecture.</p>
-                               </li>
-                               <li>
-                                  <span className="block font-display text-xl uppercase">UI/UX Designer</span>
-                                  <span className="block text-secondary text-sm mb-1">Agency / 2019-2022</span>
-                                  <p className="text-xs text-secondary/60">Brand system development.</p>
-                               </li>
-                            </ul>
-                         </div>
-                         <div className="p-10">
-                             <h4 className="font-mono text-xs uppercase mb-8 flex items-center gap-2">
-                               <span className="w-2 h-2 bg-white"></span> Capabilities
+                               <span className="w-2 h-2 bg-white"></span> 项目经验
                             </h4>
                             <div className="flex flex-wrap gap-2">
-                               {['Design Systems', 'UX Architecture', 'React/Next.js', 'WebGL', 'Figma', 'Protopie'].map(skill => (
+                               {['后端系统设计', '数据可视化', '信息架构', '权限设计', '任务流程优化', '组件库应用', '视觉设计'].map(skill => (
+                                  <span key={skill} className="border border-white/10 px-3 py-1 font-mono text-xs hover:bg-white hover:text-black cursor-default transition-colors">
+                                     {skill}
+                                  </span>
+                               ))}
+                            </div>
+                         </div>
+                         <div className="p-10">
+                            <h4 className="font-mono text-xs uppercase mb-8 flex items-center gap-2">
+                               <span className="w-2 h-2 bg-white"></span> 软件技能
+                            </h4>
+                            <div className="flex flex-wrap gap-2">
+                               {['Figma', 'Illustrator', 'Photoshop', 'XD', 'Protopie'].map(skill => (
                                   <span key={skill} className="border border-white/10 px-3 py-1 font-mono text-xs hover:bg-white hover:text-black cursor-default transition-colors">
                                      {skill}
                                   </span>
