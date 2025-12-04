@@ -112,12 +112,12 @@ export const INITIAL_PROJECTS: Project[] = [
   // --- 3. VISUAL DESIGN (1 Project Only) - UPDATED CONTENT ---
   {
     id: 'marketing-visual',
-    category: '视觉设计',
-    title: '宣传海报',
-    subtitle: '市场营销视觉',
-    description: '为展会、活动及线上传播打造系统化视觉方案，通过展架、折页、信息长图与营销海报等触点，构建高效的信息动线与品牌叙事，提升传达效率与用户参与度。',
-    tags: ['运营海报', '市场营销设计', '关键视觉'],
-    role: '视觉设计师',
+    category: 'VISUAL',
+    title: 'Marketing Posters',
+    subtitle: 'Marketing Visual Design',
+    description: 'Creating systematic visual solutions for exhibitions, events, and online communication. Through touchpoints such as display stands, brochures, infographic long images, and marketing posters, we build efficient information flow and brand narratives, enhancing communication efficiency and user engagement.',
+    tags: ['Marketing Posters', 'Marketing Design', 'Key Visual'],
+    role: 'Visual Designer',
     coverImage: 'https://i.imgur.com/fHlvpqV.jpeg',
     detailImages: [
       'https://i.imgur.com/iuIflT3.jpeg', 
