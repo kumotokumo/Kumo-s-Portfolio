@@ -413,12 +413,35 @@ export default function App() {
              >
                 {/* Introduction Section */}
                 <div className="max-w-[1400px] mx-auto mb-20 border-l border-r border-white/10 px-6 md:px-10 py-12">
-                   <h1 className="font-display text-[10vw] md:text-[8vw] leading-[0.9] uppercase font-bold mb-8">
-                      您好，<br/>我是郭意如
-                   </h1>
-                   <p className="font-sans text-lg md:text-xl text-gray-300 leading-relaxed max-w-3xl">
-                      9年体验设计经验，专注SaaS和互联网产品，全流程设计，推动产品体验优化。
-                   </p>
+                   <div className="grid grid-cols-1 md:grid-cols-12 gap-8 items-center">
+                      <div className="md:col-span-7">
+                         <h1 className="font-display text-[10vw] md:text-[8vw] leading-[0.9] uppercase font-bold mb-8">
+                            您好，<br/>我是郭意如
+                         </h1>
+                         <p className="font-sans text-lg md:text-xl text-gray-300 leading-relaxed max-w-3xl">
+                            9年体验设计经验，专注SaaS和互联网产品，全流程设计，推动产品体验优化。
+                         </p>
+                      </div>
+                      <div className="md:col-span-5 flex justify-end">
+                         <div className="w-full max-w-[400px] aspect-[3/4] overflow-hidden bg-neutral-900 relative group">
+                            <img 
+                               src="https://i.imgur.com/vQ3xXUj.jpeg" 
+                               className="w-full h-full object-cover"
+                               alt="Profile"
+                               style={{
+                                  filter: 'grayscale(100%) contrast(125%) brightness(90%)',
+                               }}
+                            />
+                            <div 
+                               className="absolute inset-0 pointer-events-none"
+                               style={{
+                                  backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.4'/%3E%3C/svg%3E")`,
+                                  mixBlendMode: 'overlay',
+                               }}
+                            />
+                         </div>
+                      </div>
+                   </div>
                 </div>
 
                 {/* Personal Soft Skills Section */}
