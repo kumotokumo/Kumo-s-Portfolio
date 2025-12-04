@@ -307,8 +307,7 @@ export default function App() {
                           'clackyai-ui',      // ClackyAI
                           'showmebug-ui',      // ShowMeBug
                           'clackyai-web',      // ClackyAI Official
-                          'illustration-series', // FFLAT ILLUSTRATION (Flat illustration)
-                          'showmebug-web'      // ShowMeBug Official (ShowMeBug Web)
+                          'showmebug-web'      // ShowMeBug Official
                        ];
                        
                        const selectedWorks = selectedWorkIds
