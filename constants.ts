@@ -137,7 +137,10 @@ export const INITIAL_PROJECTS: Project[] = [
     tags: ['Figma Implementation', 'Design Thinking Decoding', 'Proposal Validation'],
     role: 'Design Lead',
     coverImage: 'background:#000',
-    detailImages: ['https://picsum.photos/seed/practice1/1200/800'],
+    detailImages: [
+      'https://i.imgur.com/TP2E5CJ.jpeg',
+      'https://i.imgur.com/v1U5Aau.jpeg',
+    ],
     year: '2025'
   },
 
