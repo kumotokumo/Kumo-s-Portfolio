@@ -162,7 +162,7 @@ export const INITIAL_PROJECTS: Project[] = [
     description: '探索设计思维方法论，将 Figma 作为跨团队的主要工具实施，并验证设计提案。',
     tags: ['Figma 工具的推行', '探索设计思维的拆解', '设计提案的验证'],
     role: 'UI/UX 设计师',
-    coverImage: 'background:#000',
+    coverImage: 'https://i.imgur.com/nSkI712.jpeg',
     detailImages: [
       'https://i.imgur.com/TP2E5CJ.jpeg',
       'https://i.imgur.com/v1U5Aau.jpeg',
