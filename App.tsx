@@ -184,7 +184,7 @@ export default function App() {
             animate={{ y: '0%' }}
             exit={{ y: '-100%' }}
             transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-            className="fixed inset-0 bg-background z-[60] flex flex-col pt-32 px-6 md:px-20 pb-12"
+            className="fixed inset-0 bg-background z-[9999] flex flex-col pt-32 px-6 md:px-20 pb-12"
           >
              <div className="absolute inset-0 pointer-events-none opacity-10 flex justify-between px-20">
                 <div className="w-px h-full bg-white"></div>
@@ -223,18 +223,6 @@ export default function App() {
                 </motion.div>
               ))}
             </nav>
-
-            <div className="flex justify-between items-end border-t border-white/10 pt-6 relative z-10">
-              <div className="flex flex-col">
-                <span className="font-mono text-[10px] text-secondary uppercase mb-2">Contact</span>
-                <a href="mailto:kumogyr@gmail.com" className="font-sans text-xl hover:underline decoration-1 underline-offset-4">kumogyr@gmail.com</a>
-              </div>
-              <div className="flex gap-6">
-                 {['IG', 'LN', 'TW'].map(social => (
-                   <span key={social} className="font-mono text-xs hover:bg-white hover:text-black px-2 py-1 cursor-pointer transition-colors border border-white/20">{social}</span>
-                 ))}
-              </div>
-            </div>
           </motion.div>
         )}
       </AnimatePresence>
@@ -506,7 +494,7 @@ export default function App() {
 
       {/* GLOBAL BACK TO TOP BUTTON */}
       <AnimatePresence>
-        {showTopBtn && (
+        {showTopBtn && !isMenuOpen && (
             <motion.button
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
