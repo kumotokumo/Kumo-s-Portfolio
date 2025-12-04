@@ -292,12 +292,6 @@ export default function App() {
               <section className="py-24 px-6 md:px-10">
                  <div className="flex items-end justify-between mb-12 border-b border-white/30 pb-4">
                     <h2 className="font-display text-4xl uppercase">Selected Works</h2>
-                    <button 
-                      onClick={() => navigateTo('PORTFOLIO')}
-                      className="font-mono text-xs uppercase hover:bg-white hover:text-black px-4 py-2 border border-white/20 transition-colors"
-                    >
-                      View Full Index
-                    </button>
                  </div>
                  
                  <div className="flex flex-col">
@@ -332,7 +326,7 @@ export default function App() {
                       onClick={() => navigateTo('PORTFOLIO')}
                       className="font-mono text-xs uppercase hover:bg-white hover:text-black px-6 py-3 border border-white/20 transition-colors clickable"
                     >
-                      VIEW FULL
+                      VIEW FULL INDEX
                     </button>
                  </div>
               </section>
