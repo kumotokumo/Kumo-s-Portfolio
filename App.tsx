@@ -1,7 +1,7 @@
 // [GIT_VERSION: FINAL_V11_GIT_FORCE]
 import React, { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Menu, X, ArrowUpRight, ArrowDown, Lock, Unlock, ChevronRight, Plus, Trash2, ArrowUp, Download } from 'lucide-react';
+import { Menu, X, ArrowUpRight, ArrowDown, ChevronRight, Plus, Trash2, ArrowUp } from 'lucide-react';
 import { CustomCursor } from './components/CustomCursor';
 import { EditableImage } from './components/EditableImage';
 import { INITIAL_PROJECTS } from './constants';
@@ -17,8 +17,8 @@ export default function App() {
   // Filter State
   const [filterCategory, setFilterCategory] = useState<string>('ALL');
   
-  // Admin Mode State
-  const [isAdmin, setIsAdmin] = useState(false);
+  // Admin Mode disabled
+  const isAdmin = false;
   
   // Back to Top State
   const [showTopBtn, setShowTopBtn] = useState(false);
@@ -74,17 +74,6 @@ export default function App() {
       console.error("Save error", e);
       alert("Failed to save to database.");
     }
-  };
-
-  // Export Data Feature
-  const handleExportData = () => {
-    const dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(projects, null, 2));
-    const downloadAnchorNode = document.createElement('a');
-    downloadAnchorNode.setAttribute("href", dataStr);
-    downloadAnchorNode.setAttribute("download", "project-data.json");
-    document.body.appendChild(downloadAnchorNode); // required for firefox
-    downloadAnchorNode.click();
-    downloadAnchorNode.remove();
   };
 
   // 1. Text Field Updates
@@ -162,17 +151,6 @@ export default function App() {
         window.scrollTo(0,0);
       }
     }, delay); 
-  };
-
-  const toggleAdmin = () => {
-    if (!isAdmin) {
-      const password = prompt("Enter Admin Password (default: admin):");
-      if (password === 'admin') {
-        setIsAdmin(true);
-      }
-    } else {
-      setIsAdmin(false);
-    }
   };
 
   // FILTER LOGIC
@@ -531,20 +509,6 @@ export default function App() {
             <span className="font-display font-bold text-xl uppercase">KUMO©</span>
          </div>
          <div className="flex gap-4 items-center">
-             {/* EXPORT DATA BUTTON - ONLY VISIBLE WHEN ADMIN */}
-             {isAdmin && (
-               <button 
-                  onClick={handleExportData} 
-                  className="font-mono text-[10px] text-black bg-yellow-400 hover:bg-yellow-300 px-3 py-1 flex items-center gap-2 uppercase font-bold transition-colors"
-               >
-                  <Download size={12} />
-                  Export Data
-               </button>
-             )}
-            {isAdmin && <span className="font-mono text-[10px] text-green-500 bg-green-900/10 px-1">ADMIN ENABLED</span>}
-            <button onClick={toggleAdmin} className="text-secondary hover:text-white transition-colors p-2">
-               {isAdmin ? <Unlock size={14} /> : <Lock size={14} />}
-            </button>
             <span className="font-mono text-[10px] text-secondary">ALL RIGHTS RESERVED 2024</span>
          </div>
       </footer>
@@ -564,12 +528,7 @@ export default function App() {
         )}
       </AnimatePresence>
 
-      {/* ADMIN FLOATING BADGE (LEFT) */}
-      {isAdmin && (
-        <div className="fixed bottom-6 left-6 bg-green-500 text-black px-4 py-2 font-mono text-xs uppercase font-bold z-[999] shadow-[4px_4px_0px_0px_rgba(255,255,255,0.2)]">
-            Editing Mode Active
-        </div>
-      )}
+      {/* ADMIN FLOATING BADGE REMOVED */}
     </div>
   );
 }
