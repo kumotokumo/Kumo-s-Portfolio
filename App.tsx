@@ -423,20 +423,17 @@ export default function App() {
                          </p>
                       </div>
                       <div className="md:col-span-5 flex justify-end">
-                         <div className="w-full max-w-[400px] aspect-[3/4] overflow-hidden bg-neutral-900 relative group">
+                         <div className="w-full max-w-[400px] aspect-[3/4] overflow-hidden bg-neutral-900 relative">
                             <img 
                                src="https://i.imgur.com/vQ3xXUj.jpeg" 
-                               className="w-full h-full object-cover"
+                               className="w-full h-full object-cover grayscale contrast-110 brightness-95"
                                alt="Profile"
-                               style={{
-                                  filter: 'grayscale(100%) contrast(125%) brightness(90%)',
-                               }}
                             />
                             <div 
-                               className="absolute inset-0 pointer-events-none"
+                               className="absolute inset-0 pointer-events-none opacity-20"
                                style={{
-                                  backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.4'/%3E%3C/svg%3E")`,
-                                  mixBlendMode: 'overlay',
+                                  backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E")`,
+                                  mixBlendMode: 'multiply',
                                }}
                             />
                          </div>
