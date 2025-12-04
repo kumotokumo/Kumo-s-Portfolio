@@ -485,7 +485,7 @@ export default function App() {
                 </h1>
                 
                 <div className="mt-12 flex flex-col items-center gap-8">
-                   <a href="mailto:kumogyr@gmail.com" className="font-mono text-xl md:text-2xl border-b border-white hover:bg-white hover:text-black hover:border-transparent transition-all px-2">
+                   <a href="mailto:kumogyr@gmail.com" className="font-mono text-xl md:text-2xl border-b border-white hover:bg-white hover:text-black hover:border-transparent transition-all px-2 cursor-pointer relative z-10">
                       kumogyr@gmail.com
                    </a>
                 </div>
@@ -500,7 +500,7 @@ export default function App() {
             <span className="font-display font-bold text-xl uppercase">KUMO©</span>
          </div>
          <div className="flex gap-4 items-center">
-            <span className="font-mono text-[10px] text-secondary">ALL RIGHTS RESERVED 2024</span>
+            <span className="font-mono text-[10px] text-secondary">ALL RIGHTS RESERVED 2025</span>
          </div>
       </footer>
 
