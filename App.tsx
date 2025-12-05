@@ -487,7 +487,7 @@ export default function App() {
                 <div className="max-w-[1400px] mx-auto border-l border-r border-white/10 px-6 md:px-10 py-12">
                    <p className="font-mono text-xs text-secondary uppercase mb-8">/ Personal Skills /</p>
                    <p className="font-sans text-sm text-gray-400 mb-12">推动团队、优化流程、并为业务带来实质影响</p>
-                   <div className="grid grid-cols-1 md:grid-cols-4 gap-6 items-start mb-20 md:mb-32">
+                   <div className="grid grid-cols-1 md:grid-cols-4 gap-6 items-start mb-20 md:mb-[120px]">
                       {/* Skill Card 1 */}
                       <div className="border border-white/10 p-8 bg-white/[0.02] hover:bg-white/[0.05] transition-all flex flex-col">
                         <div className="w-12 h-12 mb-6 flex items-center justify-center">
