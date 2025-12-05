@@ -1076,7 +1076,7 @@ const ProjectDetail: React.FC<{
                   {/* Right Side Index Navigation */}
                   {project.detailImages.length > 0 && (
                      <div 
-                        className={`fixed right-6 md:right-10 top-1/2 -translate-y-1/2 z-50 flex flex-col gap-4 transition-opacity duration-300 ${
+                        className={`fixed right-6 md:right-10 top-1/2 -translate-y-1/2 z-50 flex flex-col gap-3 transition-opacity duration-300 ${
                            showIndex ? 'opacity-100' : 'opacity-0 pointer-events-none'
                         }`}
                      >
