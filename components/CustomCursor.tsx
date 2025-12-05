@@ -37,9 +37,10 @@ export const CustomCursor: React.FC = () => {
         opacity: isHovering ? 0.9 : 1
       }}
       transition={{
-        type: "tween",
-        ease: [0.25, 0.1, 0.25, 1],
-        duration: 0.15
+        x: { type: "tween", ease: "linear", duration: 0 },
+        y: { type: "tween", ease: "linear", duration: 0 },
+        scale: { type: "tween", ease: [0.25, 0.1, 0.25, 1], duration: 0.15 },
+        opacity: { type: "tween", ease: [0.25, 0.1, 0.25, 1], duration: 0.15 }
       }}
     />
   );
