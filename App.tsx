@@ -23,8 +23,16 @@ export default function App() {
   // Back to Top State
   const [showTopBtn, setShowTopBtn] = useState(false);
   
-  // Copyright notice state
-  const [showCopyright, setShowCopyright] = useState(false);
+  // Copyright tooltip state for profile photo
+  const [profileTooltip, setProfileTooltip] = useState<{ visible: boolean; x: number; y: number } | null>(null);
+
+  // Auto-hide profile tooltip after 1.5 seconds
+  useEffect(() => {
+    if (profileTooltip?.visible) {
+      const timer = setTimeout(() => setProfileTooltip(null), 1500);
+      return () => clearTimeout(timer);
+    }
+  }, [profileTooltip]);
 
   // Always use constants.ts data, sync to IndexedDB for consistency
   useEffect(() => {
@@ -430,8 +438,11 @@ export default function App() {
                             className="w-full max-w-[400px] aspect-[3/4] overflow-hidden bg-neutral-900 relative group cursor-pointer transition-all duration-500 select-none"
                             onContextMenu={(e) => {
                                e.preventDefault();
-                               setShowCopyright(true);
-                               setTimeout(() => setShowCopyright(false), 2000);
+                               setProfileTooltip({
+                                  visible: true,
+                                  x: e.clientX,
+                                  y: e.clientY
+                               });
                             }}
                          >
                             <img 
@@ -447,16 +458,28 @@ export default function App() {
                                   mixBlendMode: 'multiply',
                                }}
                             />
-                            {showCopyright && (
-                               <motion.div
-                                  initial={{ opacity: 0, y: 10 }}
-                                  animate={{ opacity: 1, y: 0 }}
-                                  exit={{ opacity: 0, y: 10 }}
-                                  className="absolute inset-0 flex items-center justify-center bg-black/50 backdrop-blur-sm z-10 pointer-events-none"
-                               >
-                                  <p className="font-mono text-2xl md:text-3xl text-white font-bold">© KUMO</p>
-                               </motion.div>
-                            )}
+                            {/* Copyright Tooltip */}
+                            <AnimatePresence>
+                               {profileTooltip?.visible && (
+                                  <motion.div
+                                     initial={{ opacity: 0, scale: 0.9 }}
+                                     animate={{ opacity: 1, scale: 1 }}
+                                     exit={{ opacity: 0 }}
+                                     transition={{ duration: 0.2 }}
+                                     style={{ 
+                                       position: 'fixed',
+                                       left: profileTooltip.x, 
+                                       top: profileTooltip.y,
+                                       zIndex: 9999
+                                     }}
+                                     className="pointer-events-none bg-white text-black border border-white/20 px-3 py-1"
+                                  >
+                                     <span className="font-mono text-[10px] uppercase tracking-widest font-bold whitespace-nowrap">
+                                       © kumo
+                                     </span>
+                                  </motion.div>
+                               )}
+                            </AnimatePresence>
                          </div>
                       </div>
                    </div>
