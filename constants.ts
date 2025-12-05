@@ -165,7 +165,7 @@ export const INITIAL_PROJECTS: Project[] = [
     coverImage: 'https://i.imgur.com/nSkI712.jpeg',
     detailImages: [
       'https://i.imgur.com/wOAnTrt.jpeg',
-      'https://i.imgur.com/kvRr6NA.jpeg',
+      'https://i.imgur.com/6sFg3mW.jpeg',
     ],
     year: '2025'
   }
