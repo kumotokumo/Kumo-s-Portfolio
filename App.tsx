@@ -855,6 +855,7 @@ const ProjectDetail: React.FC<{
    const fileInputRef = useRef<HTMLInputElement>(null);
    const imageRefs = useRef<(HTMLDivElement | null)[]>([]);
    const [activeImageIndex, setActiveImageIndex] = useState<number | null>(null);
+   const [showIndex, setShowIndex] = useState(false);
 
    const handleAddClick = () => {
       fileInputRef.current?.click();
@@ -895,11 +896,23 @@ const ProjectDetail: React.FC<{
       }
     };
 
-    // Track active image on scroll
+    // Track active image on scroll and show/hide index
     useEffect(() => {
       const handleScroll = () => {
         const scrollPosition = window.scrollY + window.innerHeight / 2;
         
+        // Check if we've scrolled to the middle of the first detail image
+        if (imageRefs.current[0]) {
+          const firstImageRef = imageRefs.current[0];
+          const rect = firstImageRef.getBoundingClientRect();
+          const firstImageTop = rect.top + window.scrollY;
+          const firstImageMiddle = firstImageTop + rect.height / 2;
+          
+          // Show index when scroll position reaches the middle of first image
+          setShowIndex(scrollPosition >= firstImageMiddle);
+        }
+        
+        // Track active image
         for (let i = 0; i < imageRefs.current.length; i++) {
           const ref = imageRefs.current[i];
           if (ref) {
