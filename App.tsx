@@ -493,7 +493,7 @@ export default function App() {
                         </div>
                         <h3 className="font-display text-xl uppercase mb-4">问题框架构建力</h3>
                         <p className="font-sans text-xs text-gray-400 leading-relaxed">
-                            面对模糊需求或复杂场景,能快速定位核心矛盾,将业务目标转化为清晰的设计框架,确保执行不偏离方向。
+                            面对模糊需求或复杂场景，能快速定位核心矛盾，将业务目标转化为清晰的设计框架，确保执行不偏离方向。
                         </p>
                       </div>
                       {/* Skill Card 2 */}
@@ -503,7 +503,7 @@ export default function App() {
                         </div>
                         <h3 className="font-display text-xl uppercase mb-4">动机洞察共情力</h3>
                         <p className="font-sans text-xs text-gray-400 leading-relaxed">
-                            不止于界面表现,能深入理解用户行为背后的决策逻辑与真实动机,使方案精准匹配深层需求。
+                            不止于界面表现，能深入理解用户行为背后的决策逻辑与真实动机，使方案精准匹配深层需求。
                         </p>
                       </div>
                       {/* Skill Card 3 */}
@@ -513,7 +513,7 @@ export default function App() {
                         </div>
                         <h3 className="font-display text-xl uppercase mb-4">跨域协同推动力</h3>
                         <p className="font-sans text-xs text-gray-400 leading-relaxed">
-                            擅用原型、图示等可视化语言打破沟通壁垒,主动对齐多方认知,化解分歧,确保设计意图完整落地。
+                            擅用原型、图示等可视化语言打破沟通壁垒，主动对齐多方认知，化解分歧，确保设计意图完整落地。
                         </p>
                       </div>
                       {/* Skill Card 4 */}
@@ -523,7 +523,7 @@ export default function App() {
                         </div>
                         <h3 className="font-display text-xl uppercase mb-4">全局优化驱动意识</h3>
                         <p className="font-sans text-xs text-gray-400 leading-relaxed">
-                            习惯从流程和系统层面发现改进点,主动推进体验优化或协同效率提升,不局限于单次任务执行。
+                            习惯从流程和系统层面发现改进点，主动推进体验优化或协同效率提升，不局限于单次任务执行。
                         </p>
                       </div>
                    </div>
