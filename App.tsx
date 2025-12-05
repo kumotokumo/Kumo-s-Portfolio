@@ -898,36 +898,46 @@ const ProjectDetail: React.FC<{
 
     // Track active image on scroll and show/hide index
     useEffect(() => {
+      let ticking = false;
+      
       const handleScroll = () => {
-        const scrollPosition = window.scrollY + window.innerHeight / 2;
-        
-        // Check if we've scrolled to the top of the first detail image
-        if (imageRefs.current[0]) {
-          const firstImageRef = imageRefs.current[0];
-          const rect = firstImageRef.getBoundingClientRect();
-          const firstImageTop = rect.top + window.scrollY;
-          
-          // Show index when scroll position reaches the top of first image
-          setShowIndex(window.scrollY >= firstImageTop);
-        }
-        
-        // Track active image
-        for (let i = 0; i < imageRefs.current.length; i++) {
-          const ref = imageRefs.current[i];
-          if (ref) {
-            const rect = ref.getBoundingClientRect();
-            const elementTop = rect.top + window.scrollY;
-            const elementBottom = elementTop + rect.height;
+        if (!ticking) {
+          window.requestAnimationFrame(() => {
+            const scrollPosition = window.scrollY + window.innerHeight / 2;
             
-            if (scrollPosition >= elementTop && scrollPosition <= elementBottom) {
-              setActiveImageIndex(i);
-              break;
+            // Check if we've scrolled to the top of the first detail image
+            if (imageRefs.current[0]) {
+              const firstImageRef = imageRefs.current[0];
+              const rect = firstImageRef.getBoundingClientRect();
+              const firstImageTop = rect.top + window.scrollY;
+              
+              // Show index when scroll position reaches the top of first image
+              setShowIndex(window.scrollY >= firstImageTop);
             }
-          }
+            
+            // Track active image
+            for (let i = 0; i < imageRefs.current.length; i++) {
+              const ref = imageRefs.current[i];
+              if (ref) {
+                const rect = ref.getBoundingClientRect();
+                const elementTop = rect.top + window.scrollY;
+                const elementBottom = elementTop + rect.height;
+                
+                if (scrollPosition >= elementTop && scrollPosition <= elementBottom) {
+                  setActiveImageIndex(i);
+                  break;
+                }
+              }
+            }
+            
+            ticking = false;
+          });
+          
+          ticking = true;
         }
       };
 
-      window.addEventListener('scroll', handleScroll);
+      window.addEventListener('scroll', handleScroll, { passive: true });
       handleScroll(); // Initial check
       
       return () => window.removeEventListener('scroll', handleScroll);
@@ -1064,12 +1074,11 @@ const ProjectDetail: React.FC<{
                {/* 2. Images (Bottom) */}
                <div className="w-full space-y-32 relative">
                   {/* Right Side Index Navigation */}
-                  {project.detailImages.length > 0 && showIndex && (
-                     <motion.div 
-                        initial={{ opacity: 0 }}
-                        animate={{ opacity: 1 }}
-                        exit={{ opacity: 0 }}
-                        className="fixed right-6 md:right-10 top-1/2 -translate-y-1/2 z-50 flex flex-col gap-3"
+                  {project.detailImages.length > 0 && (
+                     <div 
+                        className={`fixed right-6 md:right-10 top-1/2 -translate-y-1/2 z-50 flex flex-col gap-3 transition-opacity duration-300 ${
+                           showIndex ? 'opacity-100' : 'opacity-0 pointer-events-none'
+                        }`}
                      >
                         {project.detailImages.map((_, idx) => {
                            const isActive = activeImageIndex === idx;
@@ -1083,7 +1092,7 @@ const ProjectDetail: React.FC<{
                               />
                            );
                         })}
-                     </motion.div>
+                     </div>
                   )}
 
                   {project.detailImages.map((img, idx) => (
