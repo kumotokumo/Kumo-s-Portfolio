@@ -944,6 +944,11 @@ const ProjectDetail: React.FC<{
         if (!ticking) {
           window.requestAnimationFrame(() => {
             const scrollPosition = window.scrollY + window.innerHeight / 2;
+            const scrollY = window.scrollY;
+            
+            // Hide close button when scrolled past header (header height is approximately 64px on mobile, 80px on desktop)
+            const headerHeight = window.innerWidth >= 768 ? 80 : 64;
+            setShowCloseButton(scrollY < headerHeight);
             
             // Check if we've scrolled to the top of the first detail image and not past the bottom of the last image
             let shouldShowIndex = false;
