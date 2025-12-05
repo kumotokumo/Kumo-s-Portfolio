@@ -766,6 +766,34 @@ const ProjectListItem: React.FC<{
    );
 }
 
+// Image Index Item Component
+const ImageIndexItem: React.FC<{
+   index: number;
+   isActive: boolean;
+   onClick: () => void;
+}> = ({ index, isActive, onClick }) => {
+   const [isHovered, setIsHovered] = useState(false);
+   const shouldHighlight = isActive || isHovered;
+
+   return (
+      <button
+         onClick={onClick}
+         onMouseEnter={() => setIsHovered(true)}
+         onMouseLeave={() => setIsHovered(false)}
+         className="flex items-center justify-end gap-2 group cursor-pointer transition-all"
+         aria-label={`Go to image ${index + 1}`}
+      >
+         <div
+            className={`transition-all duration-300 ${
+               shouldHighlight
+                  ? 'w-12 bg-white'
+                  : 'w-8 bg-gray-600'
+            } h-[1px]`}
+         />
+      </button>
+   );
+};
+
 const ProjectDetail: React.FC<{
   project: Project;
   allProjects: Project[];
@@ -778,6 +806,8 @@ const ProjectDetail: React.FC<{
   isAdmin: boolean;
 }> = ({ project, allProjects, onBack, onNext, onUpdateImage, onAddImage, onDeleteImage, onUpdateText, isAdmin }) => {
    const fileInputRef = useRef<HTMLInputElement>(null);
+   const imageRefs = useRef<(HTMLDivElement | null)[]>([]);
+   const [activeImageIndex, setActiveImageIndex] = useState<number | null>(null);
 
    const handleAddClick = () => {
       fileInputRef.current?.click();
@@ -809,6 +839,40 @@ const ProjectDetail: React.FC<{
     const currentIndex = allProjects.findIndex(p => p.id === project.id);
     const nextIndex = (currentIndex + 1) % allProjects.length;
     const nextProject = allProjects[nextIndex];
+
+    // Scroll to image handler
+    const scrollToImage = (index: number) => {
+      const ref = imageRefs.current[index];
+      if (ref) {
+        ref.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      }
+    };
+
+    // Track active image on scroll
+    useEffect(() => {
+      const handleScroll = () => {
+        const scrollPosition = window.scrollY + window.innerHeight / 2;
+        
+        for (let i = 0; i < imageRefs.current.length; i++) {
+          const ref = imageRefs.current[i];
+          if (ref) {
+            const rect = ref.getBoundingClientRect();
+            const elementTop = rect.top + window.scrollY;
+            const elementBottom = elementTop + rect.height;
+            
+            if (scrollPosition >= elementTop && scrollPosition <= elementBottom) {
+              setActiveImageIndex(i);
+              break;
+            }
+          }
+        }
+      };
+
+      window.addEventListener('scroll', handleScroll);
+      handleScroll(); // Initial check
+      
+      return () => window.removeEventListener('scroll', handleScroll);
+    }, [project.detailImages.length]);
 
     // Helper to render editable input
     const renderEditable = (
@@ -939,9 +1003,30 @@ const ProjectDetail: React.FC<{
                </div>
 
                {/* 2. Images (Bottom) */}
-               <div className="w-full space-y-32">
+               <div className="w-full space-y-32 relative">
+                  {/* Right Side Index Navigation */}
+                  {project.detailImages.length > 0 && (
+                     <div className="fixed right-6 md:right-10 top-1/2 -translate-y-1/2 z-50 flex flex-col gap-3">
+                        {project.detailImages.map((_, idx) => {
+                           const isActive = activeImageIndex === idx;
+                           return (
+                              <ImageIndexItem
+                                 key={idx}
+                                 index={idx}
+                                 isActive={isActive}
+                                 onClick={() => scrollToImage(idx)}
+                              />
+                           );
+                        })}
+                     </div>
+                  )}
+
                   {project.detailImages.map((img, idx) => (
-                     <div key={idx} className="space-y-4 relative group/item">
+                     <div 
+                        key={idx} 
+                        ref={(el) => { imageRefs.current[idx] = el; }}
+                        className="space-y-4 relative group/item"
+                     >
                         <div className="w-full bg-neutral-900 border border-white/5 relative">
                            <EditableImage 
                               currentSrc={img} 
