@@ -437,7 +437,7 @@ export default function App() {
                       </div>
                       <div className="md:col-span-5 flex justify-end">
                          <div 
-                            className="w-full max-w-[400px] aspect-[3/4] overflow-hidden bg-neutral-900 relative cursor-pointer select-none"
+                            className="w-full max-w-[400px] aspect-[3/4] overflow-hidden bg-neutral-900 relative cursor-pointer select-none flex items-center justify-center"
                             onContextMenu={(e) => {
                                e.preventDefault();
                                setProfileTooltip({
@@ -449,7 +449,7 @@ export default function App() {
                          >
                             <LazyLoadImage 
                                src={`${import.meta.env.BASE_URL || '/'}images/about/about-kumo.jpg`} 
-                               className="w-full h-full object-cover pointer-events-none"
+                               className="w-full h-full object-contain pointer-events-none"
                                alt="Profile"
                                draggable="false"
                                effect="opacity"
