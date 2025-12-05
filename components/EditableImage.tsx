@@ -105,6 +105,8 @@ export const EditableImage: React.FC<EditableImageProps> = ({ currentSrc, onUplo
         draggable={false}
         effect="opacity"
         style={imgStyle}
+        threshold={300}
+        loading="lazy"
       />
       
       {isAdmin && (

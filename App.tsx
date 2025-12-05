@@ -453,6 +453,8 @@ export default function App() {
                                alt="Profile"
                                draggable="false"
                                effect="opacity"
+                               threshold={500}
+                               loading="eager"
                             />
                             {/* Copyright Tooltip */}
                             <AnimatePresence>
@@ -1225,6 +1227,7 @@ const ProjectDetail: React.FC<{
                     alt="Next Project" 
                     effect="opacity"
                     style={{ objectPosition: '50% 50%', objectFit: 'cover' }}
+                    threshold={200}
                   />
                   <div className="absolute inset-0 bg-black/40"></div>
                </div>
