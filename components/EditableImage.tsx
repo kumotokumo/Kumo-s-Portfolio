@@ -111,6 +111,15 @@ export const EditableImage: React.FC<EditableImageProps> = ({ currentSrc, onUplo
         delayMethod="throttle"
         delayTime={0}
         placeholder={<div className="w-full h-full bg-neutral-900" />}
+        onError={(e: React.SyntheticEvent<HTMLImageElement, Event>) => {
+          // Retry loading on error
+          const img = e.currentTarget;
+          const originalSrc = img.src;
+          setTimeout(() => {
+            if (img.src !== originalSrc) return;
+            img.src = originalSrc + (originalSrc.includes('?') ? '&' : '?') + 'retry=' + Date.now();
+          }, 1000);
+        }}
       />
       
       {isAdmin && (
