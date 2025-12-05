@@ -1031,13 +1031,13 @@ const ProjectDetail: React.FC<{
    return (
       <div className="min-h-screen bg-background pb-20">
          {/* Large Header Image */}
-         <div className="h-[60vh] md:h-[80vh] w-full relative group">
+         <div className="h-[60vh] md:h-[80vh] w-full relative group overflow-hidden">
             <EditableImage 
                currentSrc={project.coverImage}
                alt="Hero"
                onUpload={(b64) => onUpdateImage(project.id, 'cover', b64, -1)} 
                isAdmin={isAdmin}
-               className="w-full h-full object-cover"
+               className="w-full h-full"
             />
             <div className="absolute inset-0 bg-black/50 pointer-events-none z-10"></div>
             <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent pointer-events-none z-20"></div>
@@ -1158,7 +1158,7 @@ const ProjectDetail: React.FC<{
                         ref={(el) => { imageRefs.current[idx] = el; }}
                         className="space-y-4 relative group/item"
                      >
-                        <div className="w-full bg-neutral-900 border border-white/5 relative">
+                        <div className="w-full bg-neutral-900 border border-white/5 relative overflow-hidden">
                            <EditableImage 
                               currentSrc={img} 
                               alt={`Detail ${idx}`}

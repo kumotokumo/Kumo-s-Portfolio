@@ -79,8 +79,8 @@ export const EditableImage: React.FC<EditableImageProps> = ({ currentSrc, onUplo
   // Determine if we should use h-auto (for detail images) or h-full (for cover images)
   const useAutoHeight = className?.includes('h-auto');
   const imgClassName = useAutoHeight 
-    ? "w-full h-auto select-none" 
-    : "w-full h-full object-cover select-none";
+    ? "w-full h-auto select-none block" 
+    : "w-full h-full object-cover select-none block";
 
   return (
     <div 
@@ -93,6 +93,7 @@ export const EditableImage: React.FC<EditableImageProps> = ({ currentSrc, onUplo
         className={imgClassName}
         draggable={false}
         effect="opacity"
+        style={{ display: 'block' }}
       />
       
       {isAdmin && (
