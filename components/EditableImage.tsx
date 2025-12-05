@@ -96,7 +96,7 @@ export const EditableImage: React.FC<EditableImageProps> = ({ currentSrc, onUplo
     <div 
       className={`${isCoverImage ? 'absolute inset-0' : 'relative'} group ${className}`} 
       onContextMenu={handleContextMenu}
-      style={useAutoHeight ? { lineHeight: 0, display: 'block' } : {}}
+      style={useAutoHeight ? { lineHeight: 0, display: 'block' } : isCoverImage ? { display: 'flex', alignItems: 'center', justifyContent: 'center' } : {}}
     >
       <LazyLoadImage 
         src={getImageSrc(currentSrc)} 
