@@ -22,6 +22,9 @@ export default function App() {
   
   // Back to Top State
   const [showTopBtn, setShowTopBtn] = useState(false);
+  
+  // Copyright notice state
+  const [showCopyright, setShowCopyright] = useState(false);
 
   // Always use constants.ts data, sync to IndexedDB for consistency
   useEffect(() => {
@@ -423,11 +426,19 @@ export default function App() {
                          </p>
                       </div>
                       <div className="md:col-span-5 flex justify-end">
-                         <div className="w-full max-w-[400px] aspect-[3/4] overflow-hidden bg-neutral-900 relative group cursor-pointer transition-all duration-500">
+                         <div 
+                            className="w-full max-w-[400px] aspect-[3/4] overflow-hidden bg-neutral-900 relative group cursor-pointer transition-all duration-500 select-none"
+                            onContextMenu={(e) => {
+                               e.preventDefault();
+                               setShowCopyright(true);
+                               setTimeout(() => setShowCopyright(false), 2000);
+                            }}
+                         >
                             <img 
                                src="https://i.imgur.com/ZkIOx0a.jpeg" 
-                               className="w-full h-full object-cover grayscale contrast-110 brightness-95 group-hover:grayscale-0 transition-all duration-500"
+                               className="w-full h-full object-cover grayscale contrast-110 brightness-95 group-hover:grayscale-0 transition-all duration-500 pointer-events-none"
                                alt="Profile"
+                               draggable="false"
                             />
                             <div 
                                className="absolute inset-0 pointer-events-none opacity-25 group-hover:opacity-10 transition-opacity duration-500"
@@ -436,6 +447,16 @@ export default function App() {
                                   mixBlendMode: 'multiply',
                                }}
                             />
+                            {showCopyright && (
+                               <motion.div
+                                  initial={{ opacity: 0, y: 10 }}
+                                  animate={{ opacity: 1, y: 0 }}
+                                  exit={{ opacity: 0, y: 10 }}
+                                  className="absolute inset-0 flex items-center justify-center bg-black/50 backdrop-blur-sm z-10 pointer-events-none"
+                               >
+                                  <p className="font-mono text-2xl md:text-3xl text-white font-bold">© KUMO</p>
+                               </motion.div>
+                            )}
                          </div>
                       </div>
                    </div>
