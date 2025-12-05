@@ -895,6 +895,7 @@ const ProjectDetail: React.FC<{
    const imageRefs = useRef<(HTMLDivElement | null)[]>([]);
    const [activeImageIndex, setActiveImageIndex] = useState<number | null>(null);
    const [showIndex, setShowIndex] = useState(false);
+   const [showCloseButton, setShowCloseButton] = useState(true);
 
    const handleAddClick = () => {
       fileInputRef.current?.click();
@@ -1041,12 +1042,15 @@ const ProjectDetail: React.FC<{
             <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent pointer-events-none"></div>
             <div className="absolute inset-x-0 bottom-0 h-2/3 pointer-events-none bg-gradient-to-t from-black/80 via-black/40 to-transparent"></div>
             
-            <button 
+            <motion.button 
                onClick={onBack}
+               initial={{ opacity: 1 }}
+               animate={{ opacity: showCloseButton ? 1 : 0, pointerEvents: showCloseButton ? 'auto' : 'none' }}
+               transition={{ duration: 0.3 }}
                className="absolute top-32 right-6 md:right-10 z-50 w-12 h-12 bg-white text-black flex items-center justify-center clickable hover:scale-110 transition-transform"
             >
                <X size={20} />
-            </button>
+            </motion.button>
 
             {/* Z-index increased to ensure clickability over potential image overlaps */}
             <div className="absolute bottom-0 left-0 p-6 md:p-10 w-full z-40">
