@@ -815,6 +815,17 @@ const getImageName = (projectId: string, index: number): string => {
          '编码 IDE 页面概览',
          '项目总结'
       ],
+      'showmebug-web': [
+         '项目介绍',
+         '项目概述',
+         '用户体验地图',
+         '品牌升级',
+         '首页解析',
+         '产品方案页解析',
+         '核心价值页解析',
+         '页面概览',
+         '项目总结'
+      ],
    };
    
    const names = imageNames[projectId];
