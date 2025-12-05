@@ -415,7 +415,7 @@ export default function App() {
                 <div className="max-w-[1400px] mx-auto mb-20 border-l border-r border-white/10 px-6 md:px-10 py-12">
                    <div className="grid grid-cols-1 md:grid-cols-12 gap-8 items-center">
                       <div className="md:col-span-7">
-                         <h1 className="font-display text-[6vw] md:text-[5vw] leading-[1.1] uppercase font-bold mb-8 whitespace-nowrap">
+                         <h1 className="font-display text-[6vw] md:text-[5vw] leading-[1.1] uppercase font-bold mb-8 whitespace-nowrap gradient-text">
                             您好，我是郭意如
                          </h1>
                          <p className="font-sans text-lg md:text-xl text-gray-300 leading-relaxed max-w-3xl">
@@ -423,14 +423,14 @@ export default function App() {
                          </p>
                       </div>
                       <div className="md:col-span-5 flex justify-end">
-                         <div className="w-full max-w-[400px] aspect-[3/4] overflow-hidden bg-neutral-900 relative">
+                         <div className="w-full max-w-[400px] aspect-[3/4] overflow-hidden bg-neutral-900 relative group cursor-pointer transition-all duration-500">
                             <img 
                                src="https://i.imgur.com/ZkIOx0a.jpeg" 
-                               className="w-full h-full object-cover grayscale contrast-110 brightness-95"
+                               className="w-full h-full object-cover grayscale contrast-110 brightness-95 group-hover:grayscale-0 transition-all duration-500"
                                alt="Profile"
                             />
                             <div 
-                               className="absolute inset-0 pointer-events-none opacity-25"
+                               className="absolute inset-0 pointer-events-none opacity-25 group-hover:opacity-10 transition-opacity duration-500"
                                style={{
                                   backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.5' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E")`,
                                   mixBlendMode: 'multiply',

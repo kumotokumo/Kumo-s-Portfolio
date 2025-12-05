@@ -76,6 +76,24 @@
         -webkit-text-stroke: 1px rgba(255,255,255,0.2);
         color: transparent;
       }
+
+      @keyframes gradient-shift {
+        0%, 100% {
+          background-position: 0% 50%;
+        }
+        50% {
+          background-position: 100% 50%;
+        }
+      }
+
+      .gradient-text {
+        background: linear-gradient(90deg, #F0F0F0 0%, #A0A0A0 25%, #F0F0F0 50%, #C0C0C0 75%, #F0F0F0 100%);
+        background-size: 200% 100%;
+        -webkit-background-clip: text;
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+        animation: gradient-shift 8s ease-in-out infinite;
+      }
     </style>
   <script type="importmap">
 {
