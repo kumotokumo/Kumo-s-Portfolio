@@ -484,47 +484,61 @@ export default function App() {
                 </div>
 
                 {/* Personal Soft Skills Section */}
-                <div className="max-w-[1400px] mx-auto border-l border-r border-white/10 px-6 md:px-10 py-12">
+                <div className="max-w-[1400px] mx-auto border-l border-r border-white/10 px-6 md:px-10 py-12 relative">
                    <p className="font-mono text-xs text-secondary uppercase mb-8">/ Personal Skills /</p>
                    <p className="font-sans text-sm text-gray-400 mb-12">推动团队、优化流程、并为业务带来实质影响</p>
-                   <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
+                   {/* Gradient Background */}
+                   <div className="absolute inset-0 bg-gradient-to-br from-blue-900/20 via-purple-900/20 to-purple-800/20 pointer-events-none"></div>
+                   <div className="grid grid-cols-1 md:grid-cols-4 gap-6 relative z-10">
                       {/* Skill Card 1 */}
-                      <div className="border border-white/10 p-8 bg-white/[0.02] hover:bg-white/[0.05] transition-all">
+                      <div className="relative rounded-lg border border-white/20 p-8 bg-white/[0.03] hover:bg-white/[0.05] transition-all backdrop-blur-sm shadow-[0_0_20px_rgba(168,85,247,0.2)] hover:shadow-[0_0_30px_rgba(168,85,247,0.3)]">
                         <div className="w-12 h-12 mb-6 flex items-center justify-center">
-                          <Layers size={32} className="text-white" strokeWidth={1.5} />
+                          <div className="relative">
+                            <div className="absolute inset-0 bg-gradient-to-br from-purple-400/50 to-white/50 blur-md"></div>
+                            <Layers size={32} className="text-white relative z-10 drop-shadow-[0_0_8px_rgba(168,85,247,0.8)]" strokeWidth={1.5} />
+                          </div>
                         </div>
-                        <h3 className="font-display text-xl uppercase mb-4">问题框架构建力</h3>
-                        <p className="font-sans text-xs text-gray-400 leading-relaxed">
+                        <h3 className="font-display text-xl uppercase mb-4 text-white">问题框架构建力</h3>
+                        <p className="font-sans text-xs text-gray-300 leading-relaxed">
                             面对模糊需求或复杂场景，能快速定位核心矛盾，将业务目标转化为清晰的设计框架，确保执行不偏离方向。
                         </p>
                       </div>
                       {/* Skill Card 2 */}
-                      <div className="border border-white/10 p-8 bg-white/[0.02] hover:bg-white/[0.05] transition-all">
+                      <div className="relative rounded-lg border border-white/20 p-8 bg-white/[0.03] hover:bg-white/[0.05] transition-all backdrop-blur-sm shadow-[0_0_20px_rgba(168,85,247,0.2)] hover:shadow-[0_0_30px_rgba(168,85,247,0.3)]">
                         <div className="w-12 h-12 mb-6 flex items-center justify-center">
-                          <Brain size={32} className="text-white" strokeWidth={1.5} />
+                          <div className="relative">
+                            <div className="absolute inset-0 bg-gradient-to-br from-purple-400/50 to-white/50 blur-md"></div>
+                            <Brain size={32} className="text-white relative z-10 drop-shadow-[0_0_8px_rgba(168,85,247,0.8)]" strokeWidth={1.5} />
+                          </div>
                         </div>
-                        <h3 className="font-display text-xl uppercase mb-4">动机洞察共情力</h3>
-                        <p className="font-sans text-xs text-gray-400 leading-relaxed">
+                        <h3 className="font-display text-xl uppercase mb-4 text-white">动机洞察共情力</h3>
+                        <p className="font-sans text-xs text-gray-300 leading-relaxed">
                             不止于界面表现，能深入理解用户行为背后的决策逻辑与真实动机，使方案精准匹配深层需求。
                         </p>
                       </div>
                       {/* Skill Card 3 */}
-                      <div className="border border-white/10 p-8 bg-white/[0.02] hover:bg-white/[0.05] transition-all">
+                      <div className="relative rounded-lg border border-white/20 p-8 bg-white/[0.03] hover:bg-white/[0.05] transition-all backdrop-blur-sm shadow-[0_0_20px_rgba(168,85,247,0.2)] hover:shadow-[0_0_30px_rgba(168,85,247,0.3)]">
                         <div className="w-12 h-12 mb-6 flex items-center justify-center">
-                          <Users size={32} className="text-white" strokeWidth={1.5} />
+                          <div className="relative">
+                            <div className="absolute inset-0 bg-gradient-to-br from-purple-400/50 to-white/50 blur-md"></div>
+                            <Users size={32} className="text-white relative z-10 drop-shadow-[0_0_8px_rgba(168,85,247,0.8)]" strokeWidth={1.5} />
+                          </div>
                         </div>
-                        <h3 className="font-display text-xl uppercase mb-4">跨域协同推动力</h3>
-                        <p className="font-sans text-xs text-gray-400 leading-relaxed">
+                        <h3 className="font-display text-xl uppercase mb-4 text-white">跨域协同推动力</h3>
+                        <p className="font-sans text-xs text-gray-300 leading-relaxed">
                             擅用原型、图示等可视化语言打破沟通壁垒，主动对齐多方认知，化解分歧，确保设计意图完整落地。
                         </p>
                       </div>
                       {/* Skill Card 4 */}
-                      <div className="border border-white/10 p-8 bg-white/[0.02] hover:bg-white/[0.05] transition-all">
+                      <div className="relative rounded-lg border border-white/20 p-8 bg-white/[0.03] hover:bg-white/[0.05] transition-all backdrop-blur-sm shadow-[0_0_20px_rgba(168,85,247,0.2)] hover:shadow-[0_0_30px_rgba(168,85,247,0.3)]">
                         <div className="w-12 h-12 mb-6 flex items-center justify-center">
-                          <Zap size={32} className="text-white" strokeWidth={1.5} />
+                          <div className="relative">
+                            <div className="absolute inset-0 bg-gradient-to-br from-purple-400/50 to-white/50 blur-md"></div>
+                            <Zap size={32} className="text-white relative z-10 drop-shadow-[0_0_8px_rgba(168,85,247,0.8)]" strokeWidth={1.5} />
+                          </div>
                         </div>
-                        <h3 className="font-display text-xl uppercase mb-4">全局优化驱动意识</h3>
-                        <p className="font-sans text-xs text-gray-400 leading-relaxed">
+                        <h3 className="font-display text-xl uppercase mb-4 text-white">全局优化驱动意识</h3>
+                        <p className="font-sans text-xs text-gray-300 leading-relaxed">
                             习惯从流程和系统层面发现改进点，主动推进体验优化或协同效率提升，不局限于单次任务执行。
                         </p>
                       </div>
