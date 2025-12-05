@@ -816,7 +816,7 @@ const ImageIndexItem: React.FC<{
                initial={{ opacity: 0, x: -10 }}
                animate={{ opacity: 1, x: 0 }}
                exit={{ opacity: 0 }}
-               className="absolute right-full mr-3 whitespace-nowrap bg-white text-black px-2 py-1 pointer-events-none z-50"
+               className="absolute right-full mr-3 whitespace-nowrap bg-white text-black px-2 py-[2px] pointer-events-none z-50"
             >
                <span className="font-mono text-[8px] uppercase tracking-wider font-medium leading-tight">
                   {imageName}
