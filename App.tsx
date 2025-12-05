@@ -424,7 +424,7 @@ export default function App() {
                 className="px-6 md:px-10 py-12 md:py-20"
              >
                 {/* Introduction Section */}
-                <div className="max-w-[1400px] mx-auto mb-20 border-l border-r border-white/10 px-6 md:px-10 py-12">
+                <div className="max-w-[1400px] mx-auto border-l border-r border-white/10 px-6 md:px-10 py-12">
                    <div className="grid grid-cols-1 md:grid-cols-12 gap-8 items-center">
                       <div className="md:col-span-7">
                          <h1 className="font-display text-[7vw] md:text-[6vw] leading-[1.1] uppercase font-bold mb-8 text-white">
