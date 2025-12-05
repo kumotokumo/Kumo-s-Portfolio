@@ -775,13 +775,13 @@ const getImageName = (projectId: string, index: number): string => {
          '品牌塑造',
          '设计原则',
          '设计令牌架构',
-         '基础规范1',
-         '基础规范2',
+         '基础规范',
+         '基础规范',
          '组件库',
          '组件概览',
          '核心用户流程',
-         '界面呈现 1',
-         '界面呈现 2',
+         '界面呈现',
+         '界面呈现',
          'AI 对话系统',
          '业务组件',
          '项目总结',
@@ -795,8 +795,8 @@ const getImageName = (projectId: string, index: number): string => {
          '颜色、字体与网格',
          '首页概览',
          '首页设计说明',
-         '页面概览 1',
-         '页面概览 2',
+         '页面概览',
+         '页面概览',
          '移动端页面概览',
          '项目复盘'
       ],
@@ -1115,7 +1115,7 @@ const ProjectDetail: React.FC<{
                   {/* Right Side Index Navigation */}
                   {project.detailImages.length > 0 && (
                      <div 
-                        className={`fixed right-6 md:right-10 top-1/2 -translate-y-1/2 z-50 flex flex-col gap-3 transition-opacity duration-300 ${
+                        className={`fixed right-6 md:right-10 top-1/2 -translate-y-1/2 z-50 flex flex-col gap-2 transition-opacity duration-300 ${
                            showIndex ? 'opacity-100' : 'opacity-0 pointer-events-none'
                         }`}
                      >
