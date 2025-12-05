@@ -666,7 +666,7 @@ export default function App() {
       </main>
 
       {/* FOOTER */}
-      <footer className="px-6 md:px-10 py-8 border-t border-white/10 flex justify-between items-end relative z-[100]">
+      <footer className="px-6 md:px-10 py-8 flex justify-between items-end relative z-[100]">
          <div>
             <span className="font-display font-bold text-xl uppercase">KUMO©</span>
          </div>
