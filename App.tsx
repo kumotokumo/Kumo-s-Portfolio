@@ -816,9 +816,9 @@ const ImageIndexItem: React.FC<{
                initial={{ opacity: 0, x: -10 }}
                animate={{ opacity: 1, x: 0 }}
                exit={{ opacity: 0 }}
-               className="absolute right-full mr-3 whitespace-nowrap bg-white text-black px-2 py-0.5 pointer-events-none z-50"
+               className="absolute right-full mr-3 whitespace-nowrap bg-white text-black px-2 py-1 pointer-events-none z-50"
             >
-               <span className="font-mono text-[8px] uppercase tracking-wider font-medium">
+               <span className="font-mono text-[8px] uppercase tracking-wider font-medium leading-tight">
                   {imageName}
                </span>
             </motion.div>
@@ -901,15 +901,14 @@ const ProjectDetail: React.FC<{
       const handleScroll = () => {
         const scrollPosition = window.scrollY + window.innerHeight / 2;
         
-        // Check if we've scrolled to the middle of the first detail image
+        // Check if we've scrolled to the top of the first detail image
         if (imageRefs.current[0]) {
           const firstImageRef = imageRefs.current[0];
           const rect = firstImageRef.getBoundingClientRect();
           const firstImageTop = rect.top + window.scrollY;
-          const firstImageMiddle = firstImageTop + rect.height / 2;
           
-          // Show index when scroll position reaches the middle of first image
-          setShowIndex(scrollPosition >= firstImageMiddle);
+          // Show index when scroll position reaches the top of first image
+          setShowIndex(window.scrollY >= firstImageTop);
         }
         
         // Track active image
