@@ -944,15 +944,28 @@ const ProjectDetail: React.FC<{
           window.requestAnimationFrame(() => {
             const scrollPosition = window.scrollY + window.innerHeight / 2;
             
-            // Check if we've scrolled to the top of the first detail image
+            // Check if we've scrolled to the top of the first detail image and not past the bottom of the last image
+            let shouldShowIndex = false;
             if (imageRefs.current[0]) {
               const firstImageRef = imageRefs.current[0];
               const rect = firstImageRef.getBoundingClientRect();
               const firstImageTop = rect.top + window.scrollY;
               
-              // Show index when scroll position reaches the top of first image
-              setShowIndex(window.scrollY >= firstImageTop);
+              // Check if we've scrolled past the bottom of the last image
+              const lastImageIndex = imageRefs.current.length - 1;
+              if (imageRefs.current[lastImageIndex]) {
+                const lastImageRef = imageRefs.current[lastImageIndex];
+                const lastRect = lastImageRef.getBoundingClientRect();
+                const lastImageBottom = lastRect.bottom + window.scrollY;
+                
+                // Show index when: scroll position reaches the top of first image AND not past the bottom of last image
+                shouldShowIndex = window.scrollY >= firstImageTop && window.scrollY + window.innerHeight < lastImageBottom;
+              } else {
+                shouldShowIndex = window.scrollY >= firstImageTop;
+              }
             }
+            
+            setShowIndex(shouldShowIndex);
             
             // Track active image
             for (let i = 0; i < imageRefs.current.length; i++) {
