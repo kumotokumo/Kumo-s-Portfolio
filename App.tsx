@@ -447,7 +447,7 @@ export default function App() {
                             }}
                          >
                             <img 
-                               src="https://i.imgur.com/ZkIOx0a.jpeg" 
+                               src="/images/about/about-kumo.jpg" 
                                className="w-full h-full object-cover pointer-events-none"
                                alt="Profile"
                                draggable="false"
