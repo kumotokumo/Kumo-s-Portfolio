@@ -81,10 +81,16 @@ export const EditableImage: React.FC<EditableImageProps> = ({ currentSrc, onUplo
   const isCoverImage = className?.includes('absolute inset-0');
   const imgClassName = useAutoHeight 
     ? "w-full h-auto select-none block" 
-    : "w-full h-full object-cover object-center select-none block";
+    : "w-full h-full object-cover select-none block";
   const imgStyle = useAutoHeight 
     ? { display: 'block', margin: 0, padding: 0, verticalAlign: 'bottom' }
-    : { display: 'block', margin: 0, padding: 0, objectPosition: '50% 50%' };
+    : { 
+        display: 'block', 
+        margin: 0, 
+        padding: 0, 
+        objectPosition: '50% 50%',
+        objectFit: 'cover'
+      };
 
   return (
     <div 
