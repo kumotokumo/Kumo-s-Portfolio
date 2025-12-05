@@ -4,8 +4,21 @@ import { motion } from 'framer-motion';
 export const CustomCursor: React.FC = () => {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   const [isHovering, setIsHovering] = useState(false);
+  const [isTouchDevice, setIsTouchDevice] = useState(false);
 
   useEffect(() => {
+    // Detect if device supports touch
+    const checkTouchDevice = () => {
+      return 'ontouchstart' in window || navigator.maxTouchPoints > 0;
+    };
+    
+    setIsTouchDevice(checkTouchDevice());
+    
+    // Don't initialize cursor on touch devices
+    if (checkTouchDevice()) {
+      return;
+    }
+
     const updateMousePosition = (e: MouseEvent) => {
       setMousePosition({ x: e.clientX, y: e.clientY });
     };
@@ -26,6 +39,11 @@ export const CustomCursor: React.FC = () => {
       window.removeEventListener('mouseover', handleMouseOver);
     };
   }, []);
+
+  // Don't render cursor on touch devices
+  if (isTouchDevice) {
+    return null;
+  }
 
   return (
     <motion.div

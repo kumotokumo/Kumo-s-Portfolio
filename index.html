@@ -60,8 +60,13 @@
       body {
         background-color: #050505;
         color: #F0F0F0;
-        cursor: none;
         overflow-x: hidden;
+      }
+      
+      @media (hover: hover) and (pointer: fine) {
+        body {
+          cursor: none;
+        }
       }
       
       ::-webkit-scrollbar {
