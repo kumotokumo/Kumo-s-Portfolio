@@ -448,7 +448,7 @@ export default function App() {
                             }}
                          >
                             <LazyLoadImage 
-                               src="/images/about/about-kumo.jpg" 
+                               src={`${import.meta.env.BASE_URL || '/'}images/about/about-kumo.jpg`} 
                                className="w-full h-full object-cover pointer-events-none"
                                alt="Profile"
                                draggable="false"
@@ -1217,7 +1217,14 @@ const ProjectDetail: React.FC<{
             >
                {/* HOVER IMAGE BACKGROUND */}
                <div className="absolute inset-0 z-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 ease-out pointer-events-none">
-                  <LazyLoadImage src={nextProject.coverImage} className="w-full h-full object-cover grayscale-[20%]" alt="Next Project" effect="opacity" />
+                  <LazyLoadImage 
+                    src={nextProject.coverImage.startsWith('data:') || nextProject.coverImage.startsWith('http') 
+                      ? nextProject.coverImage 
+                      : `${import.meta.env.BASE_URL || '/'}${nextProject.coverImage.startsWith('/') ? nextProject.coverImage.slice(1) : nextProject.coverImage}`} 
+                    className="w-full h-full object-cover grayscale-[20%]" 
+                    alt="Next Project" 
+                    effect="opacity" 
+                  />
                   <div className="absolute inset-0 bg-black/40"></div>
                </div>
 

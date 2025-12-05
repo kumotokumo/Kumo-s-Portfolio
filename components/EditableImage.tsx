@@ -15,6 +15,23 @@ export const EditableImage: React.FC<EditableImageProps> = ({ currentSrc, onUplo
     }
   }, [tooltip]);
 
+  // Handle base path for GitHub Pages
+  const getImageSrc = (src: string): string => {
+    // If it's a base64 data URL, return as is
+    if (src.startsWith('data:')) {
+      return src;
+    }
+    // If it's already a full URL, return as is
+    if (src.startsWith('http://') || src.startsWith('https://')) {
+      return src;
+    }
+    // Otherwise, prepend base URL for GitHub Pages compatibility
+    const base = import.meta.env.BASE_URL || '/';
+    // Remove leading slash from src if present, then combine with base
+    const cleanSrc = src.startsWith('/') ? src.slice(1) : src;
+    return `${base}${cleanSrc}`;
+  };
+
   const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0];
     if (file) {
@@ -71,7 +88,7 @@ export const EditableImage: React.FC<EditableImageProps> = ({ currentSrc, onUplo
       onContextMenu={handleContextMenu}
     >
       <LazyLoadImage 
-        src={currentSrc} 
+        src={getImageSrc(currentSrc)} 
         alt={alt} 
         className={imgClassName}
         draggable={false}
