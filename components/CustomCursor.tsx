@@ -34,24 +34,31 @@ export const CustomCursor: React.FC = () => {
         animate={{
           x: mousePosition.x - 8,
           y: mousePosition.y - 8,
-          scale: isHovering ? 4 : 1,
-          opacity: 1
+          scale: isHovering ? 2.5 : 1,
+          opacity: isHovering ? 0.8 : 1
         }}
         transition={{
-          type: "tween",
-          ease: "linear",
-          duration: 0.1
+          type: "spring",
+          stiffness: 500,
+          damping: 28,
+          mass: 0.5
         }}
       />
-      {/* Crosshair lines decoration */}
+      {/* Subtle ring on hover */}
       <motion.div 
-         className="fixed pointer-events-none z-[9998] border border-white/20"
+         className="fixed pointer-events-none z-[9998] border border-white/30 rounded-full"
          animate={{
-            x: mousePosition.x - 20,
-            y: mousePosition.y - 20,
-            width: 40,
-            height: 40,
-            opacity: isHovering ? 1 : 0
+            x: mousePosition.x - 12,
+            y: mousePosition.y - 12,
+            width: 24,
+            height: 24,
+            opacity: isHovering ? 0.6 : 0,
+            scale: isHovering ? 1 : 0.8
+         }}
+         transition={{
+            type: "spring",
+            stiffness: 400,
+            damping: 25
          }}
       />
     </>
