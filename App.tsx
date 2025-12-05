@@ -816,9 +816,9 @@ const ImageIndexItem: React.FC<{
                initial={{ opacity: 0, x: -10 }}
                animate={{ opacity: 1, x: 0 }}
                exit={{ opacity: 0 }}
-               className="absolute right-full mr-3 whitespace-nowrap bg-white text-black px-2 py-[2px] pointer-events-none z-50"
+               className="absolute right-full mr-3 whitespace-nowrap bg-white text-black px-2 py-1 pointer-events-none z-50 flex items-center justify-center"
             >
-               <span className="font-mono text-[8px] uppercase tracking-wider font-medium leading-tight">
+               <span className="font-mono text-[8px] uppercase tracking-wider font-medium leading-none">
                   {imageName}
                </span>
             </motion.div>
@@ -1076,7 +1076,7 @@ const ProjectDetail: React.FC<{
                   {/* Right Side Index Navigation */}
                   {project.detailImages.length > 0 && (
                      <div 
-                        className={`fixed right-6 md:right-10 top-1/2 -translate-y-1/2 z-50 flex flex-col gap-3 transition-opacity duration-300 ${
+                        className={`fixed right-6 md:right-10 top-1/2 -translate-y-1/2 z-50 flex flex-col gap-4 transition-opacity duration-300 ${
                            showIndex ? 'opacity-100' : 'opacity-0 pointer-events-none'
                         }`}
                      >
