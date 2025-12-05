@@ -487,44 +487,44 @@ export default function App() {
                 <div className="max-w-[1400px] mx-auto border-l border-r border-white/10 px-6 md:px-10 py-12">
                    <p className="font-mono text-xs text-secondary uppercase mb-8">/ Personal Skills /</p>
                    <p className="font-sans text-sm text-gray-400 mb-12">推动团队、优化流程、并为业务带来实质影响</p>
-                   <div className="grid grid-cols-1 md:grid-cols-4 gap-6 md:gap-8">
+                   <div className="grid grid-cols-1 md:grid-cols-4 gap-x-6 gap-y-12 items-start">
                       {/* Skill Card 1 */}
                       <div className="border border-white/10 p-8 bg-white/[0.02] hover:bg-white/[0.05] transition-all flex flex-col">
                         <div className="w-12 h-12 mb-6 flex items-center justify-center">
                           <Layers size={32} className="text-white" strokeWidth={1.5} />
                         </div>
                         <h3 className="font-display text-xl uppercase mb-4">问题框架构建力</h3>
-                        <p className="font-sans text-xs text-gray-400 leading-relaxed flex-grow">
+                        <p className="font-sans text-xs text-gray-400 leading-relaxed">
                             面对模糊需求或复杂场景，能快速定位核心矛盾，将业务目标转化为清晰的设计框架，确保执行不偏离方向。
                         </p>
                       </div>
                       {/* Skill Card 2 */}
-                      <div className="border border-white/10 p-8 bg-white/[0.02] hover:bg-white/[0.05] transition-all flex flex-col mt-8 md:mt-16">
+                      <div className="border border-white/10 p-8 bg-white/[0.02] hover:bg-white/[0.05] transition-all flex flex-col md:mt-16">
                         <div className="w-12 h-12 mb-6 flex items-center justify-center">
                           <Brain size={32} className="text-white" strokeWidth={1.5} />
                         </div>
                         <h3 className="font-display text-xl uppercase mb-4">动机洞察共情力</h3>
-                        <p className="font-sans text-xs text-gray-400 leading-relaxed flex-grow">
+                        <p className="font-sans text-xs text-gray-400 leading-relaxed">
                             不止于界面表现，能深入理解用户行为背后的决策逻辑与真实动机，使方案精准匹配深层需求。
                         </p>
                       </div>
                       {/* Skill Card 3 */}
-                      <div className="border border-white/10 p-8 bg-white/[0.02] hover:bg-white/[0.05] transition-all flex flex-col mt-4 md:mt-8">
+                      <div className="border border-white/10 p-8 bg-white/[0.02] hover:bg-white/[0.05] transition-all flex flex-col md:mt-8">
                         <div className="w-12 h-12 mb-6 flex items-center justify-center">
                           <Users size={32} className="text-white" strokeWidth={1.5} />
                         </div>
                         <h3 className="font-display text-xl uppercase mb-4">跨域协同推动力</h3>
-                        <p className="font-sans text-xs text-gray-400 leading-relaxed flex-grow">
+                        <p className="font-sans text-xs text-gray-400 leading-relaxed">
                             擅用原型、图示等可视化语言打破沟通壁垒，主动对齐多方认知，化解分歧，确保设计意图完整落地。
                         </p>
                       </div>
                       {/* Skill Card 4 */}
-                      <div className="border border-white/10 p-8 bg-white/[0.02] hover:bg-white/[0.05] transition-all flex flex-col mt-12 md:mt-20">
+                      <div className="border border-white/10 p-8 bg-white/[0.02] hover:bg-white/[0.05] transition-all flex flex-col md:mt-20">
                         <div className="w-12 h-12 mb-6 flex items-center justify-center">
                           <Zap size={32} className="text-white" strokeWidth={1.5} />
                         </div>
                         <h3 className="font-display text-xl uppercase mb-4">全局优化驱动意识</h3>
-                        <p className="font-sans text-xs text-gray-400 leading-relaxed flex-grow">
+                        <p className="font-sans text-xs text-gray-400 leading-relaxed">
                             习惯从流程和系统层面发现改进点，主动推进体验优化或协同效率提升，不局限于单次任务执行。
                         </p>
                       </div>
