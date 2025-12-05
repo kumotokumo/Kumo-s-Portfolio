@@ -79,6 +79,7 @@ export const EditableImage: React.FC<EditableImageProps> = ({ currentSrc, onUplo
   // Determine if we should use h-auto (for detail images) or h-full (for cover images)
   const useAutoHeight = className?.includes('h-auto');
   const isCoverImage = className?.includes('absolute inset-0');
+  const isDetailPageCover = isCoverImage; // Detail page cover images should load immediately
   const imgClassName = useAutoHeight 
     ? "w-full h-auto select-none block" 
     : "w-full h-full object-cover select-none block";
