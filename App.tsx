@@ -1031,7 +1031,7 @@ const ProjectDetail: React.FC<{
    return (
       <div className="min-h-screen bg-background pb-20">
          {/* Large Header Image */}
-         <div className="h-[60vh] md:h-[80vh] w-full relative group overflow-hidden">
+         <div className="h-[60vh] md:h-[80vh] w-full relative group overflow-hidden flex items-center justify-center">
             <EditableImage 
                currentSrc={project.coverImage}
                alt="Hero"
@@ -1158,7 +1158,7 @@ const ProjectDetail: React.FC<{
                         ref={(el) => { imageRefs.current[idx] = el; }}
                         className="space-y-4 relative group/item"
                      >
-                        <div className="w-full bg-neutral-900 border border-white/5 relative overflow-hidden">
+                        <div className="w-full bg-neutral-900 border border-white/5 relative overflow-hidden" style={{ lineHeight: 0 }}>
                            <EditableImage 
                               currentSrc={img} 
                               alt={`Detail ${idx}`}

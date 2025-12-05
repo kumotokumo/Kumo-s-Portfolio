@@ -80,12 +80,13 @@ export const EditableImage: React.FC<EditableImageProps> = ({ currentSrc, onUplo
   const useAutoHeight = className?.includes('h-auto');
   const imgClassName = useAutoHeight 
     ? "w-full h-auto select-none block" 
-    : "w-full h-full object-cover select-none block";
+    : "w-full h-full object-cover object-center select-none block";
 
   return (
     <div 
       className={`relative group ${className}`} 
       onContextMenu={handleContextMenu}
+      style={useAutoHeight ? { lineHeight: 0, display: 'block' } : {}}
     >
       <LazyLoadImage 
         src={getImageSrc(currentSrc)} 
@@ -93,7 +94,7 @@ export const EditableImage: React.FC<EditableImageProps> = ({ currentSrc, onUplo
         className={imgClassName}
         draggable={false}
         effect="opacity"
-        style={{ display: 'block' }}
+        style={{ display: 'block', margin: 0, padding: 0, verticalAlign: 'bottom' }}
       />
       
       {isAdmin && (
