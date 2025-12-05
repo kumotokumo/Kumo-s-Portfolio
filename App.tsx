@@ -186,7 +186,7 @@ export default function App() {
       <CustomCursor />
 
       {/* FIXED HEADER */}
-      <header className="fixed top-0 left-0 w-full z-50 flex justify-between items-center mix-blend-difference border-b border-white/10 bg-background/50 backdrop-blur-sm">
+      <header className="fixed top-0 left-0 w-full z-50 flex justify-between items-center mix-blend-difference border-b border-white/10 bg-background/80 backdrop-blur-md">
         <div 
           onClick={() => navigateTo('HOME')} 
           className="h-16 md:h-20 px-6 md:px-10 flex items-center border-r border-white/10 clickable cursor-pointer hover:bg-white hover:text-black transition-colors duration-300"
