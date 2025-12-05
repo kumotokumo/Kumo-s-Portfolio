@@ -421,7 +421,7 @@ export default function App() {
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 exit={{ opacity: 0 }}
-                className="px-6 md:px-10 py-12 md:py-20"
+                className="px-6 md:px-10"
              >
                 {/* Introduction Section */}
                 <div className="max-w-[1400px] mx-auto border-l border-r border-white/10 px-6 md:px-10 py-12">
