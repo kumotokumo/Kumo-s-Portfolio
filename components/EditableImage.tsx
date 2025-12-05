@@ -1,6 +1,7 @@
 import React, { useRef, useState, useEffect } from 'react';
 import { Upload } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { LazyLoadImage } from 'react-lazy-load-image-component';
 import { EditableImageProps } from '../types';
 
 export const EditableImage: React.FC<EditableImageProps> = ({ currentSrc, onUpload, isAdmin, className, alt }) => {
@@ -69,11 +70,12 @@ export const EditableImage: React.FC<EditableImageProps> = ({ currentSrc, onUplo
       className={`relative group ${className}`} 
       onContextMenu={handleContextMenu}
     >
-      <img 
+      <LazyLoadImage 
         src={currentSrc} 
         alt={alt} 
         className={imgClassName}
         draggable={false}
+        effect="opacity"
       />
       
       {isAdmin && (

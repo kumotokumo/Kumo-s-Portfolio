@@ -2,6 +2,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, X, ArrowUpRight, ArrowDown, ChevronRight, Plus, Trash2, ArrowUp, Layers, Brain, Users, Zap } from 'lucide-react';
+import { LazyLoadImage } from 'react-lazy-load-image-component';
 import { CustomCursor } from './components/CustomCursor';
 import { EditableImage } from './components/EditableImage';
 import { INITIAL_PROJECTS } from './constants';
@@ -446,11 +447,12 @@ export default function App() {
                                });
                             }}
                          >
-                            <img 
+                            <LazyLoadImage 
                                src="/images/about/about-kumo.jpg" 
                                className="w-full h-full object-cover pointer-events-none"
                                alt="Profile"
                                draggable="false"
+                               effect="opacity"
                             />
                             {/* Copyright Tooltip */}
                             <AnimatePresence>
@@ -1215,7 +1217,7 @@ const ProjectDetail: React.FC<{
             >
                {/* HOVER IMAGE BACKGROUND */}
                <div className="absolute inset-0 z-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 ease-out pointer-events-none">
-                  <img src={nextProject.coverImage} className="w-full h-full object-cover grayscale-[20%]" alt="Next Project" />
+                  <LazyLoadImage src={nextProject.coverImage} className="w-full h-full object-cover grayscale-[20%]" alt="Next Project" effect="opacity" />
                   <div className="absolute inset-0 bg-black/40"></div>
                </div>
 
