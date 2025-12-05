@@ -453,8 +453,10 @@ export default function App() {
                                alt="Profile"
                                draggable="false"
                                effect="opacity"
-                               threshold={500}
+                               threshold={1000}
                                loading="eager"
+                               delayMethod="throttle"
+                               delayTime={0}
                             />
                             {/* Copyright Tooltip */}
                             <AnimatePresence>
@@ -1227,7 +1229,7 @@ const ProjectDetail: React.FC<{
                     alt="Next Project" 
                     effect="opacity"
                     style={{ objectPosition: '50% 50%', objectFit: 'cover' }}
-                    threshold={500}
+                    threshold={800}
                     delayMethod="throttle"
                     delayTime={0}
                   />
