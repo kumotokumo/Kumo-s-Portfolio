@@ -449,7 +449,7 @@ export default function App() {
                             }}
                          >
                             <LazyLoadImage 
-                               src={getImageUrl('images/about/about-kumo.jpg')} 
+                               src={getImageUrl('images/about/about-kumo.webp')} 
                                className="w-full h-full object-contain pointer-events-none"
                                alt="Profile"
                                draggable="false"
