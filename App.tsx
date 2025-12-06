@@ -911,6 +911,7 @@ const ProjectDetail: React.FC<{
    const [activeImageIndex, setActiveImageIndex] = useState<number | null>(null);
    const [showIndex, setShowIndex] = useState(false);
    const [showCloseButton, setShowCloseButton] = useState(true);
+   const imageLoadPromises = useRef<Promise<void>[]>([]);
 
    const handleAddClick = () => {
       fileInputRef.current?.click();
