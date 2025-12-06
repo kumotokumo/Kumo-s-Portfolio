@@ -304,7 +304,7 @@ export default function App() {
                  <div className="absolute bottom-12 right-12 flex flex-col items-end text-right">
                     {/* Avatar above text, 40px spacing, right-aligned */}
                     <img 
-                       src="https://kumotokumo-1305521879.cos.ap-guangzhou.myqcloud.com/images/common/kumo-avater.svg" 
+                       src="https://kumotokumo-1305521879.cos.ap-guangzhou.myqcloud.com/images/common/kumo-avater.png" 
                        alt="Avatar" 
                        className="w-12 h-12 mb-10"
                     />
