@@ -199,7 +199,6 @@ export default function App() {
           WebkitBackdropFilter: 'blur(12px) saturate(180%)',
           backdropFilter: 'blur(12px) saturate(180%)',
           backgroundColor: 'rgba(5, 5, 5, 0.75)',
-          background: 'rgba(5, 5, 5, 0.75)',
         }}
       >
         <div 
