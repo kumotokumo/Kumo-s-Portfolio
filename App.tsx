@@ -738,7 +738,7 @@ const ProjectListItem: React.FC<{
                <p className="font-sans text-xs text-secondary mt-1 md:hidden">{project.subtitle}</p>
             </div>
             <div className="col-span-3 md:col-span-4 hidden md:flex gap-2">
-               {project.tags.slice(0, Math.max(3, project.tags.length)).map(tag => (
+               {project.tags.slice(0, 3).map(tag => (
                   <span key={tag} className="border border-white/10 px-2 py-1 font-mono text-[10px] uppercase text-secondary">
                      {tag}
                   </span>
