@@ -962,15 +962,16 @@ const ProjectDetail: React.FC<{
               if (imageRefs.current[lastImageIndex]) {
                 const lastImageRef = imageRefs.current[lastImageIndex];
                 const lastRect = lastImageRef.getBoundingClientRect();
+                const lastImageBottom = lastRect.bottom + window.scrollY;
                 
-                // Check if last image is still visible (bottom of image is below viewport top)
-                // Index disappears when last image's bottom is above viewport top (completely scrolled past)
-                const isLastImageVisible = lastRect.bottom > 0;
+                // Index disappears when scrolled past the bottom of the last image
+                // Check if scroll position has passed the bottom of the last image
+                const hasPassedLastImage = window.scrollY + window.innerHeight >= lastImageBottom;
                 
                 // Show index when: 
                 // 1. Scroll position reaches the top of first image
-                // 2. Last image is still visible (not completely scrolled past)
-                shouldShowIndex = window.scrollY >= firstImageTop && isLastImageVisible;
+                // 2. Has not scrolled past the bottom of the last image
+                shouldShowIndex = window.scrollY >= firstImageTop && !hasPassedLastImage;
               } else {
                 shouldShowIndex = window.scrollY >= firstImageTop;
               }
