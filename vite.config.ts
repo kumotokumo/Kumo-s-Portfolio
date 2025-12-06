@@ -4,8 +4,14 @@ import react from '@vitejs/plugin-react';
 
 export default defineConfig(({ mode }) => {
     const env = loadEnv(mode, '.', '');
-    // Set base path only for GitHub Pages, use root for Vercel and local dev
-    const base = process.env.VITE_BASE_PATH || (process.env.GITHUB_PAGES === 'true' ? '/Kumo-s-Portfolio/' : '/');
+    // Set base path: GitHub Pages uses subpath, CloudBase/Vercel use root
+    // VITE_BASE_PATH can be explicitly set (empty string or '/' for root)
+    let base = '/';
+    if (process.env.VITE_BASE_PATH !== undefined) {
+        base = process.env.VITE_BASE_PATH || '/';
+    } else if (process.env.GITHUB_PAGES === 'true') {
+        base = '/Kumo-s-Portfolio/';
+    }
     
     return {
       base,

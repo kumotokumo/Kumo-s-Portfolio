@@ -6,9 +6,10 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
+    "build:cloudbase": "VITE_BASE_PATH= vite build",
     "preview": "vite preview",
-    "deploy:cloudbase": "npm run build && npx tcb hosting deploy dist -e kumo-s-portfolio-1f7f16g4b4797a6",
-    "deploy:cloudbase:verify": "npm run build && ls -la dist/index.html && npx tcb hosting deploy dist -e kumo-s-portfolio-1f7f16g4b4797a6"
+    "deploy:cloudbase": "npm run build:cloudbase && npx tcb hosting deploy dist -e kumo-s-portfolio-1f7f16g4b4797a6",
+    "deploy:cloudbase:verify": "npm run build:cloudbase && ls -la dist/index.html && npx tcb hosting deploy dist -e kumo-s-portfolio-1f7f16g4b4797a6"
   },
   "dependencies": {
     "framer-motion": "^12.23.24",

@@ -27,9 +27,19 @@ If the environment doesn't exist, you need to create it in the Tencent Cloud con
 
 ### 3. Build the Project
 
+**For CloudBase deployment, use the CloudBase-specific build command:**
+
 ```bash
-npm run build
+npm run build:cloudbase
 ```
+
+Or use the deployment script which includes building:
+
+```bash
+npm run deploy:cloudbase
+```
+
+**Note:** The `build:cloudbase` command ensures the base path is set to `/` (root) for CloudBase deployment, which is different from GitHub Pages.
 
 Build output will be generated in the `dist/` directory.
 
@@ -41,9 +51,14 @@ Build output will be generated in the `dist/` directory.
 npm run deploy:cloudbase
 ```
 
+This command will:
+1. Build the project with the correct base path for CloudBase
+2. Deploy the `dist/` directory to CloudBase
+
 **Method 2: Manual deployment**
 
 ```bash
+npm run build:cloudbase
 npx tcb hosting deploy dist -e kumo-s-portfolio-1f7f16g4b4797a6
 ```
 
@@ -78,8 +93,13 @@ npx tcb hosting:list -e kumo-s-portfolio-1f7f16g4b4797a6
 
 After successful deployment, you can access the website via:
 
-- Default domain: https://kumo-s-portfolio-1f7f16g4b4797a6-1305521879.tcloudbaseapp.com
-- Custom domain: Available after configuring custom domain in CloudBase console
+- **Default domain (root path)**: https://kumo-s-portfolio-1f7f16g4b4797a6-1305521879.tcloudbaseapp.com
+- **Custom domain**: Available after configuring custom domain in CloudBase console
+
+**Important:** The website is deployed to the root path `/`, not a subpath. If you see a blank page, make sure:
+1. You're accessing the root URL (without `/Kumo-s-Portfolio` subpath)
+2. The build was done with `npm run build:cloudbase` (not `npm run build`)
+3. Check browser console for any 404 errors on assets
 
 ## Troubleshooting
 
