@@ -944,20 +944,72 @@ const ProjectDetail: React.FC<{
     const nextIndex = (currentIndex + 1) % allProjects.length;
     const nextProject = allProjects[nextIndex];
 
-    // Scroll to image handler
-    const scrollToImage = (index: number) => {
+    // Scroll to image handler with image loading detection
+    const scrollToImage = (index: number, retryCount = 0) => {
       const ref = imageRefs.current[index];
-      if (ref) {
-        // Get header height to account for fixed header
-        const headerHeight = 80; // Header height in pixels (h-20 = 80px on desktop, h-16 = 64px on mobile)
-        const elementPosition = ref.getBoundingClientRect().top + window.pageYOffset;
-        const offsetPosition = elementPosition - headerHeight;
+      if (!ref) return;
+      
+      // Find the image element inside the ref
+      const imgElement = ref.querySelector('img');
+      
+      // Check if image is loaded
+      const isImageLoaded = imgElement && imgElement.complete && imgElement.naturalHeight > 0;
+      
+      // Get header height to account for fixed header
+      const headerHeight = window.innerWidth >= 768 ? 80 : 64; // h-20 = 80px on desktop, h-16 = 64px on mobile
+      
+      // Calculate position
+      const rect = ref.getBoundingClientRect();
+      const elementPosition = rect.top + window.pageYOffset;
+      const offsetPosition = elementPosition - headerHeight;
+      
+      // If image is not loaded and we haven't retried too many times, wait and retry
+      if (!isImageLoaded && retryCount < 5) {
+        // Wait for image to load or timeout after 500ms
+        const checkImage = () => {
+          if (imgElement) {
+            if (imgElement.complete && imgElement.naturalHeight > 0) {
+              // Image loaded, scroll now
+              requestAnimationFrame(() => {
+                const newRect = ref.getBoundingClientRect();
+                const newPosition = newRect.top + window.pageYOffset;
+                window.scrollTo({
+                  top: newPosition - headerHeight,
+                  behavior: 'smooth'
+                });
+              });
+            } else {
+              // Image still loading, retry after a short delay
+              setTimeout(() => scrollToImage(index, retryCount + 1), 100);
+            }
+          } else {
+            // No image element found, scroll anyway
+            window.scrollTo({
+              top: offsetPosition,
+              behavior: 'smooth'
+            });
+          }
+        };
         
-        window.scrollTo({
-          top: offsetPosition,
-          behavior: 'smooth'
+        // Wait for next frame to ensure layout is updated
+        requestAnimationFrame(() => {
+          requestAnimationFrame(checkImage);
         });
+        return;
       }
+      
+      // Image is loaded or max retries reached, scroll immediately
+      // Use double requestAnimationFrame to ensure layout is stable
+      requestAnimationFrame(() => {
+        requestAnimationFrame(() => {
+          const finalRect = ref.getBoundingClientRect();
+          const finalPosition = finalRect.top + window.pageYOffset;
+          window.scrollTo({
+            top: finalPosition - headerHeight,
+            behavior: 'smooth'
+          });
+        });
+      });
     };
 
     // Track active image on scroll and show/hide index
