@@ -302,10 +302,10 @@ export default function App() {
 
                  <div className="absolute top-0 right-0 w-1/3 h-full border-l border-white/5 bg-white/[0.02]"></div>
                  <div className="absolute bottom-12 right-12 flex flex-col items-end text-right">
-                    {/* Favicon above text, 40px spacing, right-aligned */}
+                    {/* Avatar above text, 40px spacing, right-aligned */}
                     <img 
-                       src="/favicon/favicon-48px.ico" 
-                       alt="Favicon" 
+                       src="https://kumotokumo-1305521879.cos.ap-guangzhou.myqcloud.com/images/common/kumo-avater.svg" 
+                       alt="Avatar" 
                        className="w-12 h-12 mb-10"
                     />
                     <p className="font-mono text-xs max-w-[200px] mb-4 text-secondary uppercase">
