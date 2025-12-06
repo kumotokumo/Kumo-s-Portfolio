@@ -1,5 +1,5 @@
 // [GIT_VERSION: FINAL_V11_GIT_FORCE]
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef, useCallback, useMemo } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, X, ArrowUpRight, ArrowDown, ChevronRight, Plus, Trash2, ArrowUp, Layers, Brain, Users, Zap } from 'lucide-react';
 import { LazyLoadImage } from 'react-lazy-load-image-component';
@@ -69,20 +69,23 @@ export default function App() {
     };
   }, [activeView]);
 
-  // Global Scroll Listener for Back to Top
+  // Global Scroll Listener for Back to Top (throttled for performance)
   useEffect(() => {
+    let ticking = false;
     const handleScroll = () => {
-      if (window.scrollY > 300) {
-        setShowTopBtn(true);
-      } else {
-        setShowTopBtn(false);
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          setShowTopBtn(window.scrollY > 300);
+          ticking = false;
+        });
+        ticking = true;
       }
     };
-    window.addEventListener('scroll', handleScroll);
+    window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const saveProjects = async (newProjects: Project[]) => {
+  const saveProjects = useCallback(async (newProjects: Project[]) => {
     // Optimistic update
     setProjects(newProjects);
     if (selectedProject) {
@@ -99,10 +102,10 @@ export default function App() {
       console.error("Save error", e);
       alert("Failed to save to database.");
     }
-  };
+  }, [selectedProject]);
 
   // 1. Text Field Updates
-  const handleUpdateProjectText = (projectId: string, field: keyof Project, value: any) => {
+  const handleUpdateProjectText = useCallback((projectId: string, field: keyof Project, value: any) => {
     const updatedProjects = projects.map(p => {
       if (p.id === projectId) {
         return { ...p, [field]: value };
@@ -110,10 +113,10 @@ export default function App() {
       return p;
     });
     saveProjects(updatedProjects);
-  };
+  }, [projects, saveProjects]);
 
   // 2. Image Updates
-  const handleUpdateProjectImage = (projectId: string, imageType: 'cover' | 'detail', base64: string, detailIndex?: number) => {
+  const handleUpdateProjectImage = useCallback((projectId: string, imageType: 'cover' | 'detail', base64: string, detailIndex?: number) => {
     const updatedProjects = projects.map(p => {
       if (p.id === projectId) {
         if (imageType === 'cover') {
@@ -127,10 +130,10 @@ export default function App() {
       return p;
     });
     saveProjects(updatedProjects);
-  };
+  }, [projects, saveProjects]);
 
   // 3. Add new detail image
-  const handleAddDetailImage = (projectId: string, base64: string) => {
+  const handleAddDetailImage = useCallback((projectId: string, base64: string) => {
     const updatedProjects = projects.map(p => {
       if (p.id === projectId) {
         return { ...p, detailImages: [...p.detailImages, base64] };
@@ -138,10 +141,10 @@ export default function App() {
       return p;
     });
     saveProjects(updatedProjects);
-  };
+  }, [projects, saveProjects]);
 
   // 4. Delete detail image
-  const handleDeleteDetailImage = (projectId: string, index: number) => {
+  const handleDeleteDetailImage = useCallback((projectId: string, index: number) => {
     if (!window.confirm("Delete this image?")) return;
     
     const updatedProjects = projects.map(p => {
@@ -153,7 +156,7 @@ export default function App() {
       return p;
     });
     saveProjects(updatedProjects);
-  };
+  }, [projects, saveProjects]);
 
   const navigateTo = (view: ViewState, project?: Project) => {
     // Smart delay: only delay if menu is open to allow animation
@@ -178,10 +181,12 @@ export default function App() {
     }, delay); 
   };
 
-  // FILTER LOGIC
-  const filteredProjects = filterCategory === 'ALL' 
-    ? projects 
-    : projects.filter(p => p.category === filterCategory);
+  // FILTER LOGIC (memoized for performance)
+  const filteredProjects = useMemo(() => {
+    return filterCategory === 'ALL' 
+      ? projects 
+      : projects.filter(p => p.category === filterCategory);
+  }, [projects, filterCategory]);
 
   return (
     <div className="bg-background min-h-screen text-primary font-sans">

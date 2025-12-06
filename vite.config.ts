@@ -28,6 +28,29 @@ export default defineConfig(({ mode }) => {
         alias: {
           '@': path.resolve(__dirname, '.'),
         }
-      }
+      },
+      build: {
+        // Optimize build output
+        target: 'es2015',
+        minify: 'esbuild',
+        cssMinify: true,
+        sourcemap: false,
+        rollupOptions: {
+          output: {
+            // Code splitting for better caching
+            manualChunks: {
+              'react-vendor': ['react', 'react-dom'],
+              'framer-motion': ['framer-motion'],
+              'lucide-react': ['lucide-react'],
+            },
+            // Optimize chunk file names
+            chunkFileNames: 'assets/[name]-[hash].js',
+            entryFileNames: 'assets/[name]-[hash].js',
+            assetFileNames: 'assets/[name]-[hash].[ext]',
+          },
+        },
+        // Chunk size warning limit
+        chunkSizeWarningLimit: 1000,
+      },
     };
 });

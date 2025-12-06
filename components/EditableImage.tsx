@@ -1,4 +1,4 @@
-import React, { useRef, useState, useEffect } from 'react';
+import React, { useRef, useState, useEffect, useMemo, useCallback } from 'react';
 import { Upload } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { LazyLoadImage } from 'react-lazy-load-image-component';
@@ -17,12 +17,12 @@ export const EditableImage: React.FC<EditableImageProps> = ({ currentSrc, onUplo
     }
   }, [tooltip]);
 
-  // Use the centralized image URL utility
-  const getImageSrc = (src: string): string => {
+  // Use the centralized image URL utility (memoized)
+  const getImageSrc = useCallback((src: string): string => {
     return getImageUrl(src);
-  };
+  }, []);
 
-  const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handleFileChange = useCallback((e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0];
     if (file) {
       // 50MB Safety check (matched with App.tsx limit)
@@ -48,40 +48,46 @@ export const EditableImage: React.FC<EditableImageProps> = ({ currentSrc, onUplo
       }
       reader.readAsDataURL(file);
     }
-  };
+  }, [onUpload]);
 
-  const handleClick = (e: React.MouseEvent) => {
+  const handleClick = useCallback((e: React.MouseEvent) => {
     if (isAdmin) {
       e.stopPropagation(); // Prevent navigation if clicking to upload
       fileInputRef.current?.click();
     }
-  };
+  }, [isAdmin]);
 
-  const handleContextMenu = (e: React.MouseEvent) => {
+  const handleContextMenu = useCallback((e: React.MouseEvent) => {
     e.preventDefault();
     setTooltip({
       visible: true,
       x: e.clientX,
       y: e.clientY
     });
-  };
+  }, []);
 
   // Determine if we should use h-auto (for detail images) or h-full (for cover images)
-  const useAutoHeight = className?.includes('h-auto');
-  const isCoverImage = className?.includes('absolute inset-0');
+  const useAutoHeight = useMemo(() => className?.includes('h-auto'), [className]);
+  const isCoverImage = useMemo(() => className?.includes('absolute inset-0'), [className]);
   const isDetailPageCover = isCoverImage; // Detail page cover images should load immediately
-  const imgClassName = useAutoHeight 
-    ? "w-full h-auto select-none block" 
-    : "w-full h-full object-cover select-none block";
-  const imgStyle = useAutoHeight 
-    ? { display: 'block', margin: 0, padding: 0, verticalAlign: 'bottom' }
-    : { 
-        display: 'block', 
-        margin: 0, 
-        padding: 0, 
-        objectPosition: '50% 50%',
-        objectFit: 'cover'
-      };
+  
+  const imgClassName = useMemo(() => {
+    return useAutoHeight 
+      ? "w-full h-auto select-none block" 
+      : "w-full h-full object-cover select-none block";
+  }, [useAutoHeight]);
+  
+  const imgStyle = useMemo(() => {
+    return useAutoHeight 
+      ? { display: 'block' as const, margin: 0, padding: 0, verticalAlign: 'bottom' as const }
+      : { 
+          display: 'block' as const, 
+          margin: 0, 
+          padding: 0, 
+          objectPosition: '50% 50%',
+          objectFit: 'cover' as const
+        };
+  }, [useAutoHeight]);
 
   return (
     <div 
