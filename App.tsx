@@ -145,7 +145,7 @@ export default function App() {
 
   // 4. Delete detail image
   const handleDeleteDetailImage = useCallback((projectId: string, index: number) => {
-    if (!window.confirm("Delete this image?")) return;
+    if (!window.confirm("删除此图片？")) return;
     
     const updatedProjects = projects.map(p => {
       if (p.id === projectId) {
@@ -207,7 +207,7 @@ export default function App() {
           onClick={() => setIsMenuOpen(true)}
           className="relative z-10 h-16 md:h-20 px-8 md:px-12 flex items-center gap-4 clickable hover:bg-white hover:text-black transition-colors duration-300 border-l border-white/10"
         >
-          <span className="hidden sm:block font-mono text-xs uppercase tracking-widest">Menu</span>
+          <span className="hidden sm:block font-mono text-xs uppercase tracking-widest">菜单</span>
           <Menu size={20} strokeWidth={1.5} />
         </button>
       </header>
@@ -233,7 +233,7 @@ export default function App() {
                 onClick={() => setIsMenuOpen(false)}
                 className="h-16 md:h-20 px-8 md:px-12 flex items-center gap-4 clickable hover:bg-white hover:text-black transition-colors duration-300 bg-background border-l border-b border-white/10"
               >
-                <span className="font-mono text-xs uppercase tracking-widest">Close</span>
+                <span className="font-mono text-xs uppercase tracking-widest">关闭</span>
                 <X size={20} />
               </button>
             </div>
@@ -309,7 +309,7 @@ export default function App() {
                        className="w-12 h-12 mb-10"
                     />
                     <p className="font-mono text-xs max-w-[200px] mb-4 text-secondary uppercase">
-                       SPECIALIZING IN AI INTERFACES & SAAS SYSTEMS DESIGN
+                       专注于 AI 界面和 SaaS 系统设计
                     </p>
                     <ArrowDown className="animate-bounce text-white" />
                  </div>
@@ -317,7 +317,7 @@ export default function App() {
 
               <section className="py-24 px-6 md:px-10">
                  <div className="flex items-end justify-between mb-12 border-b border-white/30 pb-4">
-                    <h2 className="font-display text-4xl uppercase">Selected Works</h2>
+                    <h2 className="font-display text-4xl uppercase">精选作品</h2>
                  </div>
                  
                  <div className="flex flex-col">
@@ -389,8 +389,8 @@ export default function App() {
                     <div className="grid grid-cols-12 py-4 border-b border-white/20 font-mono text-xs uppercase text-secondary">
                        <div className="col-span-1">No.</div>
                        <div className="col-span-6 md:col-span-5">Project Name</div>
-                       <div className="col-span-3 md:col-span-4 text-right md:text-left">Category</div>
-                       <div className="col-span-2 text-right">Year</div>
+                       <div className="col-span-3 md:col-span-4 text-right md:text-left">类别</div>
+                       <div className="col-span-2 text-right">年份</div>
                     </div>
 
                     {filteredProjects.length > 0 ? (
@@ -406,7 +406,7 @@ export default function App() {
                        ))
                     ) : (
                        <div className="py-20 text-center font-mono text-secondary uppercase">
-                          No projects found in this category.
+                          此类别下没有找到作品
                        </div>
                     )}
                 </div>
@@ -849,7 +849,7 @@ const getImageName = (projectId: string, index: number, totalImages?: number): s
    };
    
    const names = imageNames[projectId];
-   return names && names[index] ? names[index] : `Figure ${index + 1}`;
+   return names && names[index] ? names[index] : `图 ${index + 1}`;
 };
 
 // Image Index Item Component
@@ -1153,20 +1153,20 @@ const ProjectDetail: React.FC<{
                <div className="flex flex-col md:flex-row justify-between items-end border-t border-white/20 pt-6">
                   <div className="flex gap-8 font-mono text-xs uppercase tracking-widest w-full md:w-auto">
                      <div className="flex flex-col flex-1">
-                        <span className="text-secondary mb-1">Client</span>
+                        <span className="text-secondary mb-1">客户</span>
                         {renderEditable('subtitle', project.subtitle, "")}
                      </div>
                      <div className="flex flex-col">
-                        <span className="text-secondary mb-1">Year</span>
+                        <span className="text-secondary mb-1">年份</span>
                         {renderEditable('year', project.year, "")}
                      </div>
                      <div className="flex flex-col">
-                        <span className="text-secondary mb-1">Category</span>
+                        <span className="text-secondary mb-1">类别</span>
                         {renderEditable('category', project.category, "")}
                      </div>
                   </div>
                   <div className="mt-4 md:mt-0 font-mono text-xs text-secondary hidden md:block">
-                     SCROLL TO READ
+                     滚动阅读
                   </div>
                </div>
             </div>
@@ -1177,7 +1177,7 @@ const ProjectDetail: React.FC<{
                
                {/* 1. Brief & Scope (Top) */}
                <div className="w-full border-b border-white/10 pb-16 relative z-30">
-                  <span className="font-mono text-xs uppercase text-secondary mb-4 block">Brief</span>
+                  <span className="font-mono text-xs uppercase text-secondary mb-4 block">简介</span>
                   {/* EDITABLE BRIEF (Description) */}
                   {renderEditable('description', project.description, "font-sans text-lg md:text-2xl font-light leading-relaxed text-gray-200 w-full", true)}
                   
@@ -1185,7 +1185,7 @@ const ProjectDetail: React.FC<{
                      <div className="flex-1">
                         {/* CONDITIONAL SCOPE LABEL - FIXED */}
                         <span className="font-mono text-xs uppercase text-secondary mb-4 block">
-                           Scope {isAdmin && "(Comma separated)"}
+                           范围 {isAdmin && "（逗号分隔）"}
                         </span>
                         {isAdmin ? (
                             <input 
@@ -1206,7 +1206,7 @@ const ProjectDetail: React.FC<{
                         )}
                      </div>
                      <div className="flex-1">
-                        <span className="font-mono text-xs uppercase text-secondary mb-4 block">Role</span>
+                        <span className="font-mono text-xs uppercase text-secondary mb-4 block">角色</span>
                          {/* EDITABLE ROLE */}
                          {renderEditable('role', project.role || 'Lead Product Designer', "font-mono text-sm text-gray-400")}
                      </div>
@@ -1275,8 +1275,8 @@ const ProjectDetail: React.FC<{
                            )}
                         </div>
                         <div className="flex justify-between font-mono text-[10px] text-secondary uppercase border-t border-white/10 pt-2">
-                           <span>Figure 0{idx+1}</span>
-                           <span>{project.category} Exploration</span>
+                           <span>图 0{idx+1}</span>
+                           <span>{project.category} 探索</span>
                         </div>
                      </div>
                   ))}
@@ -1288,7 +1288,7 @@ const ProjectDetail: React.FC<{
                         className="w-full h-64 border border-dashed border-white/20 hover:border-white/50 hover:bg-white/5 transition-all flex flex-col items-center justify-center cursor-pointer text-secondary hover:text-white gap-4 group mt-12"
                      >
                         <Plus size={32} className="group-hover:scale-110 transition-transform"/>
-                        <span className="font-mono text-xs uppercase tracking-widest">Add New Detail Image</span>
+                        <span className="font-mono text-xs uppercase tracking-widest">添加新详情图</span>
                         <input 
                            type="file" 
                            ref={fileInputRef}
