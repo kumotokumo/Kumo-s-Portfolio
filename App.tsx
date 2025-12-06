@@ -1109,7 +1109,7 @@ const ProjectDetail: React.FC<{
             <div className="flex flex-col gap-16">
                
                {/* 1. Brief & Scope (Top) */}
-               <div className="w-full max-w-4xl border-b border-white/10 pb-16 relative z-30">
+               <div className="w-full border-b border-white/10 pb-16 relative z-30">
                   <span className="font-mono text-xs uppercase text-secondary mb-4 block">Brief</span>
                   {/* EDITABLE BRIEF (Description) */}
                   {renderEditable('description', project.description, "font-sans text-lg md:text-2xl font-light leading-relaxed text-gray-200 w-full", true)}
