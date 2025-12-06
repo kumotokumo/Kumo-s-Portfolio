@@ -11,7 +11,7 @@ export const INITIAL_PROJECTS: Project[] = [
     category: 'UI/UX',
     title: 'ClackyAI',
     subtitle: 'AI 编程助手',
-    description: '一个全面的 0-1 产品架构，专为 AI 驱动的编程助手打造。该项目涉及深入的用户研究、复杂 AI 工作流的交互设计，以及用户体验架构的定义。',
+    description: '主导 AI 编程助手 0-1 产品构建，通过深度用户研究将复杂 AI 工作流转化为直观的交互体验。',
     tags: ['AI 编码助手 SaaS', '0-1产品体系化搭建', 'AI 交互设计', '用户体验架构'],
     role: 'UI/UX 设计师',
     coverImage: '/images/projects/CLACKYAI/cover.jpg',
