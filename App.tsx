@@ -827,8 +827,8 @@ const getImageName = (projectId: string, index: number, totalImages?: number): s
          '交互案例/技能树方案解析',
          '交互案例/技能树页面产出',
          '控制台页面概览',
-         '项目总结',
-         '编码 IDE 页面概览'
+         '编码 IDE 页面概览',
+         '项目总结'
       ],
       'showmebug-web': [
          '项目介绍',
