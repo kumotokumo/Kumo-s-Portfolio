@@ -774,7 +774,15 @@ const ProjectListItem: React.FC<{
 }
 
 // Image name mapping for each project
-const getImageName = (projectId: string, index: number): string => {
+const getImageName = (projectId: string, index: number, totalImages?: number): string => {
+   // Projects that have ending images (last image should be named "结尾")
+   const endingImageProjects = ['clackyai-ui', 'clackyai-web', 'showmebug-ui', 'showmebug-web'];
+   
+   // Check if this is the last image for ending image projects
+   if (totalImages !== undefined && endingImageProjects.includes(projectId) && index === totalImages - 1) {
+      return '结尾';
+   }
+   
    const imageNames: Record<string, string[]> = {
       'clackyai-ui': [
          '项目概览',
@@ -845,10 +853,11 @@ const ImageIndexItem: React.FC<{
    isActive: boolean;
    onClick: () => void;
    projectId: string;
-}> = ({ index, isActive, onClick, projectId }) => {
+   totalImages: number;
+}> = ({ index, isActive, onClick, projectId, totalImages }) => {
    const [isHovered, setIsHovered] = useState(false);
    const shouldHighlight = isActive || isHovered;
-   const imageName = getImageName(projectId, index);
+   const imageName = getImageName(projectId, index, totalImages);
 
    return (
       <div
@@ -1164,6 +1173,7 @@ const ProjectDetail: React.FC<{
                                  isActive={isActive}
                                  onClick={() => scrollToImage(idx)}
                                  projectId={project.id}
+                                 totalImages={project.detailImages.length}
                               />
                            );
                         })}
