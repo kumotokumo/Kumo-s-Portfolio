@@ -59,6 +59,7 @@ export const INITIAL_PROJECTS: Project[] = [
       '/images/projects/CLACKYAI OFFICIAL/details/09-clackyai-official.jpg',
       '/images/projects/CLACKYAI OFFICIAL/details/10-clackyai-official.jpg',
       '/images/projects/CLACKYAI OFFICIAL/details/11-clackyai-official.jpg',
+      '/images/projects/CLACKYAI OFFICIAL/details/12-clackyai-official.jpg',
     ],
     year: '2025'
   },

@@ -948,7 +948,15 @@ const ProjectDetail: React.FC<{
     const scrollToImage = (index: number) => {
       const ref = imageRefs.current[index];
       if (ref) {
-        ref.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        // Get header height to account for fixed header
+        const headerHeight = 80; // Header height in pixels (h-20 = 80px on desktop, h-16 = 64px on mobile)
+        const elementPosition = ref.getBoundingClientRect().top + window.pageYOffset;
+        const offsetPosition = elementPosition - headerHeight;
+        
+        window.scrollTo({
+          top: offsetPosition,
+          behavior: 'smooth'
+        });
       }
     };
 
@@ -1164,19 +1172,28 @@ const ProjectDetail: React.FC<{
                            showIndex ? 'opacity-100' : 'opacity-0 pointer-events-none'
                         }`}
                      >
-                        {project.detailImages.slice(0, -1).map((_, idx) => {
-                           const isActive = activeImageIndex === idx;
-                           return (
-                              <ImageIndexItem
-                                 key={idx}
-                                 index={idx}
-                                 isActive={isActive}
-                                 onClick={() => scrollToImage(idx)}
-                                 projectId={project.id}
-                                 totalImages={project.detailImages.length}
-                              />
-                           );
-                        })}
+                        {(() => {
+                           // Only hide last image index for specific projects
+                           const hideLastIndexProjects = ['clackyai-ui', 'clackyai-web', 'showmebug-ui', 'showmebug-web'];
+                           const shouldHideLast = hideLastIndexProjects.includes(project.id);
+                           const imagesToShow = shouldHideLast 
+                              ? project.detailImages.slice(0, -1) 
+                              : project.detailImages;
+                           
+                           return imagesToShow.map((_, idx) => {
+                              const isActive = activeImageIndex === idx;
+                              return (
+                                 <ImageIndexItem
+                                    key={idx}
+                                    index={idx}
+                                    isActive={isActive}
+                                    onClick={() => scrollToImage(idx)}
+                                    projectId={project.id}
+                                    totalImages={project.detailImages.length}
+                                 />
+                              );
+                           });
+                        })()}
                      </div>
                   )}
 
