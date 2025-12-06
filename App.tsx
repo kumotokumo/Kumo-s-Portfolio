@@ -818,8 +818,7 @@ const getImageName = (projectId: string, index: number, totalImages?: number): s
       'showmebug-ui': [
          '项目介绍',
          '产品架构模型',
-         '面试用户体验地图',
-         '笔试用户体验地图',
+         '用户体验地图',
          '设计系统策略',
          '色彩与字体',
          '图标库',
