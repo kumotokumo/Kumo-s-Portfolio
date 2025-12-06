@@ -6,7 +6,8 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "deploy:cloudbase": "npm run build && npx tcb hosting deploy dist -e kumo-s-portfolio-1f7f16g4b4797a6"
   },
   "dependencies": {
     "framer-motion": "^12.23.24",
@@ -16,6 +17,7 @@
     "react-lazy-load-image-component": "^1.6.3"
   },
   "devDependencies": {
+    "@cloudbase/cli": "^2.11.3",
     "@types/node": "^22.14.0",
     "@vitejs/plugin-react": "^5.0.0",
     "autoprefixer": "^10.4.22",

@@ -1,0 +1,11 @@
+{
+  "version": "2.0",
+  "envId": "kumo-s-portfolio-1f7f16g4b4797a6",
+  "framework": {
+    "name": "static",
+    "config": {
+      "output": "dist"
+    }
+  }
+}
+
