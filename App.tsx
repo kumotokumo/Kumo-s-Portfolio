@@ -449,7 +449,7 @@ export default function App() {
                             }}
                          >
                             <LazyLoadImage 
-                               src={getImageUrl('images/about/about-kumo.webp')} 
+                               src={getImageUrl('images/about/about-kumo.jpg')} 
                                className="w-full h-full object-contain pointer-events-none"
                                alt="Profile"
                                draggable="false"
@@ -964,8 +964,9 @@ const ProjectDetail: React.FC<{
                 const lastRect = lastImageRef.getBoundingClientRect();
                 const lastImageBottom = lastRect.bottom + window.scrollY;
                 
-                // Show index when: scroll position reaches the top of first image AND not past the bottom of last image
-                shouldShowIndex = window.scrollY >= firstImageTop && window.scrollY + window.innerHeight < lastImageBottom;
+                // Show index when: scroll position reaches the top of first image AND 
+                // viewport top hasn't passed the bottom of the last image (index disappears when last image is completely out of view)
+                shouldShowIndex = window.scrollY >= firstImageTop && window.scrollY < lastImageBottom;
               } else {
                 shouldShowIndex = window.scrollY >= firstImageTop;
               }
