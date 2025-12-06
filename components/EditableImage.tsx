@@ -8,6 +8,7 @@ import { getImageUrl } from '../utils/image';
 export const EditableImage: React.FC<EditableImageProps> = ({ currentSrc, onUpload, isAdmin, className, alt }) => {
   const fileInputRef = useRef<HTMLInputElement>(null);
   const [tooltip, setTooltip] = useState<{ visible: boolean; x: number; y: number } | null>(null);
+  const [retryCount, setRetryCount] = useState(0);
 
   useEffect(() => {
     if (tooltip?.visible) {
@@ -101,13 +102,39 @@ export const EditableImage: React.FC<EditableImageProps> = ({ currentSrc, onUplo
         delayTime={0}
         placeholder={<div className="w-full h-full bg-neutral-900" />}
         onError={(e: React.SyntheticEvent<HTMLImageElement, Event>) => {
-          // Retry loading on error
+          // Retry loading on error with fallback extensions
           const img = e.currentTarget;
           const originalSrc = img.src;
-          setTimeout(() => {
-            if (img.src !== originalSrc) return;
-            img.src = originalSrc + (originalSrc.includes('?') ? '&' : '?') + 'retry=' + Date.now();
-          }, 1000);
+          
+          // Try different extensions if retry count is low
+          if (retryCount < 2) {
+            setTimeout(() => {
+              if (img.src !== originalSrc) return;
+              
+              let newSrc = originalSrc;
+              // Try switching between .jpg and .webp
+              if (originalSrc.includes('.webp')) {
+                newSrc = originalSrc.replace(/\.webp(\?|$)/, '.jpg$1');
+              } else if (originalSrc.includes('.jpg')) {
+                newSrc = originalSrc.replace(/\.jpg(\?|$)/, '.webp$1');
+              }
+              
+              // If extension changed, update retry count
+              if (newSrc !== originalSrc) {
+                setRetryCount(prev => prev + 1);
+                img.src = newSrc;
+              } else {
+                // Otherwise, just retry with cache busting
+                img.src = originalSrc + (originalSrc.includes('?') ? '&' : '?') + 'retry=' + Date.now();
+              }
+            }, 1000);
+          } else {
+            // After 2 retries, just try cache busting
+            setTimeout(() => {
+              if (img.src !== originalSrc) return;
+              img.src = originalSrc + (originalSrc.includes('?') ? '&' : '?') + 'retry=' + Date.now();
+            }, 1000);
+          }
         }}
       />
       
