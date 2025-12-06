@@ -194,11 +194,12 @@ export default function App() {
 
       {/* FIXED HEADER */}
       <header 
-        className="fixed top-0 left-0 w-full z-50 flex justify-between items-center border-b border-white/10 bg-background/80 backdrop-blur-md md:mix-blend-difference"
+        className="fixed top-0 left-0 w-full z-50 flex justify-between items-center border-b border-white/10 backdrop-blur-md md:mix-blend-difference"
         style={{
           WebkitBackdropFilter: 'blur(12px) saturate(180%)',
           backdropFilter: 'blur(12px) saturate(180%)',
-          backgroundColor: 'rgba(5, 5, 5, 0.8)',
+          backgroundColor: 'rgba(5, 5, 5, 0.75)',
+          background: 'rgba(5, 5, 5, 0.75)',
         }}
       >
         <div 
