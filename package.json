@@ -8,7 +8,8 @@
     "build": "vite build",
     "build:cloudbase": "VITE_BASE_PATH= vite build",
     "preview": "vite preview",
-    "deploy:cloudbase": "npm run build:cloudbase && npx tcb hosting deploy dist -e kumo-s-portfolio-1f7f16g4b4797a6 --overwrite",
+    "deploy:cloudbase": "npm run build:cloudbase && cd dist && npx tcb hosting deploy . -e kumo-s-portfolio-1f7f16g4b4797a6 --overwrite && cd ..",
+    "deploy:cloudbase:fix": "./fix-cloudbase-deploy.sh",
     "deploy:cloudbase:script": "./deploy-cloudbase.sh",
     "deploy:cloudbase:verify": "npm run build:cloudbase && ls -la dist/index.html && npx tcb hosting deploy dist -e kumo-s-portfolio-1f7f16g4b4797a6"
   },
