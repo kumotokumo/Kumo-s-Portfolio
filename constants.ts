@@ -98,7 +98,7 @@ export const INITIAL_PROJECTS: Project[] = [
     category: 'WEB',
     title: 'ShowMeBug Official',
     subtitle: '企业门户更新',
-    description: '完整的品牌更新和官网重塑。以增长指标为驱动，专注于面向企业客户的场景化价值传递。',
+    description: '对 ShowMeBug 企业官网进行全面重塑与品牌升级，转型为符合现代 B 端品牌调性、能有效传递产品价值并吸引潜在客户的关键渠道。',
     tags: ['官网重塑', '品牌升级', '增长导向设计', '品牌焕新', '场景化价值传递'],
     role: 'UI/UX 设计师',
     coverImage: '/images/projects/SHOWMEBUG OFFICIAL/cover.jpg',
