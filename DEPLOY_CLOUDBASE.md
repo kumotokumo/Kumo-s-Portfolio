@@ -1,138 +1,137 @@
-# CloudBase 静态网站托管部署指南
+# CloudBase Static Website Hosting Deployment Guide
 
-## 前置条件
+## Prerequisites
 
-1. 已安装 CloudBase CLI（已安装为项目依赖）
-2. 已开通腾讯云 CloudBase 静态网站托管服务
-3. 环境 ID: `kumo-s-portfolio-1f7f16g4b4797a6`
-4. 默认域名: `kumo-s-portfolio-1f7f16g4b4797a6-1305521879.tcloudbaseapp.com`
+1. CloudBase CLI installed (already installed as project dependency)
+2. Tencent Cloud CloudBase static website hosting service enabled
+3. Environment ID: `kumo-s-portfolio-1f7f16g4b4797a6`
+4. Default domain: `kumo-s-portfolio-1f7f16g4b4797a6-1305521879.tcloudbaseapp.com`
 
-## 首次部署步骤
+## Initial Deployment Steps
 
-### 1. 登录 CloudBase
+### 1. Login to CloudBase
 
 ```bash
 npx tcb login
 ```
 
-按照提示在浏览器中完成登录授权。
+Follow the prompts to complete login authorization in your browser.
 
-### 2. 初始化环境（如果需要）
+### 2. Initialize Environment (if needed)
 
 ```bash
 npx tcb env:list
 ```
 
-如果环境不存在，需要先在腾讯云控制台创建环境。
+If the environment doesn't exist, you need to create it in the Tencent Cloud console first.
 
-### 3. 构建项目
+### 3. Build the Project
 
 ```bash
 npm run build
 ```
 
-构建产物会输出到 `dist/` 目录。
+Build output will be generated in the `dist/` directory.
 
-### 4. 部署到 CloudBase
+### 4. Deploy to CloudBase
 
-**方式一：使用部署脚本（推荐）**
+**Method 1: Using deployment script (recommended)**
 
 ```bash
 npm run deploy:cloudbase
 ```
 
-**方式二：手动部署**
+**Method 2: Manual deployment**
 
 ```bash
 npx tcb hosting deploy dist -e kumo-s-portfolio-1f7f16g4b4797a6
 ```
 
-## 配置文件说明
+## Configuration Files
 
-- `cloudbase.json`: CloudBase 配置文件，指定了环境 ID 和构建输出目录
-- `.tcbignore`: 部署时忽略的文件和目录，避免上传不必要的文件
+- `cloudbase.json`: CloudBase configuration file, specifies environment ID and build output directory
+- `.tcbignore`: Files and directories to ignore during deployment, avoiding unnecessary uploads
 
-## 注意事项
+## Important Notes
 
-1. **Base 路径**: 项目已配置为使用根路径 `/`，适合 CloudBase 部署
-2. **图片资源**: 项目使用腾讯云 COS 存储图片，确保 COS 配置正确
-3. **环境变量**: 如需使用环境变量，请在 CloudBase 控制台配置
+1. **Base Path**: The project is configured to use root path `/`, suitable for CloudBase deployment
+2. **Image Resources**: The project uses Tencent Cloud COS for image storage, ensure COS configuration is correct
+3. **Environment Variables**: If you need to use environment variables, configure them in the CloudBase console
 
-## 后续更新
+## Subsequent Updates
 
-每次更新后，只需运行：
+After each update, simply run:
 
 ```bash
 npm run deploy:cloudbase
 ```
 
-即可自动构建并部署最新版本。
+This will automatically build and deploy the latest version.
 
-## 查看部署状态
+## Check Deployment Status
 
 ```bash
 npx tcb hosting:list -e kumo-s-portfolio-1f7f16g4b4797a6
 ```
 
-## 访问网站
+## Access the Website
 
-部署成功后，可通过以下地址访问：
+After successful deployment, you can access the website via:
 
-- 默认域名: https://kumo-s-portfolio-1f7f16g4b4797a6-1305521879.tcloudbaseapp.com
-- 自定义域名: 在 CloudBase 控制台配置自定义域名后可使用
+- Default domain: https://kumo-s-portfolio-1f7f16g4b4797a6-1305521879.tcloudbaseapp.com
+- Custom domain: Available after configuring custom domain in CloudBase console
 
-## 故障排除
+## Troubleshooting
 
-### 404 错误：NoSuchKey - index.html
+### 404 Error: NoSuchKey - index.html
 
-如果遇到 404 错误，提示找不到 `index.html`，请按以下步骤排查：
+If you encounter a 404 error indicating that `index.html` cannot be found, follow these steps:
 
-1. **验证构建产物**
+1. **Verify Build Output**
    ```bash
    npm run build
    ls -la dist/index.html
    ```
-   确保 `dist/index.html` 文件存在。
+   Ensure the `dist/index.html` file exists.
 
-2. **检查部署命令**
-   确保使用正确的环境 ID：
+2. **Check Deployment Command**
+   Make sure you're using the correct environment ID:
    ```bash
    npx tcb hosting deploy dist -e kumo-s-portfolio-1f7f16g4b4797a6
    ```
 
-3. **验证文件上传**
-   部署后检查文件列表：
+3. **Verify File Upload**
+   Check the file list after deployment:
    ```bash
    npx tcb hosting:list -e kumo-s-portfolio-1f7f16g4b4797a6
    ```
 
-4. **检查 CloudBase 控制台**
-   - 登录 [腾讯云 CloudBase 控制台](https://console.cloud.tencent.com/tcb)
-   - 进入静态网站托管页面
-   - 检查文件列表，确认 `index.html` 已上传
-   - 检查默认首页配置是否为 `index.html`
+4. **Check CloudBase Console**
+   - Login to [Tencent Cloud CloudBase Console](https://console.cloud.tencent.com/tcb)
+   - Navigate to Static Website Hosting page
+   - Check the file list to confirm `index.html` has been uploaded
+   - Check if the default index page is configured as `index.html`
 
-5. **重新部署**
-   如果文件未正确上传，尝试：
+5. **Redeploy**
+   If files were not uploaded correctly, try:
    ```bash
-   # 清理并重新构建
+   # Clean and rebuild
    rm -rf dist
    npm run build
    
-   # 重新部署
+   # Redeploy
    npx tcb hosting deploy dist -e kumo-s-portfolio-1f7f16g4b4797a6
    ```
 
-6. **检查静态网站托管配置**
-   在 CloudBase 控制台的静态网站托管设置中：
-   - 确认已启用静态网站托管
-   - 确认默认首页设置为 `index.html`
-   - 确认错误页面配置（可选，建议设置为 `404.html`）
+6. **Check Static Website Hosting Configuration**
+   In the CloudBase console's static website hosting settings:
+   - Confirm static website hosting is enabled
+   - Confirm default index page is set to `index.html`
+   - Confirm error page configuration (optional, recommended to set as `404.html`)
 
-### 清除缓存
+### Clear Cache
 
-如果部署后仍显示旧内容：
-- 清除浏览器缓存
-- 使用无痕模式访问
-- 在 URL 后添加 `?v=时间戳` 强制刷新
-
+If old content is still displayed after deployment:
+- Clear browser cache
+- Use incognito/private mode to access
+- Add `?v=timestamp` to the URL to force refresh
