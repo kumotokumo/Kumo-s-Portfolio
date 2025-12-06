@@ -198,14 +198,14 @@ export default function App() {
       >
         <div 
           onClick={() => navigateTo('HOME')} 
-          className="h-16 md:h-20 px-6 md:px-10 flex items-center border-r border-white/10 clickable cursor-pointer hover:bg-white hover:text-black transition-colors duration-300"
+          className="relative z-10 h-16 md:h-20 px-6 md:px-10 flex items-center border-r border-white/10 clickable cursor-pointer hover:bg-white hover:text-black transition-colors duration-300"
         >
           <span className="font-display font-bold text-2xl tracking-tighter">KUMO©</span>
         </div>
 
         <button 
           onClick={() => setIsMenuOpen(true)}
-          className="h-16 md:h-20 px-8 md:px-12 flex items-center gap-4 clickable hover:bg-white hover:text-black transition-colors duration-300 border-l border-white/10"
+          className="relative z-10 h-16 md:h-20 px-8 md:px-12 flex items-center gap-4 clickable hover:bg-white hover:text-black transition-colors duration-300 border-l border-white/10"
         >
           <span className="hidden sm:block font-mono text-xs uppercase tracking-widest">Menu</span>
           <Menu size={20} strokeWidth={1.5} />
