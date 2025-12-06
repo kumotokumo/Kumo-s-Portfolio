@@ -55,16 +55,36 @@ body {
   animation: gradient-shift 8s ease-in-out infinite;
 }
 
-/* Mobile header backdrop blur fix */
+/* Mobile header backdrop blur fix - using pseudo-element for better compatibility */
 header {
+  position: relative;
+  isolation: isolate;
+}
+
+header::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background-color: rgba(5, 5, 5, 0.8);
   -webkit-backdrop-filter: blur(12px) saturate(180%);
   backdrop-filter: blur(12px) saturate(180%);
+  pointer-events: none;
 }
 
 /* Ensure backdrop filter works on mobile Safari */
 @supports (-webkit-backdrop-filter: blur(12px)) or (backdrop-filter: blur(12px)) {
-  header {
-    background-color: rgba(5, 5, 5, 0.75) !important;
+  header::before {
+    background-color: rgba(5, 5, 5, 0.75);
+  }
+}
+
+/* Fallback for browsers that don't support backdrop-filter */
+@supports not ((-webkit-backdrop-filter: blur(12px)) or (backdrop-filter: blur(12px))) {
+  header::before {
+    background-color: rgba(5, 5, 5, 0.95);
+    -webkit-backdrop-filter: none;
+    backdrop-filter: none;
   }
 }
 
