@@ -70,7 +70,7 @@ export const INITIAL_PROJECTS: Project[] = [
     category: 'UI/UX',
     title: 'ShowMeBug',
     subtitle: '技术评估平台',
-    description: 'B 端产品的体验重构。实施了双核设计系统，并处理了实时协作编程面试的复杂交互。',
+    description: 'B 端技术评估平台体验重构：构建"双核设计系统"以统一支撑实时编程面试与技术测评两大核心场景的复杂交互，提升产品整体体验韧性。',
     tags: ['B端产品体验体系', '复杂交互', '双核设计系统', '体验重构'],
     role: 'UI/UX 设计师',
     coverImage: '/images/projects/SHOWMEBUG/cover.jpg',
