@@ -1105,7 +1105,7 @@ const ProjectDetail: React.FC<{
             </div>
          </div>
 
-         <div className="px-6 md:px-10 max-w-[1200px] mx-auto mt-24">
+         <div className="px-6 md:px-10 max-w-[1400px] mx-auto mt-24">
             <div className="flex flex-col gap-16">
                
                {/* 1. Brief & Scope (Top) */}

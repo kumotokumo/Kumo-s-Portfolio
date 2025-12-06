@@ -56,8 +56,10 @@ export function getImageUrl(localPath: string): string {
   let cleanPath = localPath.startsWith('/') ? localPath.slice(1) : localPath;
   
   // Convert .jpg to .webp if enabled (since COS files are stored as .webp)
-  // Exception: about-kumo.jpg should remain as .jpg (not converted to .webp)
-  if (CONVERT_JPG_TO_WEBP && cleanPath.endsWith('.jpg') && !cleanPath.includes('about-kumo.jpg')) {
+  // Exception: about-kumo.jpg and all project detail images should remain as .jpg (not converted to .webp)
+  const isAboutImage = cleanPath.includes('about-kumo.jpg');
+  const isProjectImage = cleanPath.includes('images/projects/');
+  if (CONVERT_JPG_TO_WEBP && cleanPath.endsWith('.jpg') && !isAboutImage && !isProjectImage) {
     cleanPath = cleanPath.replace(/\.jpg$/, '.webp');
   }
   
