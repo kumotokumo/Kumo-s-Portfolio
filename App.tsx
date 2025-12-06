@@ -1151,7 +1151,7 @@ const ProjectDetail: React.FC<{
                </div>
 
                {/* 2. Images (Bottom) */}
-               <div className="w-full space-y-32 relative">
+               <div className="w-full space-y-16 md:space-y-32 relative">
                   {/* Right Side Index Navigation */}
                   {project.detailImages.length > 0 && (
                      <div 
