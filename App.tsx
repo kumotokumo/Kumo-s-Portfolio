@@ -440,7 +440,7 @@ export default function App() {
                             <span className="block mt-2 md:mt-3">我是郭意如</span>
                          </h1>
                          <p className="font-sans text-lg md:text-xl text-gray-300 leading-relaxed max-w-3xl">
-                            9年体验设计经验，专注SaaS和互联网产品，全流程设计，推动产品体验优化。
+                            9年体验设计经验，专注 SaaS 和互联网产品，全流程设计，推动产品体验优化。
                          </p>
                       </div>
                       <div className="md:col-span-5 flex justify-end">

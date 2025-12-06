@@ -43,7 +43,7 @@ export const INITIAL_PROJECTS: Project[] = [
     category: 'WEB',
     title: 'ClackyAI Official',
     subtitle: '品牌官网',
-    description: 'ClackyAI 品牌的战略视觉构建，为AI编码助手构建战略性的品牌门户，将产品创新转化为清晰、可信的市场形象。',
+    description: 'ClackyAI 品牌的战略视觉构建，为 AI 编码助手构建战略性的品牌门户，将产品创新转化为清晰、可信的市场形象。',
     tags: ['品牌视觉构建', '设计策略主导', '交互原型演绎', '响应式设计'],
     role: 'UI/UX 设计师',
     coverImage: '/images/projects/CLACKYAI OFFICIAL/cover.jpg',
