@@ -76,7 +76,13 @@ export function getImageUrl(localPath: string): string {
   // Ensure COS_BASE_URL doesn't end with a slash
   const baseUrl = COS_BASE_URL.endsWith('/') ? COS_BASE_URL.slice(0, -1) : COS_BASE_URL;
   
-  return `${baseUrl}/${finalPath}`;
+  // Encode the path to handle spaces and special characters in URL
+  // Split by '/' to encode each segment separately, preserving the path structure
+  const pathSegments = finalPath.split('/');
+  const encodedSegments = pathSegments.map(segment => encodeURIComponent(segment));
+  const encodedPath = encodedSegments.join('/');
+  
+  return `${baseUrl}/${encodedPath}`;
 }
 
 /**
