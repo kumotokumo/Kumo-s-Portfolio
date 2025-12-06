@@ -1164,7 +1164,7 @@ const ProjectDetail: React.FC<{
                            showIndex ? 'opacity-100' : 'opacity-0 pointer-events-none'
                         }`}
                      >
-                        {project.detailImages.map((_, idx) => {
+                        {project.detailImages.slice(0, -1).map((_, idx) => {
                            const isActive = activeImageIndex === idx;
                            return (
                               <ImageIndexItem
