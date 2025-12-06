@@ -38,7 +38,7 @@ grep -E "(src|href)=.*assets" dist/index.html || echo "⚠️  Warning: No asset
 
 echo ""
 echo "🚀 Deploying to CloudBase..."
-npx tcb hosting deploy dist -e kumo-s-portfolio-1f7f16g4b4797a6 --overwrite
+npx tcb hosting deploy dist -e kumo-s-portfolio-1f7f16g4b4797a6
 
 echo ""
 echo "✅ Deployment completed!"

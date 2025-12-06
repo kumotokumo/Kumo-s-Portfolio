@@ -38,7 +38,7 @@ echo "⚠️  Note: This will deploy files directly to root, not subpath"
 
 # Deploy dist contents directly to root
 cd dist
-npx tcb hosting deploy . -e kumo-s-portfolio-1f7f16g4b4797a6 --overwrite
+npx tcb hosting deploy . -e kumo-s-portfolio-1f7f16g4b4797a6
 cd ..
 
 echo ""
