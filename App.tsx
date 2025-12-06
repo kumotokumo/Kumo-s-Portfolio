@@ -8,6 +8,7 @@ import { EditableImage } from './components/EditableImage';
 import { INITIAL_PROJECTS } from './constants';
 import { Project, ViewState } from './types';
 import { getProjectsFromDB, saveProjectsToDB } from './utils/db';
+import { getImageUrl } from './utils/image';
 
 export default function App() {
   const [activeView, setActiveView] = useState<ViewState>('HOME');
@@ -448,7 +449,7 @@ export default function App() {
                             }}
                          >
                             <LazyLoadImage 
-                               src={`${import.meta.env.BASE_URL || '/'}images/about/about-kumo.jpg`} 
+                               src={getImageUrl('images/about/about-kumo.jpg')} 
                                className="w-full h-full object-contain pointer-events-none"
                                alt="Profile"
                                draggable="false"
@@ -1222,9 +1223,7 @@ const ProjectDetail: React.FC<{
                {/* HOVER IMAGE BACKGROUND */}
                <div className="absolute inset-0 z-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 ease-out pointer-events-none">
                   <LazyLoadImage 
-                    src={nextProject.coverImage.startsWith('data:') || nextProject.coverImage.startsWith('http') 
-                      ? nextProject.coverImage 
-                      : `${import.meta.env.BASE_URL || '/'}${nextProject.coverImage.startsWith('/') ? nextProject.coverImage.slice(1) : nextProject.coverImage}`} 
+                    src={getImageUrl(nextProject.coverImage)} 
                     className="absolute inset-0 w-full h-full object-cover grayscale-[20%]" 
                     alt="Next Project" 
                     effect="opacity"

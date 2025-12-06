@@ -3,6 +3,7 @@ import { Upload } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { LazyLoadImage } from 'react-lazy-load-image-component';
 import { EditableImageProps } from '../types';
+import { getImageUrl } from '../utils/image';
 
 export const EditableImage: React.FC<EditableImageProps> = ({ currentSrc, onUpload, isAdmin, className, alt }) => {
   const fileInputRef = useRef<HTMLInputElement>(null);
@@ -15,21 +16,9 @@ export const EditableImage: React.FC<EditableImageProps> = ({ currentSrc, onUplo
     }
   }, [tooltip]);
 
-  // Handle base path for GitHub Pages
+  // Use the centralized image URL utility
   const getImageSrc = (src: string): string => {
-    // If it's a base64 data URL, return as is
-    if (src.startsWith('data:')) {
-      return src;
-    }
-    // If it's already a full URL, return as is
-    if (src.startsWith('http://') || src.startsWith('https://')) {
-      return src;
-    }
-    // Otherwise, prepend base URL for GitHub Pages compatibility
-    const base = import.meta.env.BASE_URL || '/';
-    // Remove leading slash from src if present, then combine with base
-    const cleanSrc = src.startsWith('/') ? src.slice(1) : src;
-    return `${base}${cleanSrc}`;
+    return getImageUrl(src);
   };
 
   const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
