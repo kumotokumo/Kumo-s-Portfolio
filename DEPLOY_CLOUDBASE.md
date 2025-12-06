@@ -103,6 +103,55 @@ After successful deployment, you can access the website via:
 
 ## Troubleshooting
 
+### 404 Error: Assets (CSS/JS) Not Found
+
+If you encounter 404 errors for CSS/JS files (e.g., `index-*.css`, `index-*.js`), follow these steps:
+
+1. **Verify Build Output**
+   ```bash
+   npm run build:cloudbase
+   ls -la dist/assets/
+   ```
+   Ensure the `dist/assets/` directory contains CSS and JS files.
+
+2. **Check File References in index.html**
+   ```bash
+   cat dist/index.html | grep assets
+   ```
+   Verify that asset paths are correct (should be `/assets/...`).
+
+3. **Deploy with Overwrite Flag**
+   ```bash
+   npm run deploy:cloudbase
+   ```
+   The deployment script now includes `--overwrite` flag to ensure all files are uploaded.
+
+4. **Verify Files in CloudBase**
+   After deployment, check the file list:
+   ```bash
+   npx tcb hosting:list -e kumo-s-portfolio-1f7f16g4b4797a6
+   ```
+   Make sure `assets/` directory and its files are listed.
+
+5. **Check CloudBase Console**
+   - Login to [Tencent Cloud CloudBase Console](https://console.cloud.tencent.com/tcb)
+   - Navigate to Static Website Hosting → File Management
+   - Verify that `assets/` folder exists and contains CSS/JS files
+   - If files are missing, try manual upload or redeploy
+
+6. **Manual Verification**
+   Try accessing the asset files directly:
+   - CSS: `https://kumo-s-portfolio-1f7f16g4b4797a6-1305521879.tcloudbaseapp.com/assets/index-*.css`
+   - JS: `https://kumo-s-portfolio-1f7f16g4b4797a6-1305521879.tcloudbaseapp.com/assets/index-*.js`
+   Replace `*` with the actual hash from your build.
+
+7. **Force Redeploy**
+   If files are still missing:
+   ```bash
+   rm -rf dist
+   npm run deploy:cloudbase
+   ```
+
 ### 404 Error: NoSuchKey - index.html
 
 If you encounter a 404 error indicating that `index.html` cannot be found, follow these steps:
