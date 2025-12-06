@@ -194,7 +194,7 @@ export default function App() {
 
       {/* FIXED HEADER */}
       <header 
-        className="fixed top-0 left-0 w-full z-50 flex justify-between items-center border-b border-white/10 md:mix-blend-difference"
+        className="fixed top-0 left-0 w-full z-50 flex justify-between items-center border-b border-white/10 backdrop-blur-md md:mix-blend-difference"
       >
         <div 
           onClick={() => navigateTo('HOME')} 
