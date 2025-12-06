@@ -81,3 +81,58 @@ npx tcb hosting:list -e kumo-s-portfolio-1f7f16g4b4797a6
 - 默认域名: https://kumo-s-portfolio-1f7f16g4b4797a6-1305521879.tcloudbaseapp.com
 - 自定义域名: 在 CloudBase 控制台配置自定义域名后可使用
 
+## 故障排除
+
+### 404 错误：NoSuchKey - index.html
+
+如果遇到 404 错误，提示找不到 `index.html`，请按以下步骤排查：
+
+1. **验证构建产物**
+   ```bash
+   npm run build
+   ls -la dist/index.html
+   ```
+   确保 `dist/index.html` 文件存在。
+
+2. **检查部署命令**
+   确保使用正确的环境 ID：
+   ```bash
+   npx tcb hosting deploy dist -e kumo-s-portfolio-1f7f16g4b4797a6
+   ```
+
+3. **验证文件上传**
+   部署后检查文件列表：
+   ```bash
+   npx tcb hosting:list -e kumo-s-portfolio-1f7f16g4b4797a6
+   ```
+
+4. **检查 CloudBase 控制台**
+   - 登录 [腾讯云 CloudBase 控制台](https://console.cloud.tencent.com/tcb)
+   - 进入静态网站托管页面
+   - 检查文件列表，确认 `index.html` 已上传
+   - 检查默认首页配置是否为 `index.html`
+
+5. **重新部署**
+   如果文件未正确上传，尝试：
+   ```bash
+   # 清理并重新构建
+   rm -rf dist
+   npm run build
+   
+   # 重新部署
+   npx tcb hosting deploy dist -e kumo-s-portfolio-1f7f16g4b4797a6
+   ```
+
+6. **检查静态网站托管配置**
+   在 CloudBase 控制台的静态网站托管设置中：
+   - 确认已启用静态网站托管
+   - 确认默认首页设置为 `index.html`
+   - 确认错误页面配置（可选，建议设置为 `404.html`）
+
+### 清除缓存
+
+如果部署后仍显示旧内容：
+- 清除浏览器缓存
+- 使用无痕模式访问
+- 在 URL 后添加 `?v=时间戳` 强制刷新
+

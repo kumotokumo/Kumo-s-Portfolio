@@ -6,6 +6,20 @@
     "config": {
       "output": "dist"
     }
+  },
+  "hosting": {
+    "public": "dist",
+    "ignore": [
+      "node_modules/**",
+      ".git/**",
+      "src/**",
+      "*.ts",
+      "*.tsx",
+      "vite.config.ts",
+      "tsconfig.json",
+      "tailwind.config.js",
+      "postcss.config.js"
+    ]
   }
 }
 

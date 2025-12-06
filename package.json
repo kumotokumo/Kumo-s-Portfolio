@@ -7,7 +7,8 @@
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview",
-    "deploy:cloudbase": "npm run build && npx tcb hosting deploy dist -e kumo-s-portfolio-1f7f16g4b4797a6"
+    "deploy:cloudbase": "npm run build && npx tcb hosting deploy dist -e kumo-s-portfolio-1f7f16g4b4797a6",
+    "deploy:cloudbase:verify": "npm run build && ls -la dist/index.html && npx tcb hosting deploy dist -e kumo-s-portfolio-1f7f16g4b4797a6"
   },
   "dependencies": {
     "framer-motion": "^12.23.24",
